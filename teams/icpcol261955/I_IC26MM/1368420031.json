@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368420031",
+  "team_username": "icpcol261955",
+  "team_name": "icpcol261955",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T09:29:48.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:59:48 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:59:48 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.34",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nconst int MOD = 998244353;\r\nint main() {\r\n\t// your code goes here\r\n    int t;cin>>t;\r\n    while(t--){\r\n        int n;cin>>n;\r\n        vector<int> a(n+1);\r\n        vector<vector<int>> pos(n+1);\r\n        for(int i  = 1;i<=n;i++){\r\n            cin>>a[i];\r\n            pos[a[i]].push_back(i);\r\n        }\r\n        vector<int> ways(n+1),nextWays(n+1,0);\r\n        ways[0] = 1;\r\n        for(int i = 1;i<=n;i++){\r\n            fill(nextWays.begin(),nextWays.end(),0);\r\n            for(int j = 0;j<i;j++){\r\n                if(!ways[j]) continue;\r\n                int choices = i == n? 1:2;\r\n                for(int k = 0;k<choices;k++){\r\n                    int newL = j + (k==0);\r\n                    int newR = i - newL;\r\n                    int placedAt = k == 0? newL : n - newR + 1;\r\n                    bool valid = true;\r\n                    for(int idx:pos[i]){\r\n                        int prefCount = min(idx,newL) + max(0,idx-(n-newR));\r\n                        int beforeCount = min(idx-1,newL) + max(0,idx-1-(n-newR));\r\n                        bool matchedPref = placedAt <= idx && prefCount == (idx+1)/2;\r\n                        bool matchedSuff = placedAt >= idx && i - beforeCount == (n-idx+2)/2;\r\n                        if(!matchedPref && !matchedSuff) {\r\n                            valid = false;\r\n                            break;\r\n                        }\r\n                    }\r\n                    if(valid){\r\n                        nextWays[newL] += ways[j];\r\n                    if(nextWays[newL] >= MOD) nextWays[newL] -= MOD;\r\n                    }\r\n                    \r\n                }\r\n            }\r\n            ways.swap(nextWays);\r\n        }\r\n        int total = 0;\r\n        for(int c:ways){\r\n            total += c;\r\n            if(total>=MOD) total%=MOD;\r\n        }\r\n        \r\n        cout<<total<<\"\\n\";\r\n    }\r\n}\r\n",
+  "source_sha256": "79c28125c89c4bc2ad029e028a4289e10bac8a98940afe6d363bbc66364d3eda",
+  "solution_url": "https://www.codechef.com/viewsolution/1368420031",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368420031",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol261955",
+  "scraped_at_utc": "2026-10-12T19:26:29.907Z"
+}

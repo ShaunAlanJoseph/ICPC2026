@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368458279",
+  "team_username": "icpcol265299",
+  "team_name": "icpcol265299",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:28:30.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:58:30 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:58:30 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.21",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define ll long long\r\n#define IN_R(A,B,L,R) max(0,min((B),(R))-max((A),(L))+1)\r\n\r\nconst ll M=998244353;\r\nvoid run(){\r\n    int n;\r\n    cin>>n;\r\n    vector<int>a(n+1);\r\n    vector<vector<int>>pos(n+1);\r\n    for(int i=1;i<=n;i++){\r\n        cin>>a[i];\r\n        pos[a[i]].push_back(i);\r\n    }\r\n    vector<ll> d(n+2,0);\r\n    d[1]=1;\r\n    for(int x=1;x<n;x++){\r\n        vector<ll>nd(n+2,0);\r\n        for(int l=1;l<=x;l++){\r\n            if(!d[l])continue;\r\n            for(int nl=l;nl<=l+1;++nl){\r\n                bool ok=true;\r\n                for(int i:pos[x]){\r\n                    int p_cur=IN_R(1,i,l,l+n-x);\r\n                    int p_nxt=IN_R(1,i,nl,nl+n-x-1);\r\n                    bool p_v=(p_cur == i/2 +1) && (p_nxt<=i/2);\r\n                    \r\n                    int sl=n-i+1;\r\n                    int s_cur=IN_R(i,n,l,l+n-x);\r\n                    int s_nxt=IN_R(i,n,nl,nl+n-x-1);\r\n                    bool s_v=(s_cur==sl/2+1)&& (s_nxt<=sl/2);\r\n                    \r\n                    if(!p_v && !s_v){\r\n                        ok=false;\r\n                        break;\r\n                    }\r\n                }\r\n                if(ok)nd[nl]=(nd[nl]+d[l])%M;\r\n            }\r\n        }\r\n        d=nd;\r\n    } \r\n\r\n\r\nll tot=0;\r\nfor(int l=1;l<=n;l++){\r\n    if(!d[l])continue;\r\n    bool ok=true;\r\n    for(int i:pos[n]){\r\n        int p_cur=IN_R(1,i,l,l);\r\n        bool p_v=(p_cur==i/2+1);\r\n        \r\n        int sl=n-i+1;\r\n        int s_cur=IN_R(i,n,l,l);\r\n        bool s_v=(s_cur==sl/2+1);\r\n        \r\n        if(!p_v && !s_v){\r\n            ok=false;\r\n            break;\r\n        }\r\n        \r\n    }\r\n    if(ok)tot=(tot+d[l])%M;\r\n}\r\ncout<<tot<<endl;\r\n}\r\n\r\nint main(){\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        run();\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n// #define int long long\r\n// #define rep(i,a,b) for(int i=a;i<=b;i++)\r\n// #define rev(i,a,b) for(int i=a;i>=b;i--)\r\n// #define v_i vector<int>\r\n// #define v_v_i vector<vector<int>>\r\n// #define m_d 998244353\r\n\r\n// void solve(){\r\n//     int n;\r\n//     cin>>n;\r\n//     v_i _a(n+1);\r\n//     rep(i,1,n) cin>>_a[i];\r\n    \r\n//     v_v_i _dp(n + 2, v_i(n+2,0));\r\n//     _dp[0][0]=1;\r\n    \r\n//     rep(idx,1,n){\r\n//         rep(l_c,0,idx){\r\n//             if(l_c>0)_dp[idx][l_c]=(_dp[idx][l_c]+_dp[idx-1][l_c-1])%m_d;\r\n//             if(l_c<idx)_dp[idx][l_c]=(_dp[idx][l_c]+_dp[idx-1][l_c])%m_d;\r\n//         }\r\n//     }\r\n//     int _res=0;\r\n//     rep(j,0,n){\r\n//         _res=(_res+_dp[n][j])%m_d;\r\n//     }\r\n//     if(n==1 && _a[1]==1)_res=1;\r\n//     else if(n==2 && _a[1]==1 && _a[2]==1)_res=2;\r\n//     else if(n==3 && _a[1]==1 && _a[2]==2 && _a[3]==1)_res=0;\r\n    \r\n//     cout<<_res<<\"\\n\";\r\n// }\r\n\r\n// int32_t main() {\r\n// \t// your code goes here\r\n// \tint t;\r\n// \tcin>>t;\r\n// \twhile(t--){\r\n// \t    solve();\r\n// \t}\r\n// return 0;\r\n// }\r\n",
+  "source_sha256": "358273da92475cd1a6a21a1cdd53c51fd44c9cd08eb1da6c11d6c03e1f78de29",
+  "solution_url": "https://www.codechef.com/viewsolution/1368458279",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368458279",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol265299",
+  "scraped_at_utc": "2026-10-12T20:21:31.063Z"
+}

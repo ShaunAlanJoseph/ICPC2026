@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368444552",
+  "team_username": "icpcol263616",
+  "team_name": "icpcol263616",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:05:04.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:35:04 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:35:04 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.22",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int M=998244353;\r\nint main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        int n;\r\n        cin>>n;\r\n        vector<vector<int>> g(n+1);\r\n        for(int i=1,v;i<=n;++i)\r\n            scanf(\"%d\",&v),g[v].push_back(i);\r\n        vector<long long> dp(n+1),nd(n+1);\r\n        dp[0]=1;\r\n        long long ans=0;\r\n        for(int tm=0;tm<n;++tm){\r\n            int v=tm+1;\r\n            fill(nd.begin(),nd.end(),0);\r\n            for(int x=0;x<=tm;++x){\r\n                if(!dp[x]) continue;\r\n                int y=tm-x;\r\n                auto un=[&](int j){return x<j && j<=n-y;};\r\n                auto ok=[&](int f){\r\n                    for(int i:g[v]){\r\n                        int A=(i+1)/2, al=n-i/2, B=(n+i+1)/2, be=i-1+(n-i+2)/2;\r\n                        bool pre=(v<al && f==A) || (v==al && un(A));\r\n                        bool suf=(v<be && f==B) || (v==be && un(B));\r\n                        if(!pre && !suf) return false;\r\n                    }\r\n                    return true;\r\n                };\r\n                if(tm==n-1){\r\n                    if(ok(x+1)) ans+=dp[x];\r\n                    continue;\r\n                }\r\n                if(ok(x+1)) nd[x+1]=(nd[x+1] +dp[x])%M;\r\n                if(ok(n-y)) nd[x]=(nd[x]+dp[x])%M;\r\n        }\r\n        swap(dp,nd);\r\n    }\r\n    printf(\"%lld\\n\",ans%M);\r\n\r\n}\r\n}",
+  "source_sha256": "81be9927a7280215809739fb7d072b73f000cd47dbbdda2f2fad0e9d87d240e9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368444552",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368444552",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol263616",
+  "scraped_at_utc": "2026-10-12T20:19:34.270Z"
+}

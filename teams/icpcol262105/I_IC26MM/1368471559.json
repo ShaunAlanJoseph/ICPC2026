@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368471559",
+  "team_username": "icpcol262105",
+  "team_name": "icpcol262105",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:52:04.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:04 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:04 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.18",
+  "execution_time_detail": "",
+  "memory_status": "4.2M",
+  "memory_detail": "4.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\tcin.tie(0)->sync_with_stdio(0);\r\n\tint t,n;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    cin>>n;\r\n\t    std::vector<vector<int>> P(n+1);\r\n\t    for(int i{1},x;i<=n;++i){\r\n\t        cin>>x;\r\n\t        P[x].push_back(i);\r\n\t    }\r\n\t    vector<int> D(n+1,0);\r\n\t    D[0]=1;\r\n\t    for(int v=1;v<n;++v){\r\n\t        vector<int> L(v,1),R(v,1),N(v+1,0);\r\n\t        for(int i:P[v]){\r\n\t            int a=v-1-n+i,c=i-1;\r\n\t            int b=(i-1)/2,d=v-1-(n-i)/2;\r\n\t            int s=max(0,(v==n-i/2)?a+1:0);\r\n\t            int e=min(v-1,(v==n-(n-i+1)/2)?c-1:v);\r\n\t            for(int  j=s;j<=e;++j){\r\n\t                if (j!=b || j<=a) L[j]=0;\r\n\t                if(j!=d || j>=c) R[j]=0;\r\n\t            }\r\n\t        }\r\n\t        for(int j=0 ;j<v;++j){\r\n\t            if(D[j]){\r\n\t                if (L[j]) N[j+1]=(N[j+1]+D[j])%998244353;\r\n\t                if (R[j]) N[j]=(N[j]+D[j])%998244353;\r\n\t            }\r\n\t        }\r\n\t        D=N;\r\n\t    }\r\n\t    \r\n\t    int ans=0;\r\n\t    for(int j=0;j<n;++j){\r\n\t        bool ok=1;\r\n\t        for(int i:P[n]) ok&=((i==1 && j==0) || (i==n && j==n-1));\r\n\t        if(ok) ans=(ans+D[j])%998244353;\r\n\t    }\r\n\t    \r\n\t    cout<<ans<<endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "06bb3c8c24ea4df6ef53240415c4e36ec9ab2576398878ac6b9d8d6b75009154",
+  "solution_url": "https://www.codechef.com/viewsolution/1368471559",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368471559",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol262105",
+  "scraped_at_utc": "2026-10-12T20:23:46.382Z"
+}

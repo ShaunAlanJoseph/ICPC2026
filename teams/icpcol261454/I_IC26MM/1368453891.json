@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368453891",
+  "team_username": "icpcol261454",
+  "team_name": "icpcol261454",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:20:39.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:50:39 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:50:39 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.06",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing vi= vector<int>;\r\n#define pb push_back\r\n#define all(x) (x).begin(),(x).end()\r\n#define F(i,j,k) for(int i=(j);i<(k);i++)\r\n#define EACH(x,a) for(auto &x:a)\r\n#define endl '\\n'\r\n\r\nconst int M=998244353;\r\n\r\nvoid solve(){\r\n    int n;cin>>n;\r\n    vector<vi> p(n+1);\r\n    F(i,1,n+1){\r\n        int x;\r\n        cin>>x;\r\n        p[x].pb(i);\r\n    }\r\n    auto g= [&](int x,int l,int s){\r\n        int r=x-1-l;\r\n        int q=s?n-r:l+1;\r\n        EACH(i,p[x]){\r\n            int a=min(i,l)+max(0,i-n+r);\r\n            int b=max(0,l-i+1)+min(r,n-i+1);\r\n            \r\n            if(!((q<=i && a==(i-1)/2)||(q>=i && b==(n-i)/2))){\r\n                return 0;\r\n            }\r\n        }\r\n        return 1;\r\n    };\r\n    vi d(n+1),e(n+1);\r\n    d[0]=1;\r\n    F(x,1,n+1){\r\n        fill(all(e),0);\r\n        F(l,0,x){\r\n            if(!d[l]) continue;\r\n            F(s,0,(x<n?2:1)){\r\n                if(!g(x,l,s)) continue;\r\n                \r\n                int &z = e[l+!s];\r\n                z+=d[l];\r\n                \r\n                if(z>=M) z-=M;   \r\n                }\r\n        }\r\n        d.swap(e);\r\n    }\r\n    int a=0;\r\n    EACH(x,d){\r\n        a+=x;\r\n        if(a>=M) a-=M;\r\n    }\r\n    \r\n    cout<<a<<endl;\r\n    \r\n}\r\n\r\n\r\nsigned main() {\r\n\t// your code goes here\r\n\tios_base::sync_with_stdio(0);\r\n\tcin.tie(0);\r\n\tcout.tie(0);\r\n\t\r\n\tint t=1;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "1ac137fb76944d1d5d103827017effea5237f6923cf67befd1d3df7fd2c1c5f1",
+  "solution_url": "https://www.codechef.com/viewsolution/1368453891",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368453891",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol261454",
+  "scraped_at_utc": "2026-10-12T19:25:58.468Z"
+}

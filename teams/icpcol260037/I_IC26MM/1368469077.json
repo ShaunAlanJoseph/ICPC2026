@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368469077",
+  "team_username": "icpcol260037",
+  "team_name": "icpcol260037",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:47:37.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:17:37 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:17:37 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "9.72",
+  "execution_time_detail": "9.72s",
+  "memory_status": "10.1M",
+  "memory_detail": "10.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.96)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(1.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.95)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(4.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(3.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(2.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(1.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(2.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(9.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.37)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nm=998244353\r\ndef f(n,a):\r\n    p=[[]for _ in range(n+1)]\r\n    for i,x in enumerate(a,1):\r\n        if x<1 or x>n:return 0\r\n        p[x]+=[i];\r\n    def v(i,x,t,s):\r\n        l=t+1;r=t+n-x+1\r\n        return x==n-i//2 and r<=i or s==1 and l==(i+1)//2 and i<=r or x==(n+i)//2 and i<=l or s==0 and r==(n+i+1)//2 and l<=i \r\n    d=[1]+[0]*n \r\n    for x in range(1,n):\r\n        q=[0]*(n+1)\r\n        for t in range(x):\r\n            if d[t]:\r\n                if all(v(i,x,t,0)for i in p[x]):q[t]=(q[t]+d[t])%m\r\n                if all(v(i,x,t,1) for i in p[x]):q[t+1]=(q[t+1]+d[t])%m\r\n        d=q\r\n    return sum(d[t]for t in range(n)if all(v(i,n,t,2)for i in p[n]))%m\r\nfor _ in range(int(input())):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    print(f(n,a))\r\n    ",
+  "source_sha256": "b868128dd59e7a87a519181cc4769b81296e49c0dcaec8783dfca4b916b3143b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368469077",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368469077",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260037",
+  "scraped_at_utc": "2026-10-12T20:23:12.613Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368453510",
+  "team_username": "icpcol263162",
+  "team_name": "icpcol263162",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:19:57.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:49:57 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:49:57 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "8.73",
+  "execution_time_detail": "8.73s",
+  "memory_status": "10.2M",
+  "memory_detail": "10.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.90)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.87)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(2.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(2.87)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(2.91)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(3.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.94)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(1.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(2.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(8.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.60)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.40)"
+    }
+  ],
+  "source_code": "import sys\r\ninput = sys.stdin.readline\r\nMOD = 998244353\r\ndef solve(n,a):\r\n    pos = [[] for _ in range(n+1)]\r\n    for i,x in enumerate(a,1):\r\n        pos[x].append(i)\r\n    dp = [1]\r\n    for x in range(1,n):\r\n        ndp = [0] * (x+1)\r\n        for l in range(x):\r\n            if not dp[l]:\r\n                continue\r\n            for side in (0,1):\r\n                L = l + side\r\n                R = x - L \r\n                p = L if side else n -R + 1\r\n                ok = True\r\n                for i in pos[x]:\r\n                    pre = min(i,L) + max(0,i-n+R)\r\n                    suf = x - (min(i-1,L) + max(0,i-1-n+R))\r\n                    if not((p<= i and pre == (i+1)//2) or (p >= i and suf == (n-i+2)//2)):\r\n                        ok = False\r\n                        break\r\n                if ok:\r\n                    ndp[L] = (ndp[L]+dp[l]) % MOD \r\n        dp = ndp\r\n    if pos[n]:\r\n        ans = 0\r\n        for l,v in enumerate(dp):\r\n            peak = l + 1 \r\n            if all(i==1 and peak == 1 or i == n and peak == n \r\n                    for i in pos[n]):\r\n                ans = (ans+v)% MOD\r\n        return ans\r\n    return sum(dp) % MOD\r\n    \r\nt = int(input())\r\nfor _ in range(t):\r\n    n = int(input())\r\n    a = list(map(int,input().split()))\r\n    print(solve(n,a))",
+  "source_sha256": "7ff470011a1489f37a5ba9d8647dd0a6368259824af871d734c53bccf85c8f67",
+  "solution_url": "https://www.codechef.com/viewsolution/1368453510",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368453510",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol263162",
+  "scraped_at_utc": "2026-10-12T20:20:02.969Z"
+}

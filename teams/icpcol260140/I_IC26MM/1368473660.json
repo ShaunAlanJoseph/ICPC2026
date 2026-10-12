@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368473660",
+  "team_username": "icpcol260140",
+  "team_name": "icpcol260140",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:55:24.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:25:24 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:25:24 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.21",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int M = 998244353;\r\n\r\nint nz;\r\n\r\nbool fina(int iz,int vz,int xz,int yz){\r\n    int mz = nz-iz + 1;\r\n    \r\n    auto p = [&](int vz,int xz){\r\n        return min(xz,iz) + max(0,iz - nz + vz - xz);\r\n    };\r\n    \r\n    auto s = [&](int vz,int xz){\r\n        return max(0,xz-iz+1) + min(vz-xz,mz);\r\n        \r\n    };\r\n    \r\n    return (p(vz,yz) >= (iz+1) / 2 && p(vz-1,xz) <(iz+1)/2) || (s(vz,yz)>= (mz+1)/2 && s(vz-1,xz) < (mz+1)/2);\r\n}\r\nint main() {\r\n\tint rimjhim;\r\n\t\r\n\tcin >> rimjhim;\r\n\t\r\n\twhile(rimjhim--){\r\n\t   // int nz;\r\n\t    \r\n\t    cin >> nz;\r\n\t    \r\n\t    vector<vector<int>> az(nz+1);\r\n\t    \r\n\t    for(int i = 1,a;i <=nz;i++){\r\n\t        cin >> a,az[a].push_back(i);\r\n\t    }\r\n\t    vector<int> dpp(nz+2),ndd(nz+2);\r\n\t    \r\n\t    dpp[0] = 1;\r\n\t    \r\n\t    for(int v = 1;v <= nz;v++){\r\n\t        fill(ndd.begin(),ndd.end(),0);\r\n\t        \r\n\t        for(int x = 0;x<v;x++) if(dpp[x])\r\n\t            for(int c = v == nz;c<=1;c++){\r\n\t                if( all_of(az[v].begin(), az[v].end(), [&](int i) { return fina(i,v,x,x+c); } ))\r\n\t                \r\n\t                ndd[x+c] = (ndd[x+c] + dpp[x])%M;\r\n\t                \r\n\t                \r\n\t            }\r\n\t            \r\n\t            swap(dpp,ndd);\r\n\t    }\r\n\t    \r\n\t    long long sz = 0;\r\n\t    \r\n\t    for(int x : dpp) sz+=x;\r\n\t    \r\n\t    cout << sz%M << endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "798429123f049b9b7518e688bf2a045f75d21669fa5616b1f2acba7dd4843c2f",
+  "solution_url": "https://www.codechef.com/viewsolution/1368473660",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368473660",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260140",
+  "scraped_at_utc": "2026-10-12T20:24:17.625Z"
+}

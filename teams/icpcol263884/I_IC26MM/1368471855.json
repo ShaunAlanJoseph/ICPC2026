@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368471855",
+  "team_username": "icpcol263884",
+  "team_name": "icpcol263884",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:52:23.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:23 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:23 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.25",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int MOD = 998244353;\r\nstatic bool inl(int n, int x, int a, int b, int i) {\r\n    int r = n- b, d= n- x;\r\n    if(i<=r && (i == 2 * a + 1|| i==2*a+2))return true;\r\n    if(i>r && (i==2*d || i == 2*d+1))return true;\r\n    if(i <= a + 1 && (i == 2*x - n || i == 2*x - n + 1))return true;\r\n    return false;\r\n}\r\nstatic bool inr(int n, int x, int a, int b, int i) {\r\n    int r = n-b, d = n-x;\r\n    if (i >= r && (i == 2*d ||i == 2*d + 1)) return true;\r\n    if (i >= a + 1 && i<=r&& (i == n - 2*b|| i == n - 2 *b-1))return true;\r\n    if(i<=a && (i==2*x-n||i==2*x-n+1))return true;\r\n    return false;\r\n}\r\nint main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin>>t;\r\n    while(t--) {\r\n        int n;\r\n        cin>>n;\r\n        vector<vector<int>>I(n+1);\r\n        for(int i=1;i<=n;i++) {\r\n            int v;\r\n            cin>>v;\r\n            if(v>=1 && v<=n)I[v].push_back(i);\r\n            else I[0].push_back(i);\r\n        }\r\n        bool bad = !I[0].empty();\r\n        // for(int x = 1; x<=n&& !bad;x++) {\r\n        //     if(I[x].size() > 4)bad = true;\r\n        // }\r\n        if(bad) {\r\n            puts(\"0\");\r\n            continue;\r\n        }\r\n        vector<int>dp(n+2,0),ndp(n+2,0);\r\n        dp[0]=1;\r\n        for(int x = 1;x<n;x++) {\r\n            fill(ndp.begin(),ndp.end(),0);\r\n            const vector<int>& req = I[x];\r\n            for(int a = 0;a<=x-1;a++) {\r\n                if(!dp[a])continue;\r\n                int b = x-1-a;\r\n                bool okL = true, okR = true;\r\n                for(int i:req){\r\n                    if(okL &&!inl(n,x,a,b,i))okL = false;\r\n                    if(okR && !inr(n,x,a,b,i))okR = false;\r\n                    if(!okL && !okR)break;\r\n                }\r\n                if(okL){\r\n                    ndp[a+1] += dp[a];\r\n                    if(ndp[a+1] >=MOD)ndp[a+1]-=MOD;\r\n                }\r\n                if(okR) {\r\n                    ndp[a] += dp[a];\r\n                    if(ndp[a] >= MOD){\r\n                        ndp[a] -= MOD;\r\n                    }\r\n                }}\r\n                \r\n                swap(dp,ndp);\r\n            }\r\n            long long ans = 0;\r\n            for(int a=  0;a<=n-1;a++) {\r\n                if(!dp[a])continue;\r\n                bool ok = true;\r\n                \r\n                for(int i:I[n]) {\r\n                    if(!((i==1&&a==0)||(i==n&&a==n-1))) {\r\n                        ok = false;\r\n                        break;\r\n                    }\r\n                }\r\n                if(ok)ans+=dp[a];\r\n            }\r\n            cout<<ans%MOD<<'\\n';        \r\n            \r\n        \r\n    }\r\n}\r\n",
+  "source_sha256": "61fa28baf2a122c6f89183054932ccfef9b3a675a3f4987efb24d1f561449126",
+  "solution_url": "https://www.codechef.com/viewsolution/1368471855",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368471855",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol263884",
+  "scraped_at_utc": "2026-10-12T20:23:46.377Z"
+}

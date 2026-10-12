@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368464916",
+  "team_username": "icpcol261316",
+  "team_name": "icpcol261316",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:40:30.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:10:30 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:10:30 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.35",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\ntypedef long long ll;\r\nconst ll mod=998244353;\r\nint n;\r\nvector<vector<int>>I;\r\nstatic inline int cnt(int lg,int rg,int a,int b){\r\n    int lo=max(lg,a),hi=min(rg,b);\r\n    return hi>=lo ? hi-lo+1 : 0;\r\n}\r\nstatic bool check(int x,int y,int lg,int rg){\r\n    for(int i:I[x]){\r\n        bool pre=(y<=i)&&cnt(lg,rg,1,i)==i/2;\r\n        bool suf=(y>=i)&&cnt(lg,rg,i,n)==(n-i+1)/2;\r\n        if(!pre&&!suf)return false;\r\n    }\r\n    return true;\r\n}\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    cin>>n;\r\n\t    I.assign(n+2,{});\r\n\t    for(int i=1;i<=n;i++){\r\n\t        int a;\r\n\t        cin>>a;\r\n\t        I[a].push_back(i);\r\n\t    }\r\n\t    vector<ll>dp(n+2,0),nd(n+2,0);\r\n\t    dp[0]=1;\r\n\t    for(int x=1;x<=n-1;x++){\r\n\t        fill(nd.begin(),nd.end(),0);\r\n\t        for(int u=0;u<=x-1;u++){\r\n\t            if(!dp[u])continue;\r\n\t            int w=x-1-u;\r\n\t            {\r\n\t                int y=u+1;\r\n\t                if(check(x,y,y+1,n-w))nd[u+1]=(nd[u+1]+dp[u])%mod;\r\n\t            }\r\n\t            {\r\n\t                int y=n-w;\r\n\t                if(check(x,y,u+1,y-1))nd[u]=(nd[u]+dp[u])%mod;\r\n\t            }\r\n\t        }\r\n\t        swap(dp,nd);\r\n\t    }\r\n\t    ll ans=0;\r\n\t    for(int u=0;u<=n-1;u++){\r\n\t        if(!dp[u])continue;\r\n\t        if(check(n,u+1,1,0))ans=(ans+dp[u])%mod;\r\n\t    }\r\n\t    cout<<ans<<\"\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "eafafb67469844f06b0f99d001121f736ded0ed998007b46ace6d26a6f4e3176",
+  "solution_url": "https://www.codechef.com/viewsolution/1368464916",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368464916",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol261316",
+  "scraped_at_utc": "2026-10-12T20:22:05.186Z"
+}

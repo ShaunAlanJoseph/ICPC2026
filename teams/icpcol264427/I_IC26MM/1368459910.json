@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368459910",
+  "team_username": "icpcol264427",
+  "team_name": "icpcol264427",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:31:34.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:01:34 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:01:34 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.40",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int mod=998244353;\r\n\r\nint main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        int n;\r\n        cin>>n;\r\n    \r\n    vector<vector<int>> pos(n+1);\r\n    for(int i=1;i<=n;i++){\r\n        int x;\r\n        cin>>x;\r\n        pos[x].push_back(i);\r\n    }\r\n    vector<int> dp(n+2,0),nd(n+2,0);\r\n    dp[0]=1;\r\n    for(int v=1;v<=n;v++){\r\n        fill(nd.begin(),nd.end(),0);\r\n        auto ok=[&](bool l,int c){\r\n            int d=v-c;\r\n            for(int i:pos[v]){\r\n                bool g;\r\n                if(l)g=(c==(i+1)/2&&d<=n-i);\r\n                else g=(d==(n-i+2)/2 && c<=i-1);\r\n                if(!g && v==(n+i)/2&& c>=i)g=true;\r\n                if(!g && v==n-i/2 && d>=n-i+1)g=true;\r\n                if(!g)return false;\r\n            }\r\n            return true;\r\n        };\r\n        for(int c=0;c<v;c++){\r\n            if(!dp[c])continue;\r\n            if(ok(true,c+1))nd[c+1]=(nd[c+1]+dp[c])%mod;\r\n            if(v<n && ok(false,c))nd[c]=(nd[c]+dp[c])%mod;\r\n        }\r\n        swap(dp,nd);\r\n    }long long ans=0;\r\n    for(int c=0;c<=n;c++)ans+=dp[c];\r\n    cout<<ans%mod<<endl;\r\n}\r\n}",
+  "source_sha256": "19f6f4e8c99ccfe39e09acf8249ed437773d98a19d23da1652ff191cdce5e269",
+  "solution_url": "https://www.codechef.com/viewsolution/1368459910",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368459910",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol264427",
+  "scraped_at_utc": "2026-10-12T20:21:31.012Z"
+}

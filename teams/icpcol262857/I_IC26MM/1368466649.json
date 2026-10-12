@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368466649",
+  "team_username": "icpcol262857",
+  "team_name": "icpcol262857",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:43:27.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:13:27 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:13:27 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "3.02",
+  "execution_time_detail": "3.02s",
+  "memory_status": "29.1M",
+  "memory_detail": "29.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.98)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.94)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(2.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(2.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.64)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(1.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.76)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(3.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.28)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\nMOD=998244353\r\ndef allowed_mask(n,value,positions,reflected=False):\r\n    full=(1<<value)-1\r\n    result=full\r\n    \r\n    for position in positions:\r\n        i=n+1-position if reflected else position\r\n        \r\n        half=(i-1)//2\r\n        forced=i-n+value-1\r\n        valid=0\r\n        \r\n        if forced==half:\r\n            valid=(1<<(half+1))-1\r\n        elif forced<half:\r\n            valid=1<<half\r\n            \r\n        if value-i==(n-i)//2:\r\n            valid|=full^((1<<(i-1))-1)\r\n        result&=valid\r\n    return result\r\ndef count_valid(a):\r\n    n=len(a)\r\n    \r\n    positions=[[] for i in range(n+1)]\r\n    for i,value in enumerate(a,1):\r\n        positions[value].append(i)\r\n        \r\n    dp=[1]\r\n    \r\n    for value in range(1,n):\r\n        left_mask=allowed_mask(n,value,positions[value])\r\n        right_mask=allowed_mask(n,value,positions[value],reflected=True)\r\n        left=format(left_mask,f\"0{value}b\")[::-1]\r\n        right=format(right_mask,f\"0{value}b\")\r\n        \r\n        new_dp=[0]*(value+1)\r\n        \r\n        for used_left,ways in enumerate(dp):\r\n            if left[used_left]==\"1\":\r\n                new_dp[used_left+1]=(\r\n                    new_dp[used_left+1]+ways\r\n                )%MOD\r\n                \r\n            if right[used_left]==\"1\":\r\n                new_dp[used_left]=(\r\n                    new_dp[used_left]+ways\r\n                )%MOD\r\n        dp=new_dp\r\n        if not any(dp):\r\n            return 0\r\n    final_mask=allowed_mask(n,n,positions[n])\r\n    valid=format(final_mask,f\"0{n}b\")[::-1]\r\n    \r\n    answer=0\r\n    for used_left,ways in enumerate(dp):\r\n        if valid[used_left]==\"1\":\r\n            answer=(answer+ways)%MOD\r\n    return answer\r\n\r\ndef solve():\r\n    data=iter(map(int,sys.stdin.buffer.read().split()))\r\n    t=next(data)\r\n    answers=[]\r\n    \r\n    for case in range(t):\r\n        n=next(data)\r\n        a=[next(data) for i in range(n)]\r\n        answers.append(str(count_valid(a)))\r\n    \r\n    sys.stdout.write(\"\\n\".join(answers))\r\nsolve()",
+  "source_sha256": "82fd023746b063108c3ff629d630527f7cb1eccc51f532f31784e57876a11752",
+  "solution_url": "https://www.codechef.com/viewsolution/1368466649",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368466649",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol262857",
+  "scraped_at_utc": "2026-10-12T20:22:38.847Z"
+}

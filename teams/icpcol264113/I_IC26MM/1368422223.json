@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368422223",
+  "team_username": "icpcol264113",
+  "team_name": "icpcol264113",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T09:33:23.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:03:23 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:03:23 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.20",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll = long long;\r\nconst ll MOD = 998244353;\r\n\r\nstatic inline bool prefix(int n,int v,int left,int c,int i) {\r\n    int pos;\r\n    if(left) pos=c;\r\n    else pos = n-v+c;\r\n    if(pos>i) return false;\r\n    int small = c+max(0,i-n+v-c);\r\n    return small == i/2;\r\n}\r\n\r\nstatic inline bool works(int n,int v,int side,int c,int i) {\r\n    if(prefix(n,v,side,c,i)) return true;\r\n    int j=n-1-i;\r\n    int yz = v-1-c;\r\n    return prefix(n,v,1-side,yz,j);\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    vector<int> a(n);\r\n\t    vector<vector<int>> where(n+1);\r\n\t    for(int i=0;i<n;i++) {\r\n\t        cin>>a[i];\r\n\t        where[a[i]].push_back(i);\r\n\t    }\r\n\t    if(n==1) {\r\n\t        cout<<(a[0] == 1 ? 1 : 0) << endl;\r\n\t        continue;\r\n\t    }\r\n\t    int force=-1;\r\n\t    bool imp = false;\r\n\t    for(int i:where[n]) {\r\n\t        if(i!=0 && i!=n-1) {\r\n\t            imp = true;\r\n\t            break;\r\n\t        }\r\n\t        int need = (i==0 ? 0 : n-1);\r\n\t        if(force == -1) force = need;\r\n\t        else if(force != need) imp = true;\r\n\t    }\r\n\t    if(imp) {\r\n\t        cout<<0<<endl;\r\n\t        continue;\r\n\t    }\r\n\t    vector<ll> dp(n,0), nxt(n,0);\r\n\t    dp[0] = 1;\r\n\t    for(int v=1;v<n;++v){\r\n\t        fill(nxt.begin(),nxt.end(),0);\r\n\t        for(int c=0;c<v;++c){\r\n\t            if(!dp[c]) continue;\r\n\t            for(int side=0;side<=1;++side){\r\n\t                bool ok = true;\r\n\t                for(int i:where[v]){\r\n\t                    if(!works(n,v,side,c,i)) {\r\n\t                        ok=false;\r\n\t                        break;\r\n\t                    }\r\n\t                }\r\n\t                if(ok) {\r\n\t                    int nc=c+side;\r\n\t                    nxt[nc] += dp[c];\r\n\t                    if(nxt[nc] >= MOD) nxt[nc] -= MOD;\r\n\t                }\r\n\t            }\r\n\t        }\r\n\t        dp.swap(nxt);\r\n\t    }\r\n\t    if(force != -1) cout<<dp[force] % MOD << endl;\r\n\t    else {\r\n\t        ll ans=0;\r\n\t        for(int c=0;c<n;++c) {\r\n\t            ans+= dp[c];\r\n\t            if(ans>=MOD) ans-= MOD;\r\n\t        }\r\n\t        cout<<ans<<endl;\r\n\t    }\r\n\t}\r\nreturn 0;\r\n}\r\n",
+  "source_sha256": "e1dfd0e8919f1608cf09b285de9c91b0a5023a9fcc547f7c237c00fe758981cc",
+  "solution_url": "https://www.codechef.com/viewsolution/1368422223",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368422223",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol264113",
+  "scraped_at_utc": "2026-10-12T20:18:32.003Z"
+}

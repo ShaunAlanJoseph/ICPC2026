@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368473266",
+  "team_username": "icpcol262243",
+  "team_name": "icpcol262243",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:54:43.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:24:43 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:24:43 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "4.49",
+  "execution_time_detail": "4.49s",
+  "memory_status": "30.1M",
+  "memory_detail": "30.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.98)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(2.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.90)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(2.62)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.98)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(1.90)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.77)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(4.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.65)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.27)"
+    }
+  ],
+  "source_code": "import sys\r\nMOD=998244353\r\ndef solve():\r\n    raw=sys.stdin.read().split()\r\n    if not raw:\r\n        return\r\n    it=iter(raw)\r\n    t=int(next(it))\r\n    ot=[]\r\n    for _ in range(t):\r\n        n=int(next(it))\r\n        a=[int(next(it)) for _ in range(n)]\r\n        ps=[[] for _ in range(n+1)]\r\n        for i,v in enumerate(a,1):\r\n            ps[v].append(i)\r\n        dp=[0]*(n+1)\r\n        dp[0]=1\r\n        for v in range(1,n):\r\n            ndp=[0]*(n+1)\r\n            for x in range(v):\r\n                if dp[x]==0:\r\n                    continue\r\n                r=v-1-x\r\n                l1=r1=True\r\n                for i in ps[v]:\r\n                    pr=min(x,i)+max(0,i-n+r)\r\n                    suf=max(0,x-i+1)+min(r,n-i+1)\r\n                    if not ((x+1<=i and pr==(i-1)//2) or (x+1>=i and suf==(n-i)//2)):\r\n                        l1=False\r\n                    if not ((n-r<=i and pr==(i-1)//2) or (n-r>=i and suf==(n-i)//2)):\r\n                        r1=False\r\n                    if not l1 and not r1:\r\n                        break\r\n                if l1 :\r\n                    ndp[x+1]=(ndp[x+1]+dp[x])%MOD\r\n                if r1:\r\n                    ndp[x]=(ndp[x]+dp[x])%MOD\r\n            dp=ndp\r\n        an=0\r\n        for x in range(n):\r\n            if dp[x]==0:\r\n                continue\r\n            r=n-1-x\r\n            o=True\r\n            for i in ps[n]:\r\n                pr=min(x,i)+max(0,i-n+r)\r\n                suf=max(0,x-i+1)+min(r,n-i+1)\r\n                if not ((x+1<=i and pr==(i-1)//2) or (x+1>=i and suf==(n-i)//2)):\r\n                    o=False\r\n                    break\r\n            if o :\r\n                an=(an+dp[x])%MOD\r\n        ot.append(str(an))\r\n    sys.stdout.write('\\n'.join(ot)+'\\n')\r\n    \r\nsolve()",
+  "source_sha256": "6d64783b5c5557a3b7cf14c59d893e4e86a7828e81fcd08907b06a598c81782c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368473266",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368473266",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol262243",
+  "scraped_at_utc": "2026-10-12T20:24:17.631Z"
+}

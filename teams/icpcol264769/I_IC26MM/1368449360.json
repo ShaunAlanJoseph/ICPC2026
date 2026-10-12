@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368449360",
+  "team_username": "icpcol264769",
+  "team_name": "icpcol264769",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:12:57.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:42:57 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:42:57 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "4.3M",
+  "memory_detail": "4.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nstatic const int mod=998244353;\r\nstatic int dpa[5005], dpb[5005], dl[5005], dr[5005];\r\nint main() {\r\n\t// your code goes here\r\n\tint t; \r\n\tscanf(\"%d\", &t);\r\n\twhile(t--){\r\n\t    int n;\r\n\t    scanf(\"%d\",&n);\r\n\t    vector<vector<int>> byte(n+1);\r\n\t    for(int i=1; i<=n; i++){\r\n\t        int x; \r\n\t        scanf(\"%d\",&x);\r\n\t        byte[x].push_back(i);\r\n\t    }\r\n\t    int *dp=dpa, *nw=dpb; \r\n\t    dp[0]=1;\r\n\t    bool dee=false; \r\n\t    \r\n\t    for(int v=1; v<=n;v++){\r\n\t        int m=byte[v].size();\r\n\t        int capp=v-1;\r\n\t        for (int x=0;x<=v;x++){\r\n\t            nw[x]=0;\r\n\t        }\r\n\t        if (m){\r\n\t            for(int x=0;x<=v;x++) dl[x]=dr[x]=0;\r\n\t            int *dd[2]={dl,dr};\r\n\t            for (int i :byte[v]){\r\n\t                int q=(i+1)>>1, b=n-(i>>1);\r\n\t                int c=(n+2-i)>>1, a=(n+i)>>1;\r\n\t                int fs[2], fl[2],fh[2],fc=0;\r\n\t                int gs[2],gl[2],gh[2],gc=0;\r\n\t                if(v<b){\r\n\t                    fs[fc]=0;\r\n\t                    fl[fc]=q-1;\r\n\t                    fh[fc]=q-1;\r\n\t                    fc++;\r\n\t                }\r\n\t                else if (v==b){\r\n\t                    fs[fc]=0; fl[fc]=0; fh[fc]=q-1; fc++; \r\n\t                    fs[fc]=1; fl[fc]=0; fh[fc]=q-1; fc++;\r\n\t                }\r\n\t                if(v<a){\r\n\t                    gs[gc]=1; gl[gc]=v-c; gh[gc]=v-c; gc++;\r\n\t                }\r\n\t                else if (v==a){\r\n\t                    gs[gc]=0; gl[gc]=v-c; gh[gc]=capp; gc++; \r\n\t                    gs[gc]=1, gl[gc]=v-c; gh[gc]= capp; gc++;\r\n\t                }\r\n\t                \r\n\t                auto add =[&](int s, int lo, int hi, int val){\r\n\t                    lo=max(lo,0); hi=min(hi,capp);\r\n\t                    if (lo<=hi){\r\n\t                        dd[s][lo]+=val; dd[s][hi+1]-=val;\r\n\t                    }\r\n\t                };\r\n\t                for(int k=0;k<fc;k++) add(fs[k],fl[k],fh[k],1);\r\n\t                for(int k=0;k<gc;k++) add(gs[k],gl[k],gh[k],1);\r\n\t                for(int k=0;k<fc;k++){\r\n\t                    for(int j=0;j<gc;j++){\r\n\t                        if(fs[k]==gs[j]) add(fs[k],max(fl[k],gl[j]), min(fh[k],gh[j]),-1);\r\n\t                    }\r\n\t                }\r\n\t                \r\n\t            }\r\n\t            int cl=0, cr=0;\r\n\t            for(int x=0; x<v;x++){\r\n\t                cl+=dl[x]; cr+=dr[x];\r\n\t                int d=dp[x];\r\n\t                if (!d) continue; \r\n\t                if(v<n && cr==m){\r\n\t                    nw[x]+=d; if (nw[x]>=mod ) nw[x]-=mod;\r\n\t                }\r\n\t                if(cl==m){\r\n\t                    nw[x+1]+=d; if (nw[x+1]>=mod) nw[x+1]-=mod;\r\n\t                }\r\n\t            }\r\n\t        }\r\n\t            else{\r\n\t                for(int x=0;x<v;x++){\r\n\t                    int d=dp[x];\r\n\t                    if(v<n){\r\n\t                        nw[x]+=d; if (nw[x]>=mod) nw[x]-=mod;\r\n\t                    }\r\n\t                    nw[x+1]+=d; if(nw[x+1]>=mod) nw[x+1]-=mod;\r\n\t                }\r\n\t            }\r\n\t            swap(dp,nw);\r\n\t            bool f=false;\r\n\t            for(int x=0;x<=v;x++) if (dp[x]) { f=true; break;} \r\n\t            if(!f) {dee =true; break;}\r\n\t            \r\n\t        }\r\n\t        long long ans=0;\r\n\t        if(!dee) for (int x=0; x<=n; x++) ans+=dp[x];\r\n\t        printf(\"%lld\\n\", ans%mod);\r\n\t    }\r\n\t    \r\n\t\r\n\t\r\n\r\n}\r\n",
+  "source_sha256": "13d4f8c0c037ef3cbbda9eb9620c79e1e1328538c6541682a9a99d767075d7d8",
+  "solution_url": "https://www.codechef.com/viewsolution/1368449360",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368449360",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol264769",
+  "scraped_at_utc": "2026-10-12T20:20:02.985Z"
+}

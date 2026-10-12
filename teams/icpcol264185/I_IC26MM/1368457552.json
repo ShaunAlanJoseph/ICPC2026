@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368457552",
+  "team_username": "icpcol264185",
+  "team_name": "icpcol264185",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:27:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:57:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:57:07 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.26",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n    int t;\r\n    cin >> t;\r\n    auto f = [&](){\r\n        int n, x; cin >> n;\r\n        vector<vector<int>> P(n + 1);\r\n        for(int i = 1; i <= n; i++) cin >> x, P[x].push_back(i);\r\n        vector<long long> v(n + 1, 0);\r\n        v[0] = 1;\r\n        auto A = [](int a, int b){ return a > b ? a : b;};\r\n        auto B = [](int a, int b){ return a < b ? a : b;};\r\n        for(int x = 1; x <= n; x++){\r\n            vector<long long> u(n + 1, 0);\r\n            for(int l = 0; l < x; l++){\r\n                if(!v[l]) continue;\r\n                for(int d = 0; d < 2; d++){\r\n                    if(x == n && !d) continue;\r\n                    int c = l + d, o = 1;\r\n                    for(int i : P[x]){\r\n                        int p = d ? c : n - x + c + 1;\r\n                        int F = B(c, i) + A(0, i - n + x - c);\r\n                        int S = A(0, c - i + 1) + B(x - c, n - i + 1);\r\n                        o &= ((p <= i) && (F == (i + 1) / 2)) || ((p >= i) && (S == (n - i + 2) / 2));\r\n                    }\r\n                    if(o) u[c] = (u[c] + v[l]) % 998244353;\r\n                }\r\n            }\r\n            v = u;\r\n        }\r\n        long long ppg = 0;\r\n        for(long long y : v) ppg = (ppg + y) % 998244353;\r\n        cout << ppg << endl;\r\n        \r\n    };\r\n    while(t--) f();\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "f1daa0fa3060e3ffcc9f715c336271e6aa901afa07d68767f077c7cfc289d46d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368457552",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368457552",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol264185",
+  "scraped_at_utc": "2026-10-12T20:21:30.982Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368462198",
+  "team_username": "icpcol265135",
+  "team_name": "icpcol265135",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:35:43.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:05:43 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:05:43 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.11",
+  "execution_time_detail": "",
+  "memory_status": "4.3M",
+  "memory_detail": "4.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n    int M= (119<< 23 ) + 1;\r\n    int t; scanf ( \"%d\", &t);\r\n    while (t--){\r\n        int n; scanf(\"%d\", &n);\r\n        vector<vector< int>> idx(n+2);\r\n        for(int i =1; i<=n;i++){ int x; scanf(\"%d\", &x); idx[x].push_back(i); }\r\n        auto ok= [& ] (int m, int L, int C, int j) {\r\n            for (int i :idx [m]){\r\n                bool g= false;\r\n                if( i>=j && L+max(0,i-n+C)== (i+1)/2-1) g= true;\r\n                if(!g && i<=j && C+ max(0, L-i+1)== (n-i+2)/2-1) g=true;\r\n                if(!g) return false;\r\n            }\r\n            return true;\r\n        };\r\n        vector <int> dp(n+2, 0), nd(n+2,0);\r\n        dp[0]=1 ; long long ans=0;\r\n        for(int m=1; m<=n; m++){\r\n            fill (nd.begin(), nd.end(),0);\r\n            for(int L=0; L<m; L++){\r\n                if(!dp[L]) continue;\r\n                int C= m-1-L;\r\n                if(m==n) { if(ok (m,L,C, L+1)) ans= (ans+dp[L]) % M;}\r\n                else{\r\n                    if(ok(m, L,C,L+1)) nd[L+1]= (nd[L+1]+ dp[L]) % M;\r\n                    if(ok(m,L,C, n-C))  nd[L] = (nd[L] +dp[L]) %M;\r\n                }\r\n            }\r\n            swap(dp, nd);\r\n        }\r\n        printf(\"%lld\\n\", ans);\r\n    }\r\n}\r\n",
+  "source_sha256": "c580556e268f3a7440a953427273db5f4358684849a4c2abd90632a9dfec37e7",
+  "solution_url": "https://www.codechef.com/viewsolution/1368462198",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368462198",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol265135",
+  "scraped_at_utc": "2026-10-12T20:22:04.672Z"
+}

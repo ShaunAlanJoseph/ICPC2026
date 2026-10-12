@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368462390",
+  "team_username": "icpcol260523",
+  "team_name": "icpcol260523",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:35:59.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:05:59 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:05:59 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.79",
+  "execution_time_detail": "2.79s",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(2.79)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.66)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(2.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.74)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.89)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.78)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(1.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.83)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(1.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.21)"
+    }
+  ],
+  "source_code": "M=998244353\r\ndef merge(g,v):\r\n    w=[]\r\n    for lo,hi in g:\r\n        if lo<0: lo=0\r\n        if hi > v-1: hi=v-1\r\n        if lo<=hi: w.append((lo,hi))\r\n    w.sort()\r\n    r=[]\r\n    for lo,hi in w:\r\n        if r and lo<=r[-1][1]+1:\r\n            if hi> r[-1][1]: r[-1][1]=hi\r\n        else:\r\n            r.append([lo,hi])\r\n    return r\r\ndef full(ev,k,v):\r\n    ev.sort()\r\n    r=[]\r\n    cur=0\r\n    prev=0\r\n    for pos,dl in ev:\r\n        if cur==k and pos>prev:\r\n            r.append((prev,pos-1))\r\n        cur+=dl\r\n        prev=pos\r\n    if cur==k and v>prev:\r\n        r.append((prev,v-1))\r\n    return r\r\nt=int(input())\r\nfor _ in range(t):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    b=[[] for _ in range(n+1)]\r\n    for i in range(1,n+1):\r\n        b[a[i-1]].append(i)\r\n    dp=[1]\r\n    for v in range(1,n+1):\r\n        c=b[v]\r\n        nd=[0]*(v+1)\r\n        if not c:\r\n            sg=ug=[(0,v-1)]\r\n        else:\r\n            k=len(c)\r\n            es=[]\r\n            eu=[]\r\n            for i in c:\r\n                h=(i+1)//2 \r\n                q=(n-i+2)//2 \r\n                e=i+v-n\r\n                d=v-q\r\n                ps=[]\r\n                pu=[]\r\n                if e==h:\r\n                    ps.append((0,h-1))\r\n                    pu.append((0,h-1))\r\n                elif e<h:\r\n                    pu.append((h-1,h-1))\r\n                if d==i-1:\r\n                    ps.append((i-1,v))\r\n                    pu.append((i-1,v))\r\n                elif 0<=d <i-1:\r\n                    ps.append((d,d))\r\n                for lo,hi in merge(ps,v):\r\n                    es.append((lo,1));es.append((hi+1,-1))\r\n                for lo,hi in merge(pu,v):\r\n                    eu.append((lo,1)); eu.append((hi+1,-1))\r\n            sg=full(es,k,v)\r\n            ug = full(eu,k,v)\r\n        for lo,hi in sg:\r\n            nd[lo:hi+1]=dp[lo:hi+1]\r\n        for lo,hi in ug:\r\n            nd[lo+1:hi+2]=[(x+y)%M for x,y in zip(nd[lo+1:hi+2],dp[lo:hi+1])]\r\n        dp=nd\r\n    print(sum(dp)%M*((M+1)//2)%M)\r\n                    \r\n        ",
+  "source_sha256": "447d494ab0132868b5cfa664df9d346431d1492b5000bc3ac3099258864ebc2b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368462390",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368462390",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260523",
+  "scraped_at_utc": "2026-10-12T20:22:04.696Z"
+}

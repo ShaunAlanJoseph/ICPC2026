@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368447676",
+  "team_username": "icpcol260173",
+  "team_name": "icpcol260173",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:10:13.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:40:13 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:40:13 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.18",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int M=998244353;\r\nint main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        int n;\r\n        cin>>n;\r\n        vector<vector<int>> g(n+1);\r\n        for(int i=1; i<=n;i++){\r\n            int x;\r\n            cin>>x;\r\n            g[x].push_back(i);\r\n            \r\n        }\r\n        vector<int> d(n+2,0), e(n+2);\r\n        d[0]=1;\r\n        for(int v=1; v<=n; v++){\r\n            fill(e.begin(), e.end(), 0);\r\n            for(int l=0; l<v;l++){\r\n                if(!d[l]) continue;\r\n                int r=v-1-l;\r\n                for(int s=0;s<2;s++){\r\n                    if(v==n&&s) continue;\r\n                    int p=s?n-r:l+1;\r\n                    bool ok=true;\r\n                    for(int i: g[v]){\r\n                        bool f=false;\r\n                        if(p<=i){\r\n                            int c=min(l,i)+max(0,i-(n-r));\r\n                            f=(c==(i+1)/2-1);\r\n                        }\r\n                        if(!f&&p>=i){\r\n                            int m=n-i+1;\r\n                            int c=max(0,l-i+1) + min(r,m);\r\n                            f=(c==(m+1)/2-1);\r\n                        }\r\n                        if(!f) {\r\n                            ok=false;\r\n                            break;\r\n                        }\r\n                    }\r\n                    if(ok){\r\n                        int &z= e[l+(s?0:1)];\r\n                        z+=d[l];\r\n                        if(z>=M) z-=M;\r\n                    }\r\n                }\r\n            }\r\n            swap(d,e);\r\n        }\r\n        long long ans=0;\r\n        for(int x:d) ans+=x;\r\n        cout<< ans%M<<endl;\r\n    }\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "943337770a40c7b1eddbcd69140a7bf1e7d11bd883ecda05cd02c0952d1dbff6",
+  "solution_url": "https://www.codechef.com/viewsolution/1368447676",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368447676",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260173",
+  "scraped_at_utc": "2026-10-12T20:20:02.996Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368472156",
+  "team_username": "icpcol262180",
+  "team_name": "icpcol262180",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:52:54.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:54 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:54 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.14",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nstatic const int MOD=998244353;\r\ninline int f_pref(int x,int c,int i,int n){\r\n    return min(c,i)+max(0,i-n+x-c);\r\n}\r\ninline int f_suff(int x,int c,int i,int n){\r\n    return max(0,c-i+1)+min(x-c,n-i+1);\r\n}\r\n\r\nvoid solve(){\r\n    int n;\r\n    if(!(cin>>n)) return;\r\n    vector<int>a(n+1);\r\n    vector<vector<int>>pos_of_val(n+1);\r\n    for(int i=1;i<=n;i++){\r\n        cin>>a[i];\r\n        pos_of_val[a[i]].push_back(i);\r\n    }\r\n    \r\n    vector<int>dp={1};\r\n    \r\n    for(int x=1;x<n;x++){\r\n        vector<int>next_dp(x+2,0);\r\n        for(int c_prev=0;c_prev<=x-1;c_prev++){\r\n            if(dp[c_prev]==0) continue;\r\n            \r\n            for(int c_curr:{c_prev,c_prev+1}){\r\n                bool valid=true;\r\n                for(int i:pos_of_val[x]){\r\n                    int T_pref=(i+1)/2;\r\n                    int T_suff=(n-i+2)/2;\r\n                    \r\n                    bool cond_pref=(f_pref(x,c_curr,i,n)>=T_pref)&&(f_pref(x-1,c_prev,i,n)<T_pref);\r\n                    bool cond_suff=(f_suff(x,c_curr,i,n)>=T_suff)&&(f_suff(x-1,c_prev,i,n)<T_suff);\r\n                    \r\n                    if(!cond_pref&&!cond_suff){\r\n                        valid=false;\r\n                        break;\r\n                    }\r\n                }\r\n                if(valid){\r\n                    next_dp[c_curr]=(next_dp[c_curr]+dp[c_prev])%MOD;\r\n                }\r\n            }\r\n        }\r\n        dp=move(next_dp);\r\n    }\r\n    for(int c=0;c<(int)dp.size();c++){\r\n        if(dp[c]==0)continue;\r\n        bool valid=true;\r\n        for(int i:pos_of_val[n]){\r\n            int T_pref=(i+1)/2;\r\n            int T_suff=(n-i+2)/2;\r\n            \r\n            bool cond_pref=(f_pref(n-1,c,i,n)<T_pref);\r\n            bool cond_suff=(f_suff(n-1,c,i,n)<T_suff);\r\n             \r\n            if(!cond_pref && !cond_suff){\r\n                valid=false;\r\n                break;\r\n            }\r\n        }\r\n        if(!valid){\r\n            dp[c]=0;\r\n        }\r\n    }\r\n    long long ans=0;\r\n    for(int count:dp){\r\n        ans=(ans+count)%MOD;\r\n    }\r\n    cout<<ans<<\"\\n\";\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tios_base::sync_with_stdio(false);\r\n\tcin.tie(nullptr);\r\n\tint t;\r\n\tif(cin>>t){\r\n\t    while(t--){\r\n\t        solve();\r\n\t    }\r\n\t}\r\n\treturn 0;\r\n}\r\n",
+  "source_sha256": "e72d6a13e7858e28b35f94593aed47284e30cf743b82147542c1ece4e6b86e5c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472156",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472156",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol262180",
+  "scraped_at_utc": "2026-10-12T20:23:46.476Z"
+}

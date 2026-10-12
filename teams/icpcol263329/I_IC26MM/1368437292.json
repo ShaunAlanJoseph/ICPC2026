@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368437292",
+  "team_username": "icpcol263329",
+  "team_name": "icpcol263329",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T09:54:31.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:24:31 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:24:31 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "3.04",
+  "execution_time_detail": "3.04s",
+  "memory_status": "29.7M",
+  "memory_detail": "29.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.97)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.97)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.84)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(3.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(1.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(1.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.48)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\nMOD = 998244353\r\ndef s1(n,a):\r\n    ru = [[]for _ in range(n)]\r\n    for i in range(1,n + 1):\r\n        v = a[i -1]\r\n        q,t = (i + 1) // 2, (n-i+2) // 2\r\n        cp,c = q + n - i , i - 1 + t\r\n        if v > cp and v > c:\r\n            return 0\r\n        ru[v - 1].append((v,q,cp,t,c))\r\n    def ok(T,l,step):\r\n        r = T - l\r\n        for v,q,cp,t,c in ru[T]:\r\n            if not (( v < cp and step == 'L' and l == q - 1) or (v == cp and l <= q - 1) or (v < c and step == 'R'and r == t - 1)or (v == c and r <= t - 1)):\r\n                return False\r\n        return True\r\n        \r\n    dp = [1] + [0] * n\r\n    for T in range(n - 1):\r\n        new = [0] * (n + 1)\r\n        for l in range(T+1):\r\n            if dp[l]:\r\n                if ok(T,l,'L'):new[l+1] = (new[l + 1]+dp[l])% MOD\r\n                if ok(T,l,'R'):new[l] = (new[l]+dp[l])% MOD\r\n        dp = new\r\n    return sum(dp[l] for l in range(n) if ok(n-1,l,None)) % MOD\r\nd = sys.stdin.buffer.read().split()\r\nt,p,o = int(d[0]),1,[]\r\nfor _ in range(t):\r\n    n = int(d[p]); a = list(map(int,d[p+1:p+1+n])); p += n + 1\r\n    o.append(s1(n,a))\r\nprint(\"\\n\".join(map(str,o)))",
+  "source_sha256": "56065487188547d89791fd8693871603452985fcdb87b5cfd118f143ce065f99",
+  "solution_url": "https://www.codechef.com/viewsolution/1368437292",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368437292",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol263329",
+  "scraped_at_utc": "2026-10-12T19:24:56.081Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368452997",
+  "team_username": "icpcol260352",
+  "team_name": "icpcol260352",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:19:01.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:49:01 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:49:01 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.33",
+  "execution_time_detail": "",
+  "memory_status": "4.1M",
+  "memory_detail": "4.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst int MOD = 998244353;\r\nint n;\r\nbool ok(int i,int x, int l, bool left){\r\n    int r = x - l;\r\n    int pos = left ? l : n - r + 1;\r\n    if(pos <= i && min(i, l) + max(0, i - n + r) == (i + 1) / 2) return true;\r\n    if(pos >= i && min(r, n - i + 1) + max(0, l - i + 1) == (n - i + 2) / 2) return true;\r\n    return false;\r\n}\r\nint main() {\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    cin>>n;\r\n\t    vector<vector<int>> byv(n + 1);\r\n\t    for(int i = 1; i <= n; i++){\r\n\t        int a;\r\n\t        cin>>a;\r\n\t        byv[a].push_back(i);\r\n\t        \r\n\t    }\r\n\t    vector<long long> tot(n + 2, 0), nl(n + 2), nr(n + 2);\r\n\t    tot[0] = 1;\r\n\t    for(int x = 1; x <= n; x++){\r\n\t        fill(nl.begin(), nl.end(), 0);\r\n\t        fill(nr.begin(), nr.end(), 0);\r\n\t        for(int lp = 0; lp <=x - 1; lp++){\r\n\t            long long w = tot[lp];\r\n\t            if(!w) continue;\r\n\t            nl[lp + 1] = (nl[lp + 1] + w) % MOD;\r\n\t            if(x < n) nr[lp] = (nr[lp] + w) % MOD;\r\n\t        }\r\n\t        for(int l = 0; l <= x; l++){\r\n\t            if(nl[l])\r\n\t                for(int i : byv[x])\r\n\t                    if(!ok(i, x, l, true)){nl[l] = 0; break;}\r\n\t                \r\n\t           if(nr[l])\r\n\t               for(int i : byv[x])\r\n\t                   if(!ok(i, x, l, false)) {nr[l] = 0; break;}\r\n\t               \r\n\t           tot[l] = (nl[l] + nr[l]) % MOD;\r\n\t        }\r\n\t           \r\n\t            tot[x + 1] = 0;\r\n\t        }\r\n\t        long long ans = 0;\r\n\t        for(int i = 0; i <= n; i++) ans += tot[i];\r\n\t        cout<<ans % MOD<<endl;\r\n\t    }\r\n\t}\r\n\r\n\r\n",
+  "source_sha256": "8b49375306439feb1607240257c44c0d96039b69f09a6d50e27ad2b7b521216d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368452997",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368452997",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260352",
+  "scraped_at_utc": "2026-10-12T20:20:02.993Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368425862",
+  "team_username": "icpcol263196",
+  "team_name": "icpcol263196",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T09:38:48.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:08:48 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:08:48 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.54",
+  "execution_time_detail": "2.54s",
+  "memory_status": "10.3M",
+  "memory_detail": "10.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.95)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(2.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(1.77)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.22)"
+    }
+  ],
+  "source_code": "import sys \r\nmod=998244353\r\ndef interval_mask(l,h):\r\n    if l>h:\r\n        return 0\r\n    return((1<<(h+1))-1)^((1<<l)-1)\r\ndef get_mask(v,n,occ):\r\n    full=(1<<v)-1\r\n    lm=full\r\n    rm=full\r\n    for i in occ:\r\n        r=(i-1)//2 \r\n        D=i-n+v-1\r\n        pl=0\r\n        if D<r:\r\n            if 0<=r<v:\r\n                pl=1<<r \r\n        elif D==r:\r\n            pl=interval_mask(0,r)\r\n        pr=0\r\n        if D==r:\r\n            pr=interval_mask(0,r)\r\n        q=(n-i)//2 \r\n        E=v-i\r\n        sl=0\r\n        if E==q:\r\n            sl=interval_mask(i-1,v-1)\r\n        sr=0\r\n        if E<q:\r\n            c0=v-1-q\r\n            if 0<=c0<v:\r\n                sr=1<<c0\r\n        elif E==q:\r\n            sr=interval_mask(i-1,v-1)\r\n        al=pl|sl\r\n        ar=pr|sr\r\n        lm&=al\r\n        rm&=ar\r\n        if lm==0 and rm==0:\r\n            break\r\n    return lm,rm\r\ndef solve():\r\n    input=sys.stdin.readline\r\n    t=int(input())\r\n    for _ in range(t):\r\n        n=int(input())\r\n        a=list(map(int,input().split()))\r\n        oc=[[]for _ in range(n+1)]\r\n        for i,x in enumerate(a,1):\r\n            oc[x].append(i)\r\n        posn=oc[n]\r\n        if len(posn)>1 or (posn and posn[0]!=1 and posn[0]!=n):\r\n            print(0)\r\n            continue\r\n        dp=[0]*n\r\n        dp[0]=1 \r\n        for v in range(1,n):\r\n            lm,rm=get_mask(v,n,oc[v])\r\n            ndp=[0]*n\r\n            for c in range(v):\r\n                w=dp[c]\r\n                if w==0:\r\n                    continue \r\n                if (lm>>c)&1:\r\n                    ndp[c+1]+=w\r\n                    if ndp[c+1]>=mod:\r\n                        ndp[c+1]-=mod\r\n                if (rm>>c)&1:\r\n                    ndp[c]+=w\r\n                    if ndp[c]>=mod:\r\n                        ndp[c]-=mod\r\n            dp=ndp\r\n        if posn:\r\n            if posn[0]==1:\r\n                print(dp[0])\r\n            else:\r\n                print(dp[n-1])\r\n        else:\r\n            print(sum(dp)%mod)\r\nif __name__==\"__main__\":\r\n    solve()",
+  "source_sha256": "855084365fe29c8ae926c0603ea4f47e6017df4bb1d16299cc3cf63ad7d19105",
+  "solution_url": "https://www.codechef.com/viewsolution/1368425862",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368425862",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol263196",
+  "scraped_at_utc": "2026-10-12T20:18:32.035Z"
+}

@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368461400",
+  "team_username": "icpcol260466",
+  "team_name": "icpcol260466",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:34:13.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:04:13 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:04:13 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.23",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nstatic const int MOD=998244353;\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\t cin>>t;\r\n\t \r\n\t while(t--){\r\n\t      int n;\r\n\t      cin>>n;\r\n\t      \r\n\t      \r\n\t      vector<int> a(n+1);\r\n\t      vector<vector<int>>pos(n+1);\r\n\t      \r\n\t      for(int i=1;i<=n;i++){\r\n\t          cin>>a[i];\r\n\t          pos[a[i]].push_back(i);\r\n\t      }\r\n\t      vector<int> dp(n+1,0),ndp(n+1,0);\r\n\t      dp[0]=1;\r\n\t      \r\n\t      auto valid=[&](int v,int l,bool putLeft)->bool{\r\n\t          int r=v-l;\r\n\t          int where=putLeft ? l:n-r+1;\r\n\t          \r\n\t          for(int i:pos[v]){\r\n\t              int prefCount=min(l,i)+max(0,r-(n-i));\r\n\t              int prefNeed=(i+1)/2;\r\n\t              \r\n\t              bool okPref=(where<=i && prefCount==prefNeed);\r\n\t              \r\n\t              int suffCount=min(r,n-i+1)+max(0,l-(i-1));\r\n\t              int suffNeed=(n-i+2)/2;\r\n\t              \r\n\t              bool oksuff=(where>=i && suffCount==suffNeed);\r\n\t              \r\n\t              if(!okPref && !oksuff)\r\n\t                return false;\r\n\t          }\r\n\t          return true;\r\n\t      };\r\n\t      for(int v=1;v<=n;v++){\r\n\t          fill(ndp.begin(),ndp.end(),0);\r\n\t          \r\n\t          for(int lprev=0;lprev<=v-1;lprev++){\r\n\t              if(dp[lprev]==0){\r\n\t                  continue;\r\n\t              }\r\n\t              int l=lprev+1;\r\n\t              if(valid(v,l,true)){\r\n\t                  ndp[l]+=dp[lprev];\r\n\t                  \r\n\t                  if(ndp[l]>=MOD)\r\n\t                     ndp[l]-=MOD;\r\n\t              }\r\n\t              if(v<n){\r\n\t                  l=lprev;\r\n\t                  \r\n\t                  if(valid(v,l,false)){\r\n\t                      ndp[l]+=dp[lprev];\r\n\t                      \r\n\t                      if(ndp[l]>=MOD)\r\n\t                         ndp[l]-=MOD;\r\n\t                  }\r\n\t              }\r\n\t          }\r\n\t          \r\n\t          dp.swap(ndp);\r\n\t      }\r\n\t      int ans=0;\r\n\t      \r\n\t      for(int x:dp){\r\n\t          ans+=x;\r\n\t          if(ans>=MOD)\r\n\t            ans-=MOD;\r\n\t            \r\n\t      }\r\n\t      cout<<ans<<'\\n';\r\n\t }\r\n\r\n}\r\n",
+  "source_sha256": "f502a90e7470b6bf138e830083035e16f5377e7b20bc125a4ee888657c8b595b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368461400",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368461400",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol260466",
+  "scraped_at_utc": "2026-10-12T20:22:04.704Z"
+}

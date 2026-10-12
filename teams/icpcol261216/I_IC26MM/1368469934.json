@@ -1,0 +1,160 @@
+{
+  "submission_id": "1368469934",
+  "team_username": "icpcol261216",
+  "team_name": "icpcol261216",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "I",
+  "problem_code": "IC26MM",
+  "problem_title": "Mountain Medians",
+  "submitted_at_utc": "2026-10-03T10:49:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:19:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:19:11 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.20",
+  "execution_time_detail": "",
+  "memory_status": "4.2M",
+  "memory_detail": "4.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll = long long; \r\nconst ll MOD = 998244353; \r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t; \r\n\twhile(t--){\r\n\t    int n; \r\n\t    cin>>n; \r\n\t    vector<vector<int>>arr(n + 1); \r\n\t    for(int i = 1;i<=n;i++){\r\n\t        int x; \r\n\t        cin>>x; \r\n\t        arr[x].push_back(i); \r\n\t    } \r\n\t    vector<ll>dp(1,1); \r\n\t    for(int x = 1;x < n;x++){\r\n\t        vector<int>vt1(x,1),vt2(x,1); \r\n\t        for(int i : arr[x]){\r\n\t            int v1 = (i - 1) /2; \r\n\t            int v2 = (n - i) /2;\r\n\t            for(int l = 0;l < x;l++){\r\n\t                int r = x - l - 1; \r\n\t                int pre = min(l,i) + max(0,i - n + r); \r\n\t                int suf =max(0,l - i +1) + min(r,n - i + 1);\r\n\t                int posL = l + 1; \r\n\t                bool goodL =(posL <= i && pre == v1) || (posL >= i && suf == v2); \r\n\t                int posR = n - r; \r\n\t                bool goodR = (posR <= i && pre == v1) || (posR >= i && suf == v2); \r\n\t                vt1[l] &= goodL; \r\n\t                vt2[l] &= goodR; \r\n\t            }\r\n\t        }\r\n\t        vector<ll>ndp(x + 1,0); \r\n\t        for(int l = 0;l < x;l++){\r\n\t            if(vt1[l]){\r\n\t                ndp[l + 1] = (ndp[l + 1] + dp[l])%MOD; \r\n\t            }\r\n\t            if(vt2[l]){\r\n\t                ndp[l] = (ndp[l] + dp[l]) % MOD; \r\n\t            }}\r\n\t            dp.swap(ndp);\r\n\t        }\r\n\t        ll ans = 0;\r\n\t        for(int l = 0;l < n;l++){\r\n\t            int r = n - l - 1; \r\n\t            bool good = true; \r\n\t            for(int i : arr[n]){\r\n\t                int v1 = (i - 1)/2; \r\n\t                int v2 = (n - i)/2; \r\n\t                int pre = min(l,i) + max(0,i - n + r); \r\n\t                int suf = max(0,l - i +1) + min(r,n - i + 1); \r\n\t                int pos = l + 1; \r\n\t                if(!((pos <= i && pre == v1) || (pos >= i && suf == v2))){\r\n\t                    good = false; \r\n\t                    break; \r\n\t                }\r\n\t            }\r\n\t            if(good)ans = (ans + dp[l]) % MOD;\r\n\t        }\r\n\t        cout<<ans<<endl;}\r\n}\r\n",
+  "source_sha256": "fea8cd863d5ac30ed666be151063a4f8910818e565ec6ed5a1bd1ae7d9542729",
+  "solution_url": "https://www.codechef.com/viewsolution/1368469934",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368469934",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?usernames=icpcol261216",
+  "scraped_at_utc": "2026-10-12T20:23:12.652Z"
+}
