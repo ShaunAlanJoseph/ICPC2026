@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368438907",
+  "team_username": "icpcol260374",
+  "team_name": "icpcol260374",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:56:46.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:26:46 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:26:46 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.18",
+  "execution_time_detail": "1.18s",
+  "memory_status": "60.4M",
+  "memory_detail": "60.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(1.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.81)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.81)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.84)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    public static void main(String[] args) throws java.lang.Exception\r\n    {\r\n        // your code goes here\r\n        Scanner in = new Scanner(System.in);\r\n        int t, n, i;\r\n        t = in.nextInt();\r\n        long mod = 998244353;\r\n        int max = 200005;\r\n        long inv[] = new long[max];\r\n        long h[] = new long[max];\r\n        inv[1] = 1;\r\n        for (i = 2; i < max; i++)\r\n            inv[i] = (mod - (mod / i) * inv[(int)mod % i] % mod) % mod;\r\n        h[0] = 0;\r\n        for (i = 1; i < max; i++)\r\n            h[i] = (h[i - 1] + inv[i]) % mod;\r\n        while (t-- != 0)\r\n        {\r\n            n = in.nextInt();\r\n            if (n == 1)\r\n            {\r\n                in.nextLong();\r\n                System.out.println(\"0\");\r\n                continue;\r\n            }\r\n            long arr[] = new long[n];\r\n            for (i = 0; i < n; i++)\r\n                arr[i] = in.nextLong() % mod;\r\n            long ans = 0;\r\n            for (i = 0; i < n; i++)\r\n            {\r\n                long c = (h[i] + h[n - 1 - i]) % mod;\r\n                ans = (ans + arr[i] % mod * c) % mod;\r\n            }\r\n            System.out.println(ans);\r\n        }\r\n    }\r\n}",
+  "source_sha256": "f28e189559afde37861af3af7a4a0015ca96c162cc3ce0b17af4e32f9e1cde72",
+  "solution_url": "https://www.codechef.com/viewsolution/1368438907",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368438907",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260374",
+  "scraped_at_utc": "2026-10-12T19:50:19.323Z"
+}

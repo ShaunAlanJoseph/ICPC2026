@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368448460",
+  "team_username": "icpcol261469",
+  "team_name": "icpcol261469",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:11:22.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:41:22 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:41:22 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.47",
+  "execution_time_detail": "",
+  "memory_status": "31.9M",
+  "memory_detail": "31.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.21)"
+    }
+  ],
+  "source_code": "# cook your dish \r\nMOD = 998244353\r\n\r\nt = int(input())\r\nfor _ in range(t):\r\n    n = int(input())\r\n    nums = list(map(int, input().split()))\r\n    \r\n    inv = [0] * (n - 1)\r\n    inv = [0, 1] + inv\r\n    \r\n    for i in range(2, n + 1):\r\n        inv[i] = (MOD - (MOD // i) * inv[MOD % i] % MOD) % MOD\r\n        \r\n    harm = [0] * (n + 1)\r\n    for i in range(1, n + 1):\r\n        harm[i] = (harm[i-1] + inv[i]) % MOD\r\n    \r\n    res = 0\r\n    for i in range(1, n + 1):\r\n        res += nums[i-1] % MOD * (harm[i-1] + harm[n-i])\r\n    \r\n    print(res % MOD)",
+  "source_sha256": "10060244ee98e81150892ba3e15328c187588575b893fc7ea39eb966847b8177",
+  "solution_url": "https://www.codechef.com/viewsolution/1368448460",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368448460",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261469",
+  "scraped_at_utc": "2026-10-12T19:57:25.195Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368460898",
+  "team_username": "icpcol262678",
+  "team_name": "icpcol262678",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:33:13.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:03:13 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:03:13 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.08",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\nconst long long MOD = 998244353;\r\n\r\nint main() {\r\n    const int N = 200005;\r\n    vector < long long > inversion(N), height(N);\r\n    inversion[1] = 1;\r\n    for (int i = 2; i < N; i++) inversion[i] = (MOD - (MOD / i) * inversion[MOD % i] % MOD) % MOD;\r\n    height[0] = 0;\r\n    for (int i = 1; i < N; i++) height[i] = (height[i - 1] + inversion[i]) % MOD;\r\n    int t;\r\n    cin >> t;\r\n    while (t--) {\r\n        int n;\r\n        cin >> n;\r\n        long long ans = 0;\r\n        for (int j = 1; j <= n; j++) {\r\n            long long h;\r\n            cin >> h;\r\n            ans = (ans + h % MOD * ((height[j - 1] + height[n - j]) % MOD)) % MOD;\r\n        }\r\n        cout << ans << endl;\r\n    }\r\n    return 0;\r\n}",
+  "source_sha256": "c9a8fe58164f6fff062fa4e00f80e42331b7d53a6a2e8990a5d7c4dedb1b73ef",
+  "solution_url": "https://www.codechef.com/viewsolution/1368460898",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368460898",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262678",
+  "scraped_at_utc": "2026-10-12T20:07:10.504Z"
+}

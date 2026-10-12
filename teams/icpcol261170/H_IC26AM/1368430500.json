@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368430500",
+  "team_username": "icpcol261170",
+  "team_name": "icpcol261170",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:45:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:15:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:15:11 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.15",
+  "execution_time_detail": "",
+  "memory_status": "51.4M",
+  "memory_detail": "51.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.06)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static final long Mod = 998244353L;\r\n    static final int MaxN = 200000;\r\n    static long[] inv = new long[MaxN + 1];\r\n    static long[] H = new long[MaxN + 1];\r\n    \r\n    static void precompute(){\r\n        inv[1] = 1;\r\n        for(int i=2; i<= MaxN; i++){\r\n            inv[i] = Mod-(Mod/i)*inv[(int)(Mod%i)]%Mod;\r\n        }\r\n        H[0] = 0;\r\n        for(int i=1; i<= MaxN; i++){\r\n            H[i] = (H[i-1]+inv[i])%Mod;\r\n        }\r\n    }\r\n    \r\n    static void solve(FastScanner fs, StringBuilder out) throws Exception{\r\n        int n = fs.nextInt();\r\n        long[] a = new long[n];\r\n        \r\n        for(int i=0; i<n; i++){\r\n            a[i] = fs.nextLong() % Mod;\r\n            if(a[i] < 0)a[i] += Mod;\r\n        }\r\n        \r\n        long ans = 0;\r\n        for(int i=0; i<n; i++){\r\n            long coeff = (H[i] + H[n-i-1])%Mod;\r\n            \r\n            ans = (ans + a[i] * coeff)%Mod;\r\n        }\r\n        out.append(ans).append(\"\\n\");\r\n    }\r\n\tpublic static void main (String[] args) throws Exception\r\n\t{\r\n\t    FastScanner fs = new FastScanner(System.in);\r\n\t    StringBuilder out = new StringBuilder();\r\n\t    \r\n\t    precompute();\r\n\t    int t = fs.nextInt();\r\n\t    while(t -- > 0){\r\n\t        solve(fs, out);\r\n\t    }\r\n\t    System.out.print(out);\r\n\t\t// your code goes here\r\n\r\n\t}\r\n\tstatic class FastScanner{\r\n\t    private final InputStream in;\r\n\t     private final byte[] buffer = new byte[1<<16];\r\n\t     private int ptr = 0, len=0;\r\n\t     \r\n\t     FastScanner(InputStream is){\r\n\t         in = is;\r\n\t     }\r\n\t     private int read() throws IOException{\r\n\t         if(ptr >= len){\r\n\t             len = in.read(buffer);\r\n\t             ptr = 0;\r\n\t             if(len <=0){\r\n\t                 return -1;\r\n\t                 \r\n\t             }\r\n\t         }\r\n\t         return buffer[ptr++];\r\n\t     }\r\n\t     long nextLong() throws IOException{\r\n\t         int c;\r\n\t         do{\r\n\t             c = read();\r\n\t         }while(c<=' ');\r\n\t         boolean neg = false;\r\n\t         if(c=='-'){\r\n\t             neg=true;\r\n\t             c=read();\r\n\t             \r\n\t         }\r\n\t         long result=0;\r\n\t         while(c>' '){\r\n\t             result=result*10+(c-'0');\r\n\t             c=read();\r\n\t         }\r\n\t         return neg? -result : result;\r\n\t     }\r\n\t     int nextInt() throws IOException{\r\n\t         return (int) nextLong();\r\n\t     }\r\n\t}\r\n}\r\n",
+  "source_sha256": "215c2522019f7ea4df7608e2135a61adf265bdbc82250930ad90e8603e8bc646",
+  "solution_url": "https://www.codechef.com/viewsolution/1368430500",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368430500",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261170",
+  "scraped_at_utc": "2026-10-12T19:45:54.985Z"
+}

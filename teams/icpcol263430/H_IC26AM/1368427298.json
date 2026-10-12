@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368427298",
+  "team_username": "icpcol263430",
+  "team_name": "icpcol263430",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:40:51.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:10:51 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:10:51 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.33",
+  "execution_time_detail": "1.33s",
+  "memory_status": "61.3M",
+  "memory_detail": "61.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.74)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.76)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.65)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.89)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.91)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.58)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static long MOD = 998244353;\r\n    static int MAX = 200005;\r\n    \r\n    \r\n    static long arr2[] = new long[MAX];\r\n    \r\n    static long arr3[] = new long[MAX];\r\n    \r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\t// your code goes here\r\n\t\tfunc();\r\n\t\tScanner sc = new Scanner(System.in);\r\n\t\t\r\n\t\tint t  =  sc.nextInt();\r\n\t\t\r\n\t\twhile(t-->0){\r\n\t\t    int n =  sc.nextInt();\r\n\t\t    int arr[] =  new int[n];\r\n\t\t    \r\n\t\t    for(int i = 0;i<n;i++){\r\n\t\t        arr[i] =  sc.nextInt();\r\n\t\t    }\r\n\t\t    \r\n\t\t    long ans = 0;\r\n\t\t    \r\n\t\t    \r\n\t\t    for(int i = 0;i<n;i++){\r\n\t\t        long coff = (arr3[i]+arr3[n-1-i])%MOD;\r\n\t\t        ans = (ans+arr[i]*coff)%MOD;\r\n\t\t    }\r\n\t\t    \r\n\t\t    System.out.println(ans);\r\n\t\t    \r\n\t\t    \r\n\t\t}\r\n\r\n\t}\r\n\t\r\n\t\r\n\tpublic static void func(){\r\n\t    arr2[1] = 1;\r\n\t    for(int i = 2;i<MAX;i++){\r\n\t        arr2[i] = MOD - (MOD/i)*arr2[(int)(MOD%i)]%MOD;\r\n\t    }\r\n\t    \r\n\t    for(int i  =1;i<MAX;i++){\r\n\t        arr3[i] = (arr3[i-1]+arr2[i])%MOD;\r\n\t    }\r\n\t}\r\n}\r\n",
+  "source_sha256": "9dbfa1a09e83748937e65d80fabc57f709460d46b9ac48e48a1fb3284508d5a0",
+  "solution_url": "https://www.codechef.com/viewsolution/1368427298",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368427298",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263430",
+  "scraped_at_utc": "2026-10-12T19:43:37.804Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368412492",
+  "team_username": "icpcol265271",
+  "team_name": "icpcol265271",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:24:40.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:54:40 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:54:40 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.44",
+  "execution_time_detail": "",
+  "memory_status": "47.1M",
+  "memory_detail": "47.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.22)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nmod = 998244353\r\nn = 200002\r\n\r\ninv = [0]*(n+1)\r\n\r\ninv[1] = 1\r\nfor i in range(2,n+1):\r\n    inv[i] = (mod-(mod//i)*inv[mod%i]%mod)%mod\r\n\r\npref = [0]*(n+1)\r\nfor i in range(1,n+1):\r\n    pref[i] = (pref[i-1]+inv[i])%mod\r\n    \r\nz = int(input())\r\nfor _ in range(z):\r\n    m = int(input())\r\n    s = input()\r\n    arr = [int(x) for x in s.split()]\r\n    ans = 0 \r\n    for i in range(m):\r\n        ans = (ans+arr[i]*(pref[i]+pref[m-1-i]))%mod\r\n    print(ans)",
+  "source_sha256": "4b8a2fa1803b8d3db00c6fce4a074fb61ee97c8cf3a91efeadcfde723b6e4d7e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368412492",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368412492",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol265271",
+  "scraped_at_utc": "2026-10-12T19:39:44.566Z"
+}

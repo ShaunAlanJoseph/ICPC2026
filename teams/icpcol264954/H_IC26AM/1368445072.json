@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368445072",
+  "team_username": "icpcol264954",
+  "team_name": "icpcol264954",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:05:53.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:35:53 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:35:53 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.09",
+  "execution_time_detail": "",
+  "memory_status": "7.9M",
+  "memory_detail": "7.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst long long M = 998244353;\r\nint main() {\r\n\tint t;\r\n\tcin>>t;\r\n\tvector<int> vec(t);\r\n\tvector<vector<long long>> temp(t);\r\n\tint maxEle = 0;\r\n\tfor(int i=0;i<t;i++){\r\n\t    cin>>vec[i];\r\n\t    maxEle = max(maxEle,vec[i]);\r\n\t    temp[i].resize(vec[i]);\r\n\t    for(auto &x:temp[i]){\r\n\t        cin>>x;\r\n\t    }\r\n\t}vector<long long> vec2(maxEle+1);\r\n\tif(maxEle>=1){\r\n\t    vec2[1]=1;\r\n\t}for(int i =2;i<=maxEle;i++){\r\n\t    vec2[i]=M-(M/i)*vec2[M%i]%M;\r\n\t}vector<long long> ham(maxEle+1,0);\r\n\tfor(int i = 1;i<=maxEle;i++){\r\n\t    ham[i]=(ham[i-1]+vec2[i])%M;\r\n\t}for(int j=0;j<t;j++){\r\n\t    long long ans =0;\r\n\t    for(int i=0;i<vec[j];i++){\r\n\t        long long c=(ham[i]+ham[vec[j]-1-i])%M;\r\n\t        ans = (ans+temp[j][i]*c)%M;\r\n\t    }\r\n\t    cout<<ans<<endl;\r\n\t}return 0;\r\n\r\n}\r\n",
+  "source_sha256": "4dd2ed5155e62109f02c85bd1a7b6e5dd90440480ece463c713c9434f683a56a",
+  "solution_url": "https://www.codechef.com/viewsolution/1368445072",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368445072",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264954",
+  "scraped_at_utc": "2026-10-12T19:54:34.717Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368455149",
+  "team_username": "icpcol262444",
+  "team_name": "icpcol262444",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:22:56.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:52:56 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:52:56 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.33",
+  "execution_time_detail": "",
+  "memory_status": "41.2M",
+  "memory_detail": "41.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.20)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\nM = 998244353\r\nL = [l for l in sys.stdin.read().split('\\n') if l.strip()]\r\nN = 200001\r\ninv = [0,1] + [0]*(N - 1)\r\nfor i in range(2,N + 1):\r\n    inv[i] = (M - (M//i)*inv[M%i]%M)%M\r\nH = [0]*(N + 1)\r\nfor i in range(1,N + 1):\r\n    H[i] = (H[i - 1] + inv[i])%M\r\nt = int(L[0]); p = 1;out = []\r\nfor _ in range(t):\r\n    n = int(L[p]); a = L[p + 1].split()[:n];p+=2\r\n    s = 0\r\n    for j in range(n):\r\n        s+=int(a[j])*(H[j] + H[n - 1 - j])\r\n    out.append(s%M)\r\nprint(\"\\n\".join(map(str,out)))",
+  "source_sha256": "cd2ba63a9ded5497ddd6c8ac0047e56643c5016d8e0495ec54162442ccf602b0",
+  "solution_url": "https://www.codechef.com/viewsolution/1368455149",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368455149",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262444",
+  "scraped_at_utc": "2026-10-12T19:25:27.336Z"
+}

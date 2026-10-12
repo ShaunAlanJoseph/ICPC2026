@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368455145",
+  "team_username": "icpcol265172",
+  "team_name": "icpcol265172",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:22:56.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:52:56 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:52:56 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.37",
+  "execution_time_detail": "",
+  "memory_status": "33.5M",
+  "memory_detail": "33.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.24)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\nMOD=998244353\r\nx =list(map(int,sys.stdin.buffer.read().split()))\r\nt =x[0]\r\np=1 \r\nns =[]\r\naa =[] \r\nmx =0 \r\nfor _ in range(t):\r\n    n =x[p] \r\n    p+=1 \r\n    a =x[p:p+n]\r\n    p+=n  \r\n    ns.append(n)\r\n    aa.append(a)\r\n    mx =max(mx,n)\r\niv =[0]*(mx+1)\r\nh =[0]*(mx+1)\r\nif mx>=1:\r\n    iv[1]=1\r\n\r\n\r\nfor i in range(2, mx+1):\r\n    iv[i]=MOD-(MOD//i)* iv[MOD%i]%MOD\r\nfor i in range(1,mx+1):\r\n     h[i]=(h[i-1]+iv[i])% MOD\r\nans =[]\r\nfor n,a in zip(ns,aa):\r\n    s=0\r\n    for i in range(n):\r\n        c=(h[i]+h[n-1-i])%MOD\r\n        s=(s+a[i]*c)%MOD\r\n    ans.append(str(s))\r\nsys.stdout.write(\"\\n\".join(ans))\r\n",
+  "source_sha256": "296c8c944d6aa83c8ca80ff5d3e3b3c6a34b12476699a6401490bad5e15a522b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368455145",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368455145",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol265172",
+  "scraped_at_utc": "2026-10-12T20:01:09.887Z"
+}

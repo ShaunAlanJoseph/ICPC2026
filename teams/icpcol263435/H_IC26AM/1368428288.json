@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368428288",
+  "team_username": "icpcol263435",
+  "team_name": "icpcol263435",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:42:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:12:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:12:07 PM",
+  "language": "C",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.04",
+  "execution_time_detail": "",
+  "memory_status": "4.9M",
+  "memory_detail": "4.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "source_code": "#include <stdio.h>\r\n#define M 998244353\r\n#define N 200005\r\nlong long inverse[N], h[N];\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tint t, n, i;\r\n\tscanf(\"%d\", &t);\r\n\tinverse[1] = 1;\r\n\tfor(i=2; i<N; i++)\r\n\t    inverse[i] = M - (M/i) * inverse[M%i] % M;\r\n\tfor(i=1; i<N; i++)\r\n\t    h[i] = (h[i-1] + inverse[i]) % M;\r\n\twhile(t--) {\r\n\t    scanf(\"%d\", &n);\r\n\t    long long answer = 0, x;\r\n\t    for(i=1; i<=n; i++) {\r\n\t        scanf(\"%lld\", &x);\r\n\t        answer = (answer + x * ((h[i-1] + h[n-i]) % M))% M;\r\n\t    }\r\n\t    printf(\"%lld\\n\", answer);\r\n\t} \r\n\treturn 0;\r\n\r\n}\r\n\r\n",
+  "source_sha256": "1ce5e953429b31d365112c4cdbbf35484cc51b527332db9b7983c822d0f20550",
+  "solution_url": "https://www.codechef.com/viewsolution/1368428288",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368428288",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263435",
+  "scraped_at_utc": "2026-10-12T19:44:06.898Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368443803",
+  "team_username": "icpcol263933",
+  "team_name": "icpcol263933",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:03:54.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:33:54 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:33:54 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.63",
+  "execution_time_detail": "",
+  "memory_status": "38M",
+  "memory_detail": "38M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.22)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nMOD = 998244353\r\nnn = 200000\r\nref = [0]*(nn+1)\r\nref[1] = 1 \r\nfor i in range(2,nn+1):\r\n    ref[i] = MOD-(MOD//i)*ref[MOD%i]%MOD\r\nt = int(input())\r\nfor _ in range(t):\r\n    n = int(input())\r\n    arr = list(map(int,input().split()))\r\n    if n==1:\r\n        print(0)\r\n        continue\r\n    cf = 0\r\n    for i in range(1,n):\r\n        cf += ref[i]\r\n        if cf >= MOD:\r\n            cf -= MOD\r\n    ans = 0\r\n    for i in range(n):\r\n        ans = (ans+arr[i]*cf)%MOD\r\n        if i<n-1:\r\n            cf+=ref[i+1]\r\n            cf-=ref[n-1-i]\r\n            cf %= MOD\r\n    print(ans)",
+  "source_sha256": "eea3ee0964c6e7208842f5483b82f71a2e0e745b864430e2abb8e97a80249a3d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368443803",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368443803",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263933",
+  "scraped_at_utc": "2026-10-12T19:53:42.407Z"
+}

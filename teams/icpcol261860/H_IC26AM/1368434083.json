@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368434083",
+  "team_username": "icpcol261860",
+  "team_name": "icpcol261860",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:49:52.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:19:52 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:19:52 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.82",
+  "execution_time_detail": "",
+  "memory_status": "37.9M",
+  "memory_detail": "37.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.79)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.64)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.30)"
+    }
+  ],
+  "source_code": "MOD = 998244353\r\nN = 200005\r\nD = [0 for _ in range(N)]\r\nfor i in range(1,N):\r\n    D[i] = (D[i-1] + pow(i,-1,MOD)) % MOD\r\n\r\nfor _ in range(int(input())):\r\n    n = int(input())\r\n    a = [int(x) for x in input().split()]\r\n    ans = 0\r\n    for i in range(n):\r\n        subans1 = (a[i] * D[i]) % MOD\r\n        subans2 = (a[i] * D[n-i-1]) % MOD\r\n        ans = (ans + subans1 + subans2) % MOD\r\n    print(ans)",
+  "source_sha256": "7490cfcb1b512f1c26322f4719d47a9fee5918c074a685d8d7913ba25e75735b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368434083",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368434083",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261860",
+  "scraped_at_utc": "2026-10-12T19:32:35.300Z"
+}

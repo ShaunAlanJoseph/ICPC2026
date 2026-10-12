@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368445954",
+  "team_username": "icpcol260483",
+  "team_name": "icpcol260483",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:07:25.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:37:25 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:37:25 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.10",
+  "execution_time_detail": "",
+  "memory_status": "7.8M",
+  "memory_detail": "7.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\ntypedef long long ll;\r\n\r\nconst int MODI= 998244353;\r\nconst int MAXN = 200005;\r\n\r\nll invMod[MAXN];\r\nll matrix[MAXN];\r\n\r\nvoid precompute(){\r\n    invMod[1] = 1;\r\n    for(int i = 2; i < MAXN; i++){\r\n        invMod[i] = (MODI - MODI/i) * invMod[MODI % i] % MODI;\r\n    }\r\n    \r\n    matrix[0] = 0;\r\n    for(int i = 1; i < MAXN; i++){\r\n        matrix[i] = (matrix[i-1] + invMod[i])% MODI;\r\n    }\r\n}\r\n\r\nvoid solve(){\r\n    int n;\r\n    cin >> n;\r\n    vector<ll> arr(n);\r\n    \r\n    for(int i = 0; i < n; i++){\r\n        cin >> arr[i];\r\n    }\r\n    \r\n    if(n == 1){\r\n        cout << 0 << endl;\r\n        return;\r\n    }\r\n    \r\n    ll answer = 0;\r\n    \r\n    for(int i = 0; i < n; i++){\r\n        ll coef = (matrix[i] + matrix[n-1-i])% MODI;\r\n        answer = (answer + (arr[i] % MODI) * coef) % MODI;\r\n    }\r\n    \r\n    cout << answer << endl;\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n    precompute();\r\n    \r\n    int t;\r\n    cin >> t;\r\n    while(t--){\r\n        solve();\r\n    }\r\n}\r\n",
+  "source_sha256": "3e7f0aa72efc8d0dcf52d987f70a713bbb393e75b53e857465139d0770f101f9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368445954",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368445954",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260483",
+  "scraped_at_utc": "2026-10-12T19:56:22.850Z"
+}

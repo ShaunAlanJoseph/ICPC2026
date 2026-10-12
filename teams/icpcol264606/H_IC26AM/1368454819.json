@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368454819",
+  "team_username": "icpcol264606",
+  "team_name": "icpcol264606",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:22:15.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:52:15 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:52:15 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\n\r\nusing i32 = int;\r\nusing i64 = long long;\r\n\r\nstatic constexpr i32 M = 998'244'353;\r\n\r\ni64 add(i64 a, i64 b) {\r\n    return (a + b) % M;\r\n}\r\n\r\ni64 mul(i64 a, i64 b) {\r\n    return (a * b) % M;\r\n}\r\n\r\ni64 binpow(i64 a, i64 n) {\r\n    i64 r = 1, y = a % M;\r\n    for (; n; n >>= 1, y = mul(y, y))\r\n        if (n & 1) r = mul(r, y);\r\n    \r\n    return r;\r\n}\r\n\r\ni64 inv(i64 a) {\r\n    return binpow(a, M - 2);\r\n}\r\n\r\nstatic constexpr i32 N = 200'000;\r\n\r\nstatic std::vector<i64> h(N + 1);\r\n\r\nvoid solve() {\r\n    i32 n;\r\n    std::cin >> n;\r\n    \r\n    std::vector<i64> a(n);\r\n    for (auto &&x : a) std::cin >> x;\r\n    \r\n    i64 ans = 0;\r\n    for (i32 i = 0; i < n; ++i) {\r\n        ans = add(ans, mul(a[i], add(h[i], h[n -i - 1])));\r\n    }\r\n    \r\n    std::cout << ans << '\\n';\r\n}\r\n\r\ni32 main() {\r\n    std::ios::sync_with_stdio(false);\r\n    std::cin.tie(nullptr);\r\n    \r\n    h[1] = 1;\r\n    for (i32 i = 2; i <= N; ++i) \r\n        h[i] = add(h[i - 1], inv(i));\r\n        \r\n    i32 t;\r\n    std::cin >> t;\r\n    \r\n    while (t--) {\r\n        solve();\r\n    }\r\n}\r\n",
+  "source_sha256": "596f5b7c6f4f4e26b72cd0c97b069e0e806e39c11f59526fa2abaef3a234b93d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368454819",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368454819",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264606",
+  "scraped_at_utc": "2026-10-12T19:29:35.994Z"
+}

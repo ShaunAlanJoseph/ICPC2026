@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368472951",
+  "team_username": "icpcol265237",
+  "team_name": "icpcol265237",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:54:08.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:24:08 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:24:08 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.15",
+  "execution_time_detail": "",
+  "memory_status": "12.5M",
+  "memory_detail": "12.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\n#define int long long\r\n\r\n#define solveT() {int t; cin >> t; while (t--) solve();};\r\n\r\nconst int MOD = 998244353;\r\n\r\nconst int N = 2e5;\r\n\r\nint fact[N + 1], invfact[N + 1];\r\n\r\nint binexp(int a, int b) {\r\n    int ans{1};\r\n    while (b) {\r\n        if (b & 1)\r\n            ans = (ans * a) % MOD;\r\n        a = (a * a) % MOD;\r\n        b >>= 1;\r\n    }\r\n    return ans;\r\n}\r\n\r\nvoid precomp() {\r\n    fact[0] = fact[1] = 1;\r\n    for (int i = 2; i <= N; i++) {\r\n        fact[i] = (fact[i - 1] * i) % MOD;\r\n    }\r\n    invfact[N] = binexp(fact[N], MOD - 2);\r\n    for (int i = N - 1; i >= 0; i--) {\r\n        invfact[i] = (invfact[i + 1] * (i + 1)) % MOD;\r\n    }\r\n}\r\n\r\nvoid solve() {\r\n    int n;\r\n    cin >> n;\r\n    vector<int> arr(n);\r\n    for (int i = 0; i < n; i++) {\r\n        cin >> arr[i];\r\n    }\r\n    vector<int> pref(n + 1);\r\n    vector<int> F(n + 1);\r\n    F[0] = 0;\r\n    pref[0] = 0;\r\n    for (int i = 1; i <= n; i++) {\r\n        pref[i] = (pref[i - 1] + binexp(i, MOD - 2)) % MOD;\r\n        F[i] = (pref[i]) % MOD;\r\n    }\r\n    vector<int> N(n + 1);\r\n    for (int i = 0; i <= n; i++) {\r\n        N[i] = (F[i] + F[n - i - 1]) % MOD;\r\n    }\r\n    // cout << \"F: \";\r\n    // for (auto it : F) {\r\n    //     cout << it << \" \";\r\n    // }\r\n    // cout << endl;\r\n    // // cout << endl << \"1.5: \" << 3 * invfact[2] % MOD << endl;\r\n    // cout << \"155/6: \" << 155 * invfact[3] % MOD << endl;\r\n    // // cout << \"24.5: \" << 49 * invfact[2] % MOD << endl;\r\n    // cout << endl << \"N: \";\r\n    // for (auto it : N) {\r\n    //     cout << it << \" \";\r\n    // }\r\n    // cout << endl;\r\n    int ans{0};\r\n    for (int i = 0; i < n; i++) {\r\n        ans = (ans + (arr[i] * N[i]) % MOD) % MOD;\r\n    }\r\n    // cout << ans << endl;\r\n    // cout << invfact[n - 1] << endl;\r\n    cout << ans << endl;\r\n}\r\n\r\nsigned main() {\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(NULL);\r\n    precomp();\r\n    solveT();\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "529e08581fc51fab7b36a7440443428a91007d3e6dd14a1580de962497a55c6a",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472951",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472951",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol265237",
+  "scraped_at_utc": "2026-10-12T19:27:32.906Z"
+}

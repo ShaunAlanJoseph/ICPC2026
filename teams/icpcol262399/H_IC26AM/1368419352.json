@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368419352",
+  "team_username": "icpcol262399",
+  "team_name": "icpcol262399",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:29:16.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:59:16 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:59:16 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "46.7M",
+  "memory_detail": "46.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.07)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static  DataInputStream in=new DataInputStream(new BufferedInputStream(System.in,1<<16));\r\n    static long nextLong() throws IOException{\r\n        int b=in.read();\r\n        while(b<'0')b=in.read();\r\n        long r=0;\r\n        while(b>='0'){\r\n            r=r*10+(b-'0');\r\n            b=in.read();\r\n        }\r\n        return r;\r\n    }\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t    final long MOD=998244353L;\r\n\t    int MAXN=200005;\r\n\t    long[] inv=new long[MAXN+1];\r\n\t    long[] H=new long[MAXN+1];\r\n\t    inv[1]=1;\r\n\t    for(int i=2;i<=MAXN;i++){\r\n\t        inv[i]=(MOD-(MOD/i)*inv[(int)(MOD%i)]%MOD)%MOD;\r\n\t    }\r\n\t    H[0]=0;\r\n\t    for(int i=1;i<=MAXN;i++){\r\n\t        H[i]=(H[i-1]+inv[i])%MOD;\r\n\t    }\r\n\t    int t=(int) nextLong();\r\n\t    StringBuilder sb=new StringBuilder();\r\n\t    while(t-->0){\r\n\t        int n=(int) nextLong();\r\n\t        long ans=0;\r\n\t        for(int j=1;j<=n;j++){\r\n\t            long a=nextLong()%MOD;\r\n\t            long w=(H[j-1]+H[n-j])%MOD;\r\n\t            ans=(ans+a*w)%MOD;\r\n\t        }\r\n\t        sb.append(ans).append(\"\\n\");\r\n\t    }\r\n\t\tSystem.out.print(sb);\r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "6f10f329bdd18ae9420139ea7a584293ae06cf077108f4441f3810011edeaa57",
+  "solution_url": "https://www.codechef.com/viewsolution/1368419352",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368419352",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262399",
+  "scraped_at_utc": "2026-10-12T19:40:13.203Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368468205",
+  "team_username": "icpcol261888",
+  "team_name": "icpcol261888",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:46:02.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:16:02 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:16:02 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.10",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.06)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll=long long;\r\nconst ll MOD=998244353;\r\n\r\nll binary_expo(ll a,ll b){\r\n      ll ansti=1;\r\n      while(b>0){\r\n           if(b%2){\r\n               ansti=ansti*a%MOD;\r\n           }\r\n           a=a*a%MOD;\r\n           b=b/2;\r\n      }\r\n      return ansti;\r\n}\r\n\r\nint main() {\r\n\tll t;\r\n\tcin>>t;\r\n\t\r\n\twhile(t--){\r\n\t     ll n;\r\n\t     cin>>n;\r\n\t     \r\n\t     vector<ll>a(n);\r\n\t     for(ll i=0;i<n;i++) cin>>a[i];\r\n\t     \r\n\t     \r\n\t     vector<ll>h(n,0);\r\n\t     \r\n\t     for(ll i=1;i<n;i++){\r\n\t          int inv=binary_expo(i,MOD-2);\r\n\t          \r\n\t          h[i]=(h[i-1]+inv)%MOD;\r\n\t     }\r\n\t     \r\n\t     ll ansi=0;\r\n\t     for(ll i=0;i<n;i++){\r\n\t         ll contri=(h[i]+h[n-1-i])%MOD;\r\n\t         ansi=(ansi+a[i]*contri)%MOD;\r\n\t     }\r\n\t     \r\n\t     cout<<ansi<<endl;\r\n\t    \r\n\t}\r\n}\r\n",
+  "source_sha256": "18b9d28e9160d63da873842b99c3eb8541b245309920edb45747d7ac3908b95f",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468205",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468205",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261888",
+  "scraped_at_utc": "2026-10-12T20:13:09.053Z"
+}

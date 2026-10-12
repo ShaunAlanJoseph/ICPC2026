@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368466940",
+  "team_username": "icpcol260233",
+  "team_name": "icpcol260233",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:43:56.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:13:56 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:13:56 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.09",
+  "execution_time_detail": "",
+  "memory_status": "4.6M",
+  "memory_detail": "4.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int long long\r\n\r\nconst int maxx = 200005;\r\nconst int mod = 998244353;\r\n\r\nvector<int> harmonicNum(maxx);\r\n\r\nint pw(int a, int b){\r\n    int r = 1;\r\n    while(b > 0){\r\n        if(b&1) r = (r*a)%mod;\r\n        a = (a*a)%mod;\r\n        b >>= 1;\r\n    }\r\n    return r;\r\n}\r\n\r\nvoid preCompute(){\r\n    harmonicNum[0] = 0;\r\n    \r\n    for(int i=1; i<maxx; ++i){\r\n        int inv = pw(i, mod-2);\r\n        harmonicNum[i] = (harmonicNum[i-1] + inv)%mod;\r\n    }\r\n}\r\n\r\nvoid solve(){\r\n    int n;\r\n    cin >> n;\r\n    int total = 0;\r\n    \r\n    for(int i=1; i<=n; ++i){\r\n        int curr;\r\n        cin >> curr;\r\n        \r\n        int mult = (harmonicNum[i-1] + harmonicNum[n-i])%mod;\r\n        total = (total + curr*mult)%mod;\r\n    }\r\n    \r\n    cout << total << endl;\r\n}\r\n\r\nsigned main() {\r\n    preCompute();\r\n    \r\n    int t;\r\n    cin >> t;\r\n    \r\n    while(t--) solve();\r\n    \r\n    return 0;\r\n}\r\n",
+  "source_sha256": "00ca4505ab24291b8a73ec7072d58b3c791d8eaa3854ccc2c14ac9f606cd890e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368466940",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368466940",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260233",
+  "scraped_at_utc": "2026-10-12T19:27:32.812Z"
+}

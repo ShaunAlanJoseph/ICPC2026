@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368459372",
+  "team_username": "icpcol261735",
+  "team_name": "icpcol261735",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:30:32.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:00:32 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:00:32 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.11",
+  "execution_time_detail": "",
+  "memory_status": "6.2M",
+  "memory_detail": "6.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll = long long;\r\n\r\nll mod = 998244353, mx = 2e5 + 69;\r\nvector<ll> inv(mx), h(mx);\r\n\r\nstruct _{\r\n    _() {\r\n        inv[1] = 1;\r\n        for(ll i = 2; i < mx; i ++) {\r\n            inv[i] = (mod - (mod / i) * inv[mod % i] % mod) % mod;\r\n        }\r\n        h[0] = 0;\r\n        for(ll i = 1; i < mx; i++) {\r\n            h[i] = (h[i - 1] + inv[i]) % mod;\r\n        }\r\n    }\r\n}__;\r\n\r\n\r\nint main() {\r\n    ll t, n, ans;\r\n    cin >> t;\r\n    while(t --) {\r\n        cin >> n;\r\n        ans = 0;\r\n        for(ll i = 1; i <= n; i++) {\r\n            ll x;\r\n            cin >> x;\r\n            ans = (ans + x * ((h[i-1] + h[n - i]) % mod)) % mod;\r\n        }\r\n        cout << ans<<\"\\n\";\r\n    }\r\n}\r\n",
+  "source_sha256": "65bcc246020e1cddde571c272a609db50f6d5106b2e6fbaac156de7a9baba123",
+  "solution_url": "https://www.codechef.com/viewsolution/1368459372",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368459372",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261735",
+  "scraped_at_utc": "2026-10-12T20:05:32.338Z"
+}

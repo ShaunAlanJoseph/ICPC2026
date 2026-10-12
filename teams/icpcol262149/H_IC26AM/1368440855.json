@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368440855",
+  "team_username": "icpcol262149",
+  "team_name": "icpcol262149",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:59:32.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:29:32 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:29:32 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "4.7M",
+  "memory_detail": "4.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst long long M=998244353;\r\n\r\nint main() {\r\n\tios::sync_with_stdio(0);\r\n\tcin.tie(0);\r\n\t\r\n\tint T,n;\r\n\tcin>>T;\r\n\tvector<long long> h(200001);\r\n\tfor (int i = 1;i<=200000;i++)\r\n\th[i]=(h[i-1]+[](long long a, long long b) {\r\n\t    long long r=1;\r\n\t     for (;b;b>>=1,a=a*a%M)\r\n\t     if (b&1) r=r*a%M;\r\n\t     return r;\r\n\t}(i,M-2))%M;\r\n\t\r\n\twhile (T--){\r\n\t    cin>>n;\r\n\t    long long x, ans=0;\r\n\t    for (int i =1;i<=n;i++)\r\n\t    cin >>x, ans=(ans+x*(h[i-1]+h[n-i]))% M;\r\n\t    cout << ans % M<< \"\\n\";\r\n\t}\r\n\r\n}",
+  "source_sha256": "06a7ce9260c142ac9bac40ffce532099e36297af67fffa581418bdfc65ac5478",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440855",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440855",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262149",
+  "scraped_at_utc": "2026-10-12T19:51:50.207Z"
+}

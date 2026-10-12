@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368462344",
+  "team_username": "icpcol260028",
+  "team_name": "icpcol260028",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:35:57.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:05:57 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:05:57 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.38",
+  "execution_time_detail": "",
+  "memory_status": "39.5M",
+  "memory_detail": "39.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.24)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\n\r\n\r\ndef solve(t):\r\n    mod=998244353\r\n    d=sys.stdin.read().split()\r\n    p=0\r\n    res=[]\r\n    mx=200005\r\n    iv=[0,1]+[0]*(mx-2)\r\n    for i in range(2,mx):\r\n        iv[i]=(mod-(mod//i)*iv[mod%i]%mod)%mod\r\n    h=[0]*mx\r\n    for i in range(1,mx):\r\n        h[i]=(h[i-1]+iv[i])%mod\r\n    for i in range(t):\r\n        n=int(d[p])\r\n        p+=1\r\n        ans=0\r\n        for j in range(1,n+1):\r\n            a=int(d[p+j-1])\r\n            ans=(ans+a*((h[j-1]+h[n-j])%mod))%mod\r\n        p+=n\r\n        res.append(ans)\r\n    for i in res:\r\n        print(i)\r\n    \r\ndef my():\r\n    n=int(sys.stdin.readline())\r\n    solve(n)\r\n\r\n\r\nmy()\r\n        ",
+  "source_sha256": "46c7b5dc7afde3f23b03ee093f56420687936bfbbbee7db2881bb2624e501c73",
+  "solution_url": "https://www.codechef.com/viewsolution/1368462344",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368462344",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260028",
+  "scraped_at_utc": "2026-10-12T20:08:12.824Z"
+}

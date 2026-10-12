@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368471860",
+  "team_username": "icpcol264929",
+  "team_name": "icpcol264929",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:52:24.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:24 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:24 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.17",
+  "execution_time_detail": "",
+  "memory_status": "6.8M",
+  "memory_detail": "6.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.03)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nconst long long mod=998244353;\r\nconst int N=200005;\r\nlong long inv[N],H[N];\r\n\r\nint main() {\r\n\tinv[1]=1;\r\n\tfor(int i=2;i<N;i++){\r\n\t    inv[i]=(mod-(mod/i)*inv[mod%i]%mod)%mod;\r\n\t    \r\n\t}\r\n\tH[0]=0;\r\n\tfor(int i=1;i<N;i++){\r\n\t    H[i]=(H[i-1]+inv[i])%mod;\r\n\t    \r\n\t}\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    long long ans=0;\r\n\t    for(int i=1;i<=n;i++){\r\n\t        long long a;\r\n\t        cin>>a;\r\n\t        long long c=(H[n-i]+H[i-1])%mod;\r\n\t        ans=(ans+a%mod*c)%mod;\r\n\t    }\r\n\t    cout<<ans<<endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "47b09e7b20ab9093921635a4d39c65cc21ad1e5fa66431cec5133cae8765ca77",
+  "solution_url": "https://www.codechef.com/viewsolution/1368471860",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368471860",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264929",
+  "scraped_at_utc": "2026-10-12T20:15:37.303Z"
+}

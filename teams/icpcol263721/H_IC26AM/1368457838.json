@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368457838",
+  "team_username": "icpcol263721",
+  "team_name": "icpcol263721",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:27:35.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:57:35 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:57:35 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.08",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.06)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\ntypedef long long int ll;\r\n\r\nconst ll mod= 998244353;\r\n\r\nll mul(ll a, ll b){\r\n    return ((a % mod) * (b % mod)) % mod;\r\n}\r\n\r\nll mpow(ll a, ll b){\r\n    a = a%mod;\r\n    ll res = 1;\r\n    \r\n    while(b>0){\r\n        if(b&1){\r\n            res = mul(res, a);\r\n        }\r\n        \r\n        a = mul(a, a);\r\n        b >>= 1;\r\n    }\r\n    \r\n    return res;\r\n}\r\n\r\nconst ll maxn = 2e5 +  10;\r\n\r\n\r\n\r\nll revseries[maxn];\r\n\r\nvoid pre(){\r\n    revseries[1] = 1;\r\n    for(ll i=2 ; i < maxn ;i++){\r\n        revseries[i] = revseries[i-1] + mpow(i , mod - 2);\r\n        revseries[i] %= mod;\r\n    }\r\n    \r\n}\r\n\r\n/*\r\n    if two elements are there\r\n    1 1 \r\n    when merged that value get added to s every time it get merged \r\n    s = value * no of time it get merged -> probablity or average no of merges\r\n    somethign like this\r\n    1 2 3 \r\n    1 + 1/2  1 1 + 1/2 + 1/3 \r\n    // left + right merge count * values = s\r\n    left posibiliy is sommethign like 1 + 1/2 + 1/3\r\n    \r\n\r\n*/\r\n\r\nvoid solve(){\r\n    ll n;cin >> n; \r\n    vector<ll> v(n); \r\n    for(auto &i: v){\r\n        cin >> i;\r\n    }\r\n    ll res = 0;\r\n    // last values can not merge with left part same with n-1 \r\n    for(ll i= 0 ;i<n; i++){\r\n        ll cnt = revseries[i] + revseries[n-i-1]; \r\n        cnt %= mod;\r\n        res += mul(cnt, v[i]);\r\n        res %= mod;\r\n    }\r\n    cout << res << \"\\n\"; return;\r\n    \r\n}\r\n\r\nint main() {\r\n    ios_base::sync_with_stdio(false); \r\n    cin.tie(0);\r\n    pre();\r\n\tll t; cin >> t; \r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "1716c9e7aca7f3422d434988de287c514fc98577ccdebb3dad969f349f1fe3e9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368457838",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368457838",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263721",
+  "scraped_at_utc": "2026-10-12T19:33:03.930Z"
+}

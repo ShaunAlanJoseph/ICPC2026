@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368455859",
+  "team_username": "icpcol262105",
+  "team_name": "icpcol262105",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:23:54.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:53:54 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:53:54 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.30",
+  "execution_time_detail": "",
+  "memory_status": "37.5M",
+  "memory_detail": "37.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.26)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\ndef solve():\r\n    input_data = sys.stdin.read().split()\r\n    if not input_data:\r\n        return \r\n    mod = 998244353\r\n    maxi = 200005\r\n    inv = [1]*maxi\r\n    h = [0]*maxi\r\n    for i in range(2,maxi):\r\n        inv[i] = mod-(mod//i)*inv[mod%i]%mod\r\n    for i in range(1,maxi):\r\n        h[i] = (h[i-1]+inv[i])%mod\r\n    out=  []\r\n    idx = 1\r\n    t = int(input_data[0])\r\n    for _ in range(t):\r\n        n = int(input_data[idx])\r\n        idx+=1\r\n        ans = 0\r\n        for i in range(n):\r\n            val = int(input_data[idx+i])\r\n            coeff = (h[i]+h[n-1-i])%mod\r\n            ans = (ans+val*coeff)%mod\r\n        idx+=n\r\n        out.append(str(ans))\r\n    sys.stdout.write('\\n'.join(out)+'\\n')\r\nif __name__=='__main__':\r\n    solve()\r\n            ",
+  "source_sha256": "22616e412531a6d92e395b0ec4eda6e15a28efdb41e2597c97ed6411f6b477df",
+  "solution_url": "https://www.codechef.com/viewsolution/1368455859",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368455859",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262105",
+  "scraped_at_utc": "2026-10-12T20:02:45.473Z"
+}

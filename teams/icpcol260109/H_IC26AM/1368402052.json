@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368402052",
+  "team_username": "icpcol260109",
+  "team_name": "icpcol260109",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:10:19.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:40:19 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:40:19 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.15",
+  "execution_time_detail": "",
+  "memory_status": "8.3M",
+  "memory_detail": "8.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.05)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define ll long long\r\n#define int ll\r\nconst ll MOD = 998244353;\r\nconst int MAX_N = 2e5 + 2;\r\nll harm[MAX_N];\r\nll inv_arr[MAX_N];\r\nll binexp(int x, int y) {\r\n    ll res = 1;\r\n    x %= MOD;\r\n    while (y>0) {\r\n        if (y&1) res = res * x % MOD;\r\n        x = x*x % MOD;\r\n        y >>= 1;\r\n    }\r\n    return res;\r\n}\r\nll inv(ll x) {\r\n    return binexp(x, MOD-2);\r\n}\r\nvoid precomp() {\r\n    harm[0] = 0;\r\n    for(int i=1;i<MAX_N;i++) {\r\n        inv_arr[i] = inv(i);\r\n        harm[i] = (harm[i-1] + inv_arr[i])%MOD;\r\n    }\r\n}\r\nsigned main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin >> t;\r\n\tprecomp();\r\n\twhile(t--) {\r\n\t    int n;\r\n\t    cin >> n;\r\n\t    ll arr[n];\r\n\t    for(int i=0;i<n;i++){\r\n\t        cin >> arr[i];\r\n\t    }\r\n\t    ll val = 0;\r\n\t    for(int i=0;i<n;i++){\r\n\t        int j = i+1;\r\n\t        (val += (arr[i] * ((harm[i] + harm[n-j])%MOD))%MOD)%=MOD;\r\n\t    }\r\n\t    cout << val << \"\\n\";\r\n\t}\r\n\t\r\n\r\n}\r\n",
+  "source_sha256": "3fda19ea1dcd313917b19d40b8b49fa9a9389890ff4b070a5b11ac081789735e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368402052",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368402052",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260109",
+  "scraped_at_utc": "2026-10-12T19:29:04.763Z"
+}

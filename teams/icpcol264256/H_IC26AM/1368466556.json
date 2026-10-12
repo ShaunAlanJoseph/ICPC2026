@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368466556",
+  "team_username": "icpcol264256",
+  "team_name": "icpcol264256",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:43:17.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:13:17 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:13:17 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.73",
+  "execution_time_detail": "",
+  "memory_status": "39.8M",
+  "memory_detail": "39.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.29)"
+    }
+  ],
+  "source_code": "M=998244353\r\nH=[0,1];v=[0,1]\r\nfor i in range(2, 200002):\r\n    v.append(-(M//i)*v[M%i]%M);H.append((H[-1]+v[-1])%M)\r\nfor _ in range(int(input())):\r\n    n = int(input())\r\n    print(sum(a*(H[n-k-1]+H[k]) for k,a in enumerate(map(int, input().split())))%M)\r\n",
+  "source_sha256": "ef2bfa5c0521e62d90ec8ba1778d5b2ea072fe89fed11f3dbe5812a6859486d2",
+  "solution_url": "https://www.codechef.com/viewsolution/1368466556",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368466556",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264256",
+  "scraped_at_utc": "2026-10-12T19:37:08.226Z"
+}

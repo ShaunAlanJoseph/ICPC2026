@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368468053",
+  "team_username": "icpcol265246",
+  "team_name": "icpcol265246",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:45:45.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:15:45 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:15:45 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.32",
+  "execution_time_detail": "",
+  "memory_status": "38.1M",
+  "memory_detail": "38.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.24)"
+    }
+  ],
+  "source_code": "import sys\r\n\r\ndef f():\r\n    d = sys.stdin.read().split()\r\n    \r\n    if not d :\r\n        return \r\n    t = int(d[0])\r\n    p = 1\r\n    m = 998244353\r\n    x = 200005\r\n    v = [0] * x\r\n    v[1] = 1\r\n    for i in range(2, x):\r\n        v[i] = (m - m// i) * v[m % i] % m \r\n    h =[0] * x \r\n    \r\n    for i in range(1, x):\r\n        h[i] = (h[i - 1] + v[i]) % m\r\n    o = []\r\n    for _ in range(t):\r\n        n = int(d[p])\r\n        p+= 1\r\n        a = 0 \r\n        for i in range(n):\r\n            c = (h[i] + h[n - 1 - i]) % m \r\n            a = (a + int(d[p]) * c) % m \r\n            p += 1\r\n        o.append(str(a))\r\n    sys.stdout.write('\\n'.join(o) + '\\n')\r\nif __name__ == '__main__':\r\n    f()\r\n        \r\n",
+  "source_sha256": "9a5c2ad341d31c9f978f3a5ef8d861feffe31fe303bae0eec8b64d6e5a68a254",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468053",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468053",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol265246",
+  "scraped_at_utc": "2026-10-12T20:13:09.075Z"
+}

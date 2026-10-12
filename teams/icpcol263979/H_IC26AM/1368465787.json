@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368465787",
+  "team_username": "icpcol263979",
+  "team_name": "icpcol263979",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:42:02.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:12:02 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:12:02 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.51",
+  "execution_time_detail": "",
+  "memory_status": "45.6M",
+  "memory_detail": "45.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.25)"
+    }
+  ],
+  "source_code": "import sys \r\ninput=sys.stdin.readline \r\nmod=998244353\r\nmaxn=200000\r\ninv=[0]*(maxn+1)\r\nharami=[0]*(maxn+1)\r\ninv[1]=1\r\nfor i in range(1,maxn+1):\r\n    if i>1:\r\n        inv[i]=mod-(mod//i)*inv[mod%i]%mod\r\n    harami[i]=(harami[i-1]+inv[i])%mod\r\nt=int(input())\r\nfor _ in range(t):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    res=0 \r\n    for i in range(n):\r\n        coef=(harami[i]+harami[n-1-i])%mod\r\n        res=(res+a[i]*coef)%mod\r\n    print(res)",
+  "source_sha256": "ecf3574a80a6ec9af923edff713cddac18800ca6313bffa3c1c7480e3e4ff049",
+  "solution_url": "https://www.codechef.com/viewsolution/1368465787",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368465787",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263979",
+  "scraped_at_utc": "2026-10-12T20:11:04.807Z"
+}

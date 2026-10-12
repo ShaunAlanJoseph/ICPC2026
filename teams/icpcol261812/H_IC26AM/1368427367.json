@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368427367",
+  "team_username": "icpcol261812",
+  "team_name": "icpcol261812",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:40:58.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:10:58 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:10:58 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.31",
+  "execution_time_detail": "",
+  "memory_status": "31.7M",
+  "memory_detail": "31.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.23)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nmod = 998244353\r\nt = int(input())\r\ntest = []\r\nmaxi = 0\r\nfor _ in range(t):\r\n    n = int(input())\r\n    a = list(map(int, input().split()))\r\n    test.append((n, a))\r\n    maxi = max(maxi, n)\r\ninverse = [0] * (maxi + 1)\r\nif maxi >= 1:\r\n    inverse[1] = 1\r\nfor i in range(2, maxi + 1):\r\n    inverse[i] = mod - (mod // i) * inverse[mod % i] % mod\r\nh = [0] * (maxi + 1)\r\nfor i in range(1, maxi + 1):\r\n    h[i] = (h[i - 1] + inverse[i]) % mod\r\nfor n, a in test:\r\n    ans = 0\r\n    for i in range(n):\r\n        co = (h[i] + h[n - 1 - i]) % mod\r\n        ans = (ans + a[i] * co) % mod\r\n    print(ans)",
+  "source_sha256": "37b02c6db0eb3af159f192deb1daebee443dde9a79d29a1c0b180b78904272a4",
+  "solution_url": "https://www.codechef.com/viewsolution/1368427367",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368427367",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261812",
+  "scraped_at_utc": "2026-10-12T19:43:37.856Z"
+}

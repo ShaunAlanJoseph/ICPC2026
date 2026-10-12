@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368471544",
+  "team_username": "icpcol262578",
+  "team_name": "icpcol262578",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:52:02.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:02 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:02 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.46",
+  "execution_time_detail": "",
+  "memory_status": "31.6M",
+  "memory_detail": "31.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.21)"
+    }
+  ],
+  "source_code": "m=998244353\r\nt=int(input())\r\nt1=[]\r\nEx=0\r\nfor _ in range(t):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    t1.append((n,a))\r\n    Ex=max(Ex,n)\r\ni=[0]*(Ex+1)\r\nif Ex>=1:\r\n    i[1]=1 \r\nfor j in range(2,Ex+1):\r\n    i[j]=m-(m//j)*i[m%j]%m\r\nh=[0]*(Ex+1)\r\nfor k in range(1,Ex+1):\r\n    h[k]=(h[k-1]+i[k])%m\r\nfor n,a in t1:\r\n    res=0\r\n    for l in range(n):\r\n        cof=(h[l]+h[n-1-l])%m \r\n        res=(res+a[l]*cof)%m \r\n    print(res)\r\n        ",
+  "source_sha256": "ff768e6fd818909124547eb578a4caf8174e7518e8d29ccd867d161fc202460e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368471544",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368471544",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262578",
+  "scraped_at_utc": "2026-10-12T20:15:37.226Z"
+}

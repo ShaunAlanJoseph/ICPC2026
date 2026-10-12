@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368389697",
+  "team_username": "icpcol265086",
+  "team_name": "icpcol265086",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T08:56:25.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:26:25 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:26:25 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.13",
+  "execution_time_detail": "1.13s",
+  "memory_status": "31.3M",
+  "memory_detail": "31.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.99)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.85)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.85)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.79)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.86)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.65)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nM=998244353\r\nfor _ in range(int(input())):\r\n n=int(input());a=list(map(int,input().split()))\r\n h=[0]*(n+1)\r\n for i in range(1,n+1):h[i]=(h[i-1]+pow(i,M-2,M))%M\r\n print(sum(x*(h[i]+h[n-i-1]) for i,x in enumerate(a))%M)",
+  "source_sha256": "67b5e06becf05cc9197736267dfa9eaf3b5f0c0334f5bc64727c788edf2fd0b1",
+  "solution_url": "https://www.codechef.com/viewsolution/1368389697",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368389697",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol265086",
+  "scraped_at_utc": "2026-10-12T19:37:39.374Z"
+}

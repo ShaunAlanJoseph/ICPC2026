@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368454878",
+  "team_username": "icpcol262185",
+  "team_name": "icpcol262185",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:22:22.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:52:22 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:52:22 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.21",
+  "execution_time_detail": "",
+  "memory_status": "31.9M",
+  "memory_detail": "31.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.19)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nMOD = 998244353\r\n\r\ndef solve():\r\n    ip = int(input())\r\n    tests = []\r\n    big_n = 0\r\n    for i in range(ip):\r\n        n = int(input())\r\n        arr = list(map(int , input().split()))\r\n        tests.append((n,arr))\r\n        big_n = max(big_n , n)\r\n    \r\n    harmonic = [0]*(big_n+1)\r\n    inverse = [0]*(big_n +1)\r\n    \r\n    if big_n >= 1:\r\n        inverse[1] = 1\r\n    for i in range(2,big_n+1):\r\n        inverse[i] = MOD - (MOD//i)*inverse[MOD%i]%MOD\r\n    for i in range(1,big_n+1):\r\n        harmonic[i] = (harmonic[i-1]+inverse[i])%MOD\r\n    for n,arr in tests:\r\n        expected = 0\r\n        for i,value in enumerate(arr):\r\n            left = harmonic[i]\r\n            right = harmonic[n-1-i]\r\n            \r\n            contribution = value*(left+right)\r\n            expected = (expected+contribution)%MOD\r\n        print(expected)\r\nsolve()",
+  "source_sha256": "a53689605b5c26434712bdc6609fd851cd52dcf8063d6787d44baa77f414c430",
+  "solution_url": "https://www.codechef.com/viewsolution/1368454878",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368454878",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262185",
+  "scraped_at_utc": "2026-10-12T20:00:43.783Z"
+}

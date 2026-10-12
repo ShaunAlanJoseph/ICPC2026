@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368420846",
+  "team_username": "icpcol264066",
+  "team_name": "icpcol264066",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:31:12.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:01:12 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:01:12 PM",
+  "language": "PyPy 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.33",
+  "execution_time_detail": "",
+  "memory_status": "87.9M",
+  "memory_detail": "87.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.21)"
+    }
+  ],
+  "source_code": "t=int(input())\r\nMOD=998244353\r\n\r\nwhile(t>0):\r\n    t-=1\r\n    n=int(input())\r\n    *a, = map(int, input().split())\r\n    \r\n    f=[0]*n\r\n    suum=0\r\n    for i in range(1,n):\r\n        f[i] = (1 + ((pow(i,-1,MOD)*suum)%MOD))%MOD\r\n        suum = (suum+f[i])%MOD\r\n        \r\n    ans=0\r\n    for i in range(n):\r\n        ans = (ans+((a[i]*((f[i]+f[n-1-i])%MOD))%MOD))%MOD\r\n    \r\n    print(ans)\r\n        ",
+  "source_sha256": "0746149d1c072b837a1b92dd5a7b4a546565cfb035c6223f7793d76edb2cab53",
+  "solution_url": "https://www.codechef.com/viewsolution/1368420846",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368420846",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264066",
+  "scraped_at_utc": "2026-10-12T19:25:58.443Z"
+}

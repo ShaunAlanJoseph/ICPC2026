@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368467669",
+  "team_username": "icpcol261349",
+  "team_name": "icpcol261349",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:45:01.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:15:01 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:15:01 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.82",
+  "execution_time_detail": "",
+  "memory_status": "60.1M",
+  "memory_detail": "60.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.47)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static final int MOD = 998244353;\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\t// your code goes here\r\n\t\tScanner sc = new Scanner(System.in);\r\n\t\t\r\n\t\tif(!sc.hasNextInt()) return;\r\n\t\t\r\n\t\tint Max = 200005;\r\n\t\t\r\n\t\tlong[] inv = new long[Max];\r\n\t\t\r\n\t\tinv[1] = 1;\r\n\t\t\r\n\t\tfor(int i = 2; i < Max; i++){\r\n\t\t    inv[i] = (MOD -(MOD/i)* inv[MOD % i] % MOD) % MOD;\r\n\t\t    \r\n\t\t}\r\n\t\tlong[] h = new long[Max];\r\n\t\t\r\n\t\th[0] = 0;\r\n\t\t\r\n\t\tfor(int i = 1; i < Max; i++){\r\n\t\t    h[i] = (h[i-1] + inv[i]) % MOD;\r\n\t\t}\r\n\t\tint t = sc.nextInt();\r\n\t\t\r\n\t\twhile(t --> 0){\r\n\t\t    int n = sc.nextInt();\r\n\t\t    long[] a = new long[n];\r\n\t\t    \r\n\t\t    for(int i = 0; i < n; i++){\r\n\t\t        a[i] = sc.nextLong();\r\n\t\t    }\r\n\t\t    \r\n\t\t    if(n == 1){\r\n\t\t        System.out.println(0);\r\n\t\t        continue;\r\n\t\t    }\r\n\t\t    \r\n\t\t    long Ts = 0;\r\n\t\t    \r\n\t\t    for(int i = 0; i < n; i++){\r\n\t\t        long coffe = (h[i] + h[n-1-i]) % MOD;\r\n\t\t        long contri = (a[i] % MOD) * coffe % MOD;\r\n\t\t        Ts = (Ts + contri) % MOD;\r\n\t\t    }\r\n\t\t    System.out.println(Ts);\r\n\t\t}\r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "905feba466ed8f73c999bfbec7bf769a0c231c97ee678ed2bde628b5849a4115",
+  "solution_url": "https://www.codechef.com/viewsolution/1368467669",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368467669",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol261349",
+  "scraped_at_utc": "2026-10-12T20:12:37.952Z"
+}

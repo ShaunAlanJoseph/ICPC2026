@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368442138",
+  "team_username": "icpcol262422",
+  "team_name": "icpcol262422",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:01:35.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:31:35 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:31:35 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.76",
+  "execution_time_detail": "2.76s",
+  "memory_status": "44.5M",
+  "memory_detail": "44.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(1.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.85)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(1.94)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(2.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(2.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(2.76)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(2.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.66)"
+    }
+  ],
+  "source_code": "import sys\r\nfrom array import array \r\n\r\nMOD = 998244353\r\nMAXN = 2000000\r\n\r\ninv = array('I', [0]) * (MAXN + 1)\r\ninv[1] = 1\r\n\r\nfor i in range(2, MAXN + 1):\r\n    inv[i] = MOD - (MOD // i ) * inv[MOD % i] % MOD\r\n    \r\nH = array('I' , [0]) * (MAXN + 1)\r\n\r\nfor i in range(1,MAXN + 1):\r\n    H[i] = (H[i - 1] + inv[i]) % MOD\r\ndef solve():\r\n    input = sys.stdin.buffer.readline\r\n    t = int(input())\r\n    \r\n    out = []\r\n    \r\n    for _ in range(t):\r\n        n = int(input())\r\n        a = list(map(int, input().split()))\r\n        \r\n        ans = 0\r\n        for i in range(n):\r\n            coefficient = H[i] + H[n - 1 - i]\r\n            if coefficient >= MOD :\r\n                coefficient -= MOD\r\n            ans = (ans + a[i] * coefficient) % MOD\r\n        out.append(str(ans))\r\n        \r\n    sys.stdout.write(\"\\n\".join(out))\r\n    \r\nsolve()",
+  "source_sha256": "5367e9e8fb8a98d1f5b80a7dce732f457d7043bc384986c071467b005d0c5c63",
+  "solution_url": "https://www.codechef.com/viewsolution/1368442138",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368442138",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262422",
+  "scraped_at_utc": "2026-10-12T19:52:47.612Z"
+}

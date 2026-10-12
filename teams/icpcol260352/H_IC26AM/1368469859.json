@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368469859",
+  "team_username": "icpcol260352",
+  "team_name": "icpcol260352",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:49:01.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:19:01 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:19:01 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.23",
+  "execution_time_detail": "",
+  "memory_status": "36M",
+  "memory_detail": "36M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.13)"
+    }
+  ],
+  "source_code": "import sys\r\nMOD = 998244353\r\ndef main():\r\n    data = sys.stdin.buffer.read().split()\r\n    N = 200001\r\n    inv = [0, 1] + [0] * (N - 1)\r\n    for i in range(2, N + 1):\r\n        inv[i] = (MOD - (MOD // i) * inv[MOD % i] % MOD) % MOD\r\n    H = [0] * (N + 1)\r\n    for i in range(1, N + 1):\r\n        H[i] = (H[i - 1] + inv[i]) % MOD\r\n    t = int(data[0]); p = 1\r\n    out = []\r\n    for _ in range(t):\r\n        n = int(data[p]); p += 1\r\n        s = 0\r\n        for j in range(1, n + 1):\r\n            s += int(data[p + j - 1]) * (H[j - 1] + H[n - j])\r\n        p += n\r\n        out.append(s % MOD)\r\n    print(\"\\n\".join(map(str, out)))\r\n    \r\nmain()",
+  "source_sha256": "653f5dfe828ae508348c499d009ee98827cc3e59f0bc44ac16c10ca527402429",
+  "solution_url": "https://www.codechef.com/viewsolution/1368469859",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368469859",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260352",
+  "scraped_at_utc": "2026-10-12T20:14:11.362Z"
+}

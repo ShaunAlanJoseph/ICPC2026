@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368468318",
+  "team_username": "icpcol260558",
+  "team_name": "icpcol260558",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:46:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:16:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:16:11 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.11",
+  "execution_time_detail": "",
+  "memory_status": "6.8M",
+  "memory_detail": "6.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\ntypedef long long ll;\r\nconst ll MOD = 998244353;\r\nconst int N = 200005;\r\n\r\n\r\nll inverse_[N], Hero[N];\r\n\r\nint main() {\r\n\t// marlboro RED.\r\n\t\r\n\tinverse_[1]=1;\r\n\tfor(int i=2;i<N;i++) inverse_[i] =(MOD -(MOD/i)*inverse_[MOD%i]%MOD) %MOD;\r\n\tHero[0]=0;\r\n\tfor(int i=1;i<N;i++) Hero[i] = Hero[i-1] + inverse_[i] % MOD;\r\n\t\r\n    int t;\r\n    cin >> t;\r\n    while(t--){\r\n        \r\n        int n;\r\n        cin >> n;\r\n        \r\n        ll ans = 0;\r\n        \r\n        for(int j=1;j<=n;j++){\r\n            ll a;\r\n            cin >> a;\r\n            ll c = (Hero[j-1]+Hero[n-j])%MOD;\r\n            ans = (ans +a%MOD *c)%MOD;\r\n        }\r\n        cout<<ans<<endl;\r\n    }\r\n}\r\n",
+  "source_sha256": "8b151f5f4c8a99eae7bdb5a062d5e8056456915be685d7393ada720fc76541e9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468318",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468318",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol260558",
+  "scraped_at_utc": "2026-10-12T20:13:09.074Z"
+}

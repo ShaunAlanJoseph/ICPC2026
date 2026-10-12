@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368450421",
+  "team_username": "icpcol263670",
+  "team_name": "icpcol263670",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:14:40.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:44:40 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:44:40 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "4.8M",
+  "memory_detail": "4.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.07)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\n\r\nconst int MOD= 998244353;\r\nint power(int b,int e){\r\n    int r=1;\r\n    b%=MOD;\r\n    while(e>0){\r\n        if(e&1)r=r*b%MOD;\r\n        b=(b*b)%MOD;\r\n        e>>=1;\r\n    }\r\n    return r;\r\n}\r\n\r\n\r\nsigned main() {\r\n\t// your code goes here\r\n\tint t; cin>>t;\r\n\twhile(t--){\r\n\t    int n; cin>>n;\r\n\t    vector<int>arr(n+1,0);\r\n\t    for(int i=1;i<=n;i++){\r\n\t        arr[i]= (arr[i-1]+power(i,MOD-2))%MOD;\r\n\t    }\r\n\t    int ans=0;\r\n\t    for(int i=1;i<=n;i++){\r\n\t        int a; cin>>a;\r\n\t        ans=(ans+a*((arr[i-1]+arr[n-i])%MOD))%MOD;\r\n\t    }\r\n\t    cout<<ans<<endl;\r\n\t}\r\n\treturn 0;\r\n\r\n}\r\n",
+  "source_sha256": "76d63d18d9a3fb447ab57c66921ad03137ae7b7eae61c57caeaf29b0221e32f6",
+  "solution_url": "https://www.codechef.com/viewsolution/1368450421",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368450421",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263670",
+  "scraped_at_utc": "2026-10-12T19:58:54.079Z"
+}

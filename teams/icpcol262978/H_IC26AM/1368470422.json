@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368470422",
+  "team_username": "icpcol262978",
+  "team_name": "icpcol262978",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:49:58.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:19:58 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:19:58 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.13",
+  "execution_time_detail": "",
+  "memory_status": "9.4M",
+  "memory_detail": "9.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.11)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int long long\r\n\r\nconst int MOD = 998244353;\r\n\r\nint bp(int x, int p)\r\n{\r\n    if(p==0) return 1;\r\n    int q = bp(x, p/2);\r\n    q *= q;\r\n    q %= MOD;\r\n    if(p%2)\r\n    {\r\n        q *= x;\r\n        q %= MOD;\r\n    }\r\n    return q;\r\n}\r\n\r\nint mi(int x)\r\n{\r\n    x %= MOD;\r\n    return bp(x, MOD-2);\r\n}\r\n\r\nconst int MXN = 200005;\r\n\r\nint fact[MXN]{};\r\nint inv[MXN]{};\r\n\r\nint nCr(int n, int r)\r\n{\r\n    int ans = fact[n];\r\n    ans *= inv[r];\r\n    ans %= MOD;\r\n    ans *= inv[n-r];\r\n    ans %= MOD;\r\n    return ans;\r\n}\r\n\r\n// void solve()\r\n// {\r\n//     int n;\r\n//     cin>>n;\r\n    \r\n//     int ans = 0;\r\n//     vector<int> a(n+1, 0);\r\n//     for(int i=1; i<=n; i++)\r\n//     {\r\n//         cin>>a[i];\r\n//     }\r\n    \r\n//     if(n==1)\r\n//     {\r\n//         cout<<0<<\"\\n\";\r\n//         return;\r\n//     }\r\n    \r\n//     ans += ((bp(2, n-1))*a[1])%MOD;\r\n//     ans += ((bp(2, n-1))*a[n])%MOD;\r\n//     ans %= MOD;\r\n    \r\n//     for(int i=2; i<=n; i++)\r\n//     {\r\n//         int ta = bp(2, n-2);\r\n//         ta *= nCr(n-1, n-i);\r\n//         ta %= MOD;\r\n//         ta *= inv[n-1];\r\n//         ta %= MOD;\r\n//         ans += ta;\r\n//         ans %= MOD;\r\n//         ans *= a[i];\r\n//         ans %= MOD;\r\n//     }\r\n    \r\n//     cout<<ans<<\"\\n\";\r\n    \r\n    \r\n// }\r\n\r\n// void solve()\r\n// {\r\n//     int n, k;\r\n//     cin>>n>>k;\r\n    \r\n//     vector<int> a(n+1, 0);\r\n//     for(int i=1; i<=n; i++)\r\n//     {\r\n//         cin>>a[i];\r\n//     }\r\n//     if(n==1)\r\n//     {\r\n//         cout<<0<<\"\\n\";\r\n//         return;\r\n//     }\r\n    \r\n//     vector<vector<int>> dp(n+1, vector<int>(n+1, 0));\r\n    \r\n//     dp[2][1] = 1;\r\n//     dp[2][2] = 1;\r\n    \r\n//     for(int k=3; k<=n; k++)\r\n//     {\r\n//         dp[k][1] = (1 + dp[k-1][1])%MOD;\r\n//         dp[k][1] *= mi(k-1);\r\n//         dp[k][1] %= MOD;\r\n//         dp[k][k]= dp[k][1];\r\n//         for(int i=2; i<k; i++)\r\n//         {\r\n//             dp[k][i] = 2 + (i-1)*(dp[k-1][i-1]) + (k-i)*(dp[k-1][i]);\r\n//             dp[k][i] %= MOD;\r\n//             dp[k][i] *= mi(k-1);\r\n//             dp[k][i] %= MOD;\r\n//         }\r\n        \r\n//         // for(int i=1; i<=k; i++)\r\n//         // {\r\n//         //     cout<<dp[k][i]<<\" \";\r\n//         // }\r\n//         // cout<<\"\\n\";\r\n//     }\r\n    \r\n//     int ans = 0;\r\n//     for(int i=1; i<=n; i++)\r\n//     {\r\n//         ans += a[i]*dp[n][i];\r\n//         ans %= MOD;\r\n//     }\r\n    \r\n//     cout<<ans<<\"\\n\";\r\n// }\r\n\r\nvoid solve()\r\n{\r\n    int n;\r\n    cin>>n;\r\n    \r\n    vector<int> a(n+1, 0);\r\n    \r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        cin>>a[i];\r\n    }\r\n    \r\n    vector<int> pref(n+1, 0);\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        pref[i] = pref[i-1] + mi(i);\r\n        pref[i] %= MOD;\r\n    }\r\n    \r\n    int ans = 0;\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        int xx = pref[i-1] + pref[n-i];\r\n        xx %= MOD;\r\n        ans += xx*a[i];\r\n        ans %= MOD;\r\n    }\r\n    \r\n    cout<<ans<<\"\\n\";\r\n}\r\n\r\nsigned main() {\r\n\t// your code goes here\r\n\tios::sync_with_stdio(0);\r\n\tcin.tie(0);\r\n\t\r\n\tfact[0] = 1;\r\n\tinv[0] = 1;\r\n\tfor(int i=1; i<MXN; i++)\r\n\t{\r\n\t    fact[i] = fact[i-1]*i;\r\n\t    fact[i] %= MOD;\r\n\t    inv[i] = mi(fact[i]);\r\n\t}\r\n\t\r\n\tint t = 1;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t    solve();\r\n\t}\r\n}\r\n",
+  "source_sha256": "aff7d65696e2c30737464c27bd2b2898954c274801558bf88f7195a8c966af47",
+  "solution_url": "https://www.codechef.com/viewsolution/1368470422",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368470422",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262978",
+  "scraped_at_utc": "2026-10-12T19:29:04.870Z"
+}

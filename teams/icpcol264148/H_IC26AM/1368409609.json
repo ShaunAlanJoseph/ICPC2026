@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368409609",
+  "team_username": "icpcol264148",
+  "team_name": "icpcol264148",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:20:21.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:50:21 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:50:21 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.03",
+  "execution_time_detail": "",
+  "memory_status": "5M",
+  "memory_detail": "5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n#define loop_forward(i,a,b) for(int i =a;i<b;i++)\r\n#define vi vector<int>\r\n#define pb push_back\r\nconst long long MD=998244353;\r\nios::sync_with_stdio(0),cin.tie(0);\r\nconst int LIM=200001;\r\nvi iv, hh;\r\niv.pb(0),iv.pb(1),hh.pb(0),hh.pb(1);\r\nloop_forward(k,2,LIM+1){\r\n    iv.pb((int) ((MD-(MD/k)*iv[MD%k]%MD)%MD));\r\n    hh.pb((int) (((long long)hh[k-1]+iv[k])%MD));\r\n}\r\nint t;\r\ncin>>t;\r\nwhile(t--){\r\n    int n;\r\n    cin>>n;\r\n    long long acc=0;\r\n    loop_forward(j,1,n+1){\r\n    long long x;\r\n    cin>>x;\r\n    acc=(acc+x%MD*(((long long)hh[j-1]+hh[n-j])%MD))%MD;\r\n}\r\n    cout<<acc<<\"\\n\";\r\n}\r\n\r\nreturn 0;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n",
+  "source_sha256": "8d14a01e90ca06a11f4a1124875c18ba79ccd407f47ffea221d9e464d55f044d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368409609",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368409609",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264148",
+  "scraped_at_utc": "2026-10-12T19:39:13.371Z"
+}

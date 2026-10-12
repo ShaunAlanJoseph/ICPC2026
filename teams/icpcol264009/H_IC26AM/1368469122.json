@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368469122",
+  "team_username": "icpcol264009",
+  "team_name": "icpcol264009",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:47:40.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:17:40 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:17:40 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.04",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nconst int MAX_SIZE = 200005;\r\nconst long long MOD = 998244353;\r\n\r\nlong long  expectedContri(const vector<long long>&harmonic, int length, int position, long long value){\r\n    long long weight = (harmonic[length - position] + harmonic[position - 1]) % MOD;\r\n    return weight * (value % MOD)%MOD;\r\n}\r\n\r\nvector<long long>buildHarmonicPrefix(int limit){\r\n    vector<long long> harmonic(limit, 0), inverse(limit);\r\n    inverse[1] = 1; \r\n    int i = 2; \r\n    while(i < limit){\r\n        inverse[i] = (MOD - (MOD/i)* inverse[MOD%i]%MOD )%MOD;\r\n        i++;\r\n    }\r\n    \r\n    for(int j = 1 ; j<limit ; j++) harmonic[j] = (inverse[j] + harmonic[j-1])% MOD;\r\n    return harmonic;\r\n}\r\n\r\n\r\nlong long solveCase(const vector<long long>&harmonic, int length){\r\n    long long total = 0;\r\n    int position = 1 ; \r\n    while(position <= length){\r\n        long long value; \r\n        cin >> value;\r\n        total = (expectedContri(harmonic, length, position, value) + total)% MOD;\r\n        position++;\r\n    }\r\n    \r\n    return total;\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n\t\r\n\tcin.tie(nullptr);\r\n\tios::sync_with_stdio(false);\r\n\t\r\n\tvector<long long> harmonic = buildHarmonicPrefix(MAX_SIZE);\r\n\tint t;\r\n\t\r\n\tcin >> t;\r\n\t\r\n\twhile(t--){\r\n\t    int length;\r\n\t    cin >> length;\r\n\t    \r\n\t    cout << solveCase(harmonic, length)  << \"\\n\";\r\n\t}\r\n\t\r\n\treturn 0;\r\n\r\n}\r\n",
+  "source_sha256": "6ff384e0ea87fdc6b4093c26b90f19f5f6075cdc46c63f0665f35b36eaf6fd0d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368469122",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368469122",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264009",
+  "scraped_at_utc": "2026-10-12T20:13:40.210Z"
+}

@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368467492",
+  "team_username": "icpcol264526",
+  "team_name": "icpcol264526",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:44:46.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:14:46 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:14:46 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll = long long;\r\n\r\n// void solve(){\r\n    \r\n// }\r\nconst ll MOD=998244353;\r\nlong long binpow(ll b,ll a)\r\n{\r\n    ll r=1;\r\n    b=b%MOD;\r\n    while(a>0)\r\n    {\r\n        if(a&1)r=r*b%MOD;\r\n        b=b*b%MOD;\r\n        a=a/2;\r\n    }\r\n    return r;\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n    int t; cin >> t;\r\n    while(t--){\r\n        ll n; cin >> n;\r\n        vector<ll> a(n+1);\r\n        for(int i=1;i<=n;i++)cin>>a[i];\r\n        \r\n        vector<ll>pre(n+1,0);\r\n        for(int i=1;i<=n;i++)\r\n        {\r\n            pre[i]=(pre[i-1]%MOD + a[i]%MOD)%MOD;\r\n        }\r\n        \r\n        ll ans=0;\r\n        for(int i=1;i<=n-1;i++)\r\n        {\r\n            \r\n            ll suff=(pre[n]-pre[i]+MOD)%MOD;\r\n            ll sum=(suff%MOD+pre[n-i]%MOD)%MOD;\r\n            ans=(ans+sum*binpow(i,MOD-2))%MOD;\r\n        }\r\n        cout<<ans<<endl;\r\n        \r\n    }\r\n}\r\n",
+  "source_sha256": "59ba85f4a472ddf40153bc1f99f669fdef7ea44c80ecc865f086af36e02164c9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368467492",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368467492",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264526",
+  "scraped_at_utc": "2026-10-12T19:27:01.258Z"
+}

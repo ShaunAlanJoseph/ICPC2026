@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368468108",
+  "team_username": "icpcol263574",
+  "team_name": "icpcol263574",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:45:50.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:15:50 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:15:50 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "5.2M",
+  "memory_detail": "5.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int long long\r\n\r\n\t// your code goes here\r\n    const int MD = 998244353;\r\n    const int N = 200005;\r\n    int h[N];\r\n    \r\n    int inv(int i){\r\n        return i <= 1 ? 1 :(MD-MD/i)* inv(MD % i) % MD;\r\n        \r\n    \r\n    \r\n}\r\n\r\nint32_t main(){\r\n    for(int i=1;i<N;i++){\r\n        h[i]=(h[i-1]+ inv(i))% MD;\r\n        \r\n    }\r\n    int t;\r\n    if(cin>>t){\r\n        while(t--){\r\n            int n;\r\n            cin>>n;\r\n            \r\n            int ans=0;\r\n            for(int i=0;i<n;i++){\r\n                int v;\r\n                cin>>v;\r\n                ans = (ans + v *(h[i]+h[n-1-i])) % MD;\r\n                \r\n            }\r\n            cout<<ans<<\"\\n\";\r\n        }\r\n    }\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "aff72b6c4f856801254e74fdc70165b090d925e602f9124f9fa6568ed3a687b6",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468108",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468108",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol263574",
+  "scraped_at_utc": "2026-10-12T20:13:09.072Z"
+}

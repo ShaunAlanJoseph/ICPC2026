@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368466608",
+  "team_username": "icpcol262928",
+  "team_name": "icpcol262928",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:43:22.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:13:22 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:13:22 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.09",
+  "execution_time_detail": "",
+  "memory_status": "6.2M",
+  "memory_detail": "6.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\n# define int long long\r\n# define mod 998244353\r\nusing namespace std;\r\n\r\nint pow(int base, int exp){\r\n    base = base % mod;\r\n    \r\n    if (exp == 0){\r\n        return 1;\r\n    }\r\n    \r\n    int half = pow(base, exp / 2);\r\n    int ans = (half * half) % mod;\r\n    \r\n    if (exp & 1){\r\n        ans *= base;\r\n    }\r\n    \r\n    return ans;\r\n}\r\n\r\nint mod_inverse(int x){\r\n    return pow(x, mod - 2);\r\n}\r\n\r\nvector<int> calc_inverse(int n){\r\n    vector<long long> inv(n + 1, 0);\r\n    \r\n    inv[1] = 1;\r\n    for (int i = 2; i <= n; i++){\r\n        inv[i] = (mod - ((mod / i) * inv[mod % i]) % mod) % mod;\r\n    }\r\n    \r\n    return inv;\r\n}\r\n\r\nvector<int> calc_har(vector<int> &inv, int n){\r\n    vector<int> har(n + 1, 0);\r\n    \r\n    for (int i = 1; i <= n; i++){\r\n        har[i] = (har[i - 1] + inv[i]) % mod;\r\n    }\r\n    \r\n    return har;\r\n}\r\n\r\nint32_t main() {\r\n    vector<int> inv = calc_inverse(200000 + 1);\r\n    vector<int> har = calc_har(inv, 200000 + 1);\r\n    \r\n\tint t;\r\n\tcin >> t;\r\n\t\r\n\twhile (t--){\r\n\t    int n;\r\n\t    cin >> n;\r\n\t    \r\n\t    int ans = 0;\r\n\t    \r\n\t    for (int i = 1; i <= n; i++){\r\n\t        int a;\r\n\t        cin >> a;\r\n\t        \r\n\t        int d = (har[i - 1] + har[n - i]) % mod;\r\n\t        ans = (ans + a % mod * d) % mod;\r\n\t    }\r\n\t    \r\n\t    cout << ans << \"\\n\";\r\n\t}\r\n\t\r\n\treturn 0;\r\n}\r\n",
+  "source_sha256": "b855ef568a9a111d967dce4fa9e1e765f77e721bf7450d2b4cc8ba8f6e503c56",
+  "solution_url": "https://www.codechef.com/viewsolution/1368466608",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368466608",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262928",
+  "scraped_at_utc": "2026-10-12T19:30:07.164Z"
+}

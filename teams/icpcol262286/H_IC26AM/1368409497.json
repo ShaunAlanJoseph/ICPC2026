@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368409497",
+  "team_username": "icpcol262286",
+  "team_name": "icpcol262286",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T09:20:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:50:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:50:11 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.80",
+  "execution_time_detail": "",
+  "memory_status": "38M",
+  "memory_detail": "38M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.79)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.66)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.78)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.68)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nMOD=998244353\r\nMAXN=200000\r\nH=[0]*(MAXN+1)\r\nfor i in range(1,MAXN+1):\r\n    H[i]=(H[i-1]+pow(i,MOD-2,MOD))%MOD\r\ndef solve():\r\n    import sys\r\n    input=sys.stdin.readline\r\n    t=int(input())\r\n    ans=[]\r\n    for v in range(t):\r\n        n=int(input())\r\n        a=list(map(int,input().split()))\r\n        total=0\r\n        for i in range(n):\r\n            coefficient=(H[i]+H[n-i-1])%MOD\r\n            total=(total+a[i]*coefficient)%MOD\r\n        ans.append(str(total))\r\n    print(\"\\n\".join(ans))\r\nif __name__ ==\"__main__\":\r\n    solve()",
+  "source_sha256": "a79653184c0b6e025bfac597642ffd42ac69b8274b97bb631163a5be95971d36",
+  "solution_url": "https://www.codechef.com/viewsolution/1368409497",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368409497",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol262286",
+  "scraped_at_utc": "2026-10-12T19:24:56.087Z"
+}

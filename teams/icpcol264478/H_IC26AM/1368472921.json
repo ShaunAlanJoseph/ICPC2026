@@ -1,0 +1,95 @@
+{
+  "submission_id": "1368472921",
+  "team_username": "icpcol264478",
+  "team_name": "icpcol264478",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "H",
+  "problem_code": "IC26AM",
+  "problem_title": "Random Merging",
+  "submitted_at_utc": "2026-10-03T10:54:04.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:24:04 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:24:04 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.14",
+  "execution_time_detail": "",
+  "memory_status": "6.3M",
+  "memory_detail": "6.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.05)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll = long long;\r\nconst ll mod = 998244353;\r\nconst int N = 200000;\r\n\r\n\r\nint main() {\r\n    int t;\r\n    cin >> t;\r\n    vector<ll>inv(N+1) , pre(N+1,0);\r\n    inv[1] = 1;\r\n    for(int i=2;i<=N;i++){\r\n        inv[i] = mod - (mod/i)*inv[mod%i] % mod;\r\n    }\r\n    for(int i=1;i<=N;i++){\r\n        pre[i] = (pre[i-1] + inv[i] ) % mod;\r\n    }\r\n    \r\n    while (t--) {\r\n        int n;\r\n        cin>>n;\r\n        ll ans = 0;\r\n        for(int i=1;i<=n;i++){\r\n            ll x;\r\n            cin>>x;\r\n            ll curr = (pre[i-1] + pre[n-i]) % mod;\r\n            ans = (ans + x*curr) % mod;\r\n        }\r\n        cout<<ans<<endl;\r\n    }\r\n    return 0;\r\n}",
+  "source_sha256": "824a8c76c359648cf808e2bcbf3678e03ae0ba607f8013739af3166ba186adb9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472921",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472921",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26AM?usernames=icpcol264478",
+  "scraped_at_utc": "2026-10-12T19:25:27.238Z"
+}
