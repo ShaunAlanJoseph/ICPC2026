@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368460397",
+  "team_username": "icpcol263606",
+  "team_name": "icpcol263606",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T10:32:23.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:02:23 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:02:23 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\nint main(){\r\n    \r\nios::sync_with_stdio(false);\r\ncin.tie(nullptr);\r\nint t;\r\ncin>>t;\r\nwhile(t--){\r\n   int cnt[4];\r\n    int n=0;\r\n    for(int i =0; i<4;i++){\r\n        cin>>cnt[i];\r\n        n+=cnt[i];\r\n        \r\n    }\r\n    string answer;\r\n    for ( int last=0; last<4;++last){\r\n        if (cnt[last]==0) continue;\r\n        --cnt[last];\r\n        int a = cnt[0];\r\n        int b = cnt[1];\r\n        int c = cnt[2];\r\n        int d  = cnt[3];\r\n        int length =n-1;\r\n        auto zeros = [&](int pairs){\r\n            return a+c+min({a,length/2-pairs , b+d -2 *pairs});\r\n            \r\n        };\r\n        auto consider = [&](int pairs){\r\n            int z = zeros(pairs);\r\n            int ones = length -z-2*pairs;\r\n            string current;\r\n            current.reserve(n+1);\r\n            current.append(z,'0');\r\n            for (int i=0;i< pairs; ++i) {\r\n                current+=\"01\";\r\n                \r\n            }\r\n            current.append(ones,'1');\r\n            current+=char('0'+last/2);\r\n            current+=char ('0'+last%2);\r\n            if (answer.empty()|| current<answer) {\r\n                answer=current;\r\n            }\r\n        };\r\n        consider(0);\r\n        int limit = min(b,length/2);\r\n        if (limit>=1) {\r\n            int target = zeros (1);\r\n            int low = 1;\r\n            int high =limit;\r\n            while (low<high){\r\n                int mid = low + (high-low+1)/2 ;\r\n                if (zeros(mid)==target){\r\n                    low = mid;\r\n                }\r\n                else {\r\n                    high=mid-1;\r\n                    \r\n                }\r\n                \r\n            }\r\n            consider(low);\r\n            \r\n        }\r\n        ++cnt[last];\r\n        \r\n        \r\n        \r\n    }\r\n    cout<<answer<<endl;\r\n    \r\n        \r\n        \r\n}    \r\n   \r\nreturn 0;\r\n\t\r\n\r\n}\r\n",
+  "source_sha256": "eec2528840d1a33d3e9e9119beeaa104331e0dff0ece24d30c98b12726b0c492",
+  "solution_url": "https://www.codechef.com/viewsolution/1368460397",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368460397",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol263606",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+

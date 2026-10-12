@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368429363",
+  "team_username": "icpcol262286",
+  "team_name": "icpcol262286",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T09:43:28.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:13:28 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:13:28 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.08",
+  "execution_time_detail": "",
+  "memory_status": "11.8M",
+  "memory_detail": "11.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\nTP=[\"00\",\"01\",\"10\",\"11\"]\r\ndef solve(c):\r\n    if sum(c)==1:\r\n        return TP[c.index(1)]\r\n    best=None\r\n    for last in range(4):\r\n        if c[last]==0:\r\n            continue\r\n        d=c[:]\r\n        d[last]-=1\r\n        A,B,C,E=d\r\n        ps=max(0,min(B,(B+E-A)//2)) if B+E -A>=0 else 0\r\n        for p in (ps,ps+1):\r\n            if p>B:\r\n                continue\r\n            fr=B-p+E-p\r\n            if fr <0:\r\n                continue\r\n            a2=min(A,fr)\r\n            s=\"0\"*(A+a2+C)+\"01\"*p+\"1\"*(fr-a2)+TP[last]\r\n            if best is None or s<best:\r\n                best=s\r\n    return best\r\ndef main():\r\n    data=sys.stdin.buffer.read().split()\r\n    t=int(data[0])\r\n    out=[]\r\n    for q in range(t):\r\n        out.append(solve([int(v) for v in data [1+4*q:5+4*q]]))\r\n    sys.stdout.write(\"\\n\".join(out)+\"\\n\")\r\nmain()",
+  "source_sha256": "85e0b54b2ab50f03e4e53b8a6e07c2647d328f134e9d922a344179f4eed414d2",
+  "solution_url": "https://www.codechef.com/viewsolution/1368429363",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368429363",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol262286",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+

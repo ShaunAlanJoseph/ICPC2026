@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368446380",
+  "team_username": "icpcol262349",
+  "team_name": "icpcol262349",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T10:08:05.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:38:05 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:38:05 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nvoid s(){\r\n    int c[4];\r\n    cin>>c[0]>>c[1]>>c[2]>>c[3];\r\n    string a=\"\";\r\n    for(int l=0;l<4;l++){\r\n        if(c[l]==0) continue;\r\n        int t[4];\r\n        for(int i=0;i<4;i++) t[i]=c[i];\r\n        t[l]--;\r\n        int p1=min(t[0],t[3]);\r\n        t[0]-=p1; t[3]-=p1;\r\n        int p2=min(t[0],t[1]);\r\n        t[0]-=p2; t[1]-=p2;\r\n        int p3=min(t[1],t[3]);\r\n        t[1]-=p3; t[3]-=p3;\r\n        int p4=t[1]/2;\r\n        t[1]-=p4*2;\r\n        int z=2*(p1+p2)+t[0]+t[2];\r\n        int n01=p3+p4;\r\n        int o=t[1]+t[3];\r\n        string r=\"\";\r\n        r.reserve(z+n01*2+o+2);\r\n        r.append(z,'0');\r\n        for(int i=0;i<n01;i++) r+=\"01\";\r\n        r.append(o,'1');\r\n        if(l==0) r+=\"00\";\r\n        else if(l==1) r+=\"01\";\r\n        else if(l==2) r+=\"10\";\r\n        else if(l==3) r+=\"11\";\r\n        if(a==\"\" or r<a) a=r;\r\n    }\r\n    cout<<a<<\"\\n\";\r\n}\r\nint main() {\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--) s();\r\n\treturn 0;\r\n};\r\n",
+  "source_sha256": "8b138fa7b9f80141c58db7a694db63500f9b243e9b32da4c66b2b6186540677c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368446380",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368446380",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol262349",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+

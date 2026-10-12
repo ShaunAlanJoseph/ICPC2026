@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368400323",
+  "team_username": "icpcol261955",
+  "team_name": "icpcol261955",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T09:08:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:38:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:38:07 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.03",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n    string types[4] = {\"00\",\"01\",\"10\",\"11\"};\r\n    int t;cin>>t;\r\n    while(t--){\r\n        int c00,c01,c10,c11;cin>>c00>>c01>>c10>>c11;\r\n        int counts[4] = {c00,c01,c10,c11};\r\n        int n=c00+c01+c10+c11;\r\n        string small;bool firstCan = true;\r\n        for(int i = 0;i<4;i++){\r\n            if(counts[i] == 0) continue;\r\n            counts[i]--;\r\n            int leadZero = min(n-1,2*counts[0]+counts[2]);\r\n            int remLen = n-1-leadZero;\r\n            int alterPair = min(counts[1],remLen/2);\r\n            string candidate(leadZero,'0');\r\n            candidate.reserve(n+1);\r\n            for(int i = 0;i<alterPair;i++){\r\n                candidate+=\"01\";\r\n            }\r\n            int trilOne = remLen - 2*alterPair;\r\n            candidate.append(trilOne,'1');\r\n            candidate+=types[i];\r\n            if(firstCan || candidate<small){\r\n                small = move(candidate);\r\n                firstCan = false;\r\n            }\r\n            counts[i]++;\r\n        }\r\n        cout<<small<<\"\\n\";\r\n    }\r\n}\r\n",
+  "source_sha256": "9338b232d2a3190674f4e2ba7e4e1912727a78132a85c510ebcd0444c5f1f9a1",
+  "solution_url": "https://www.codechef.com/viewsolution/1368400323",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368400323",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol261955",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+

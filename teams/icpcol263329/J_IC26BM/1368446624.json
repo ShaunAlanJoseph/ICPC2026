@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368446624",
+  "team_username": "icpcol263329",
+  "team_name": "icpcol263329",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T10:08:32.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:38:32 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:38:32 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.10",
+  "execution_time_detail": "",
+  "memory_status": "11.7M",
+  "memory_detail": "11.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\ndef s1(c):\r\n    be=None \r\n    for L,s in enumerate((\"00\",\"01\",\"10\",\"11\")):\r\n        if c[L]==0:\r\n            continue\r\n        w,x,y,z=c\r\n        w-=L==0; x-=L==1; y-=L==2;z-=L==3\r\n        a=min(w,x+z)\r\n        b=min(x,(x+z-a)//2)\r\n        ans=\"0\"*(w+y+a)+\"01\"*b+\"1\"*(x+z-a-2*b)+s\r\n        if be is None or ans< be:\r\n            be = ans\r\n    return be\r\n        \r\ndt=sys.stdin.buffer.read().split()\r\nt=int(dt[0])\r\nprint(\"\\n\".join(s1(list(map(int,dt[1+4*i:5+4*i]))) for i in range(t)))",
+  "source_sha256": "f94ca59cc94852f3b765689c32a0dd9a09af60a827791e1463178129c9c649d0",
+  "solution_url": "https://www.codechef.com/viewsolution/1368446624",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368446624",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol263329",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+

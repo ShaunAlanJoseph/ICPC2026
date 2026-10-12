@@ -1,0 +1,181 @@
+{
+  "submission_id": "1368443484",
+  "team_username": "icpcol260799",
+  "team_name": "icpcol260799",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "J",
+  "problem_code": "IC26BM",
+  "problem_title": "Off With Their Heads",
+  "submitted_at_utc": "2026-10-03T10:03:31.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:33:31 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:33:31 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.09",
+  "execution_time_detail": "",
+  "memory_status": "11.4M",
+  "memory_detail": "11.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 28,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 29,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\n\r\ndef solve():\r\n    it= iter(map(int,sys.stdin.buffer.read().split()))\r\n    t = next(it)\r\n    tokens=(\"00\",\"01\",\"10\",\"11\")\r\n    out=[]\r\n    \r\n    for _ in range(t):\r\n        c=[next(it) for _ in range(4)]\r\n        length = sum(c)-1\r\n        best = None\r\n        \r\n        for k in range(4):\r\n            if c[k]==0:\r\n                continue\r\n            \r\n            c[k]-=1\r\n            zeros = min(length,2*c[0]+c[2])\r\n            remaing = length-zeros\r\n            pairs = min(c[1],remaing//2)\r\n            \r\n            candi =(\r\n                \"0\"*zeros\r\n                +\"01\"*pairs+\r\n                \"1\"*(remaing - 2 * pairs)\r\n                +tokens[k]\r\n                )\r\n            if best is None or candi< best:\r\n                best= candi\r\n                    \r\n            c[k]+=1\r\n                \r\n        out.append(best)\r\n    sys.stdout.write(\"\\n\".join(out))\r\n        \r\nsolve()",
+  "source_sha256": "9ac9b73c0574c07f3c3837ca92348f6f2467240e501d10e6f0208a94f59e5017",
+  "solution_url": "https://www.codechef.com/viewsolution/1368443484",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368443484",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26BM?usernames=icpcol260799",
+  "scraped_at_utc": "2026-10-12T18:45:43.781Z"
+}
+
