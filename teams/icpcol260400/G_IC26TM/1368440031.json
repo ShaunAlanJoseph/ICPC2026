@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368440031",
+  "team_username": "icpcol260400",
+  "team_name": "icpcol260400",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:58:19.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:28:19 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:28:19 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.27",
+  "execution_time_detail": "1.27s",
+  "memory_status": "96.1M",
+  "memory_detail": "96.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.60)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.91)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.84)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\n\r\ndef main():\r\n    data = sys.stdin.buffer.read().split()\r\n    t = int(data[0]) \r\n    idx = 1\r\n    out = []\r\n    \r\n    for _ in range(t):\r\n        \r\n        n = int(data[idx])\r\n        idx+=1\r\n        m = 3*n\r\n        \r\n        s = sorted(map(int, data[idx:idx+m]), reverse=True) \r\n        idx+=m\r\n        S = [0]*(m+1)\r\n        \r\n        for i in range(m):\r\n            S[i+1] = S[i] + s[i]\r\n        \r\n        best = 0\r\n        \r\n        for a in range(n+1):\r\n            l, h = 0, n-a\r\n            base = 3*n-2*a-1\r\n            while l<h:\r\n                mid = (l+h)>> 1\r\n                j = a+2*mid\r\n                \r\n                if s[j]+ s[j+1] - 3*s[base-mid]>0:\r\n                    l=mid+1\r\n                else:\r\n                    h=mid\r\n            \r\n            v= 2*S[a] + S[a+2*l] + 3 * S[3*n-2*a-l]\r\n            \r\n            if v>best:\r\n                best = v\r\n            \r\n        out.append(best)\r\n        \r\n    sys.stdout.write(\"\\n\".join(map(str, out))+\"\\n\")\r\n\r\nmain()\r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n                \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    \r\n    # n = int(input())\r\n    \r\n    # a = list(map(int, input().split()))\r\n    \r\n    # a.sort()\r\n    # ans = 0\r\n    \r\n    # l = 0\r\n    # r = 3*n-1\r\n    \r\n    # while l<r:\r\n    #     x=a[r]\r\n    #     y=a[l]\r\n    #     z=a[l+1]\r\n        \r\n    #     ans += max(6*x, 4*(x+y), 3*(x+y+z))\r\n        \r\n    #     l+=2\r\n    #     r-=1\r\n        \r\n    # print(ans)",
+  "source_sha256": "92d1193cdad05fe84eabaeb4aac5b885796bab220c0a0695ac88067228972b1b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440031",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440031",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260400",
+  "scraped_at_utc": "2026-10-12T17:43:47.481Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368458652",
+  "team_username": "icpcol260602",
+  "team_name": "icpcol260602",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:29:15.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:59:15 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:59:15 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.94",
+  "execution_time_detail": "1.94s",
+  "memory_status": "73.2M",
+  "memory_detail": "73.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.94)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.57)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static long f(long[] p,int n,int k,int l){\r\n        return 2*p[k]+p[k+2*l]+3*p[3*n-2*k-l];\r\n    }\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t Scanner sc =new Scanner(System.in);\r\n\t int t=sc.nextInt();\r\n\t while(t-->0){\r\n\t     int n=sc.nextInt();\r\n\t     long[] a=new long[3*n];\r\n\t     long[] p=new long[3*n+1];\r\n\t     for(int i=0;i<3*n;i++)\r\n\t     a[i]=sc.nextLong();\r\n\t     Arrays.sort(a);\r\n\t     for(int i=0;i<3*n;i++)\r\n\t      p[i+1]=p[i]+a[3*n-1-i];\r\n\t      long ans=0;\r\n\t      int l=n;\r\n\t      for(int k=0;k<=n;k++){\r\n\t          l=Math.min(l,n-k);\r\n\t          while(l>0 && f(p,n,k,l-1)>=f(p,n,k,l))\r\n\t          l--;\r\n\t          ans=Math.max(ans,f(p,n,k,l));\r\n\t          \r\n\t      }\r\n\t      System.out.println(ans);\r\n\t      \r\n\t }\r\n\t \r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "f131c5c3d95d670bc0e92643f40f64aab287861586bb2069989c35a2f516470a",
+  "solution_url": "https://www.codechef.com/viewsolution/1368458652",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368458652",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260602",
+  "scraped_at_utc": "2026-10-12T17:21:39.158Z"
+}

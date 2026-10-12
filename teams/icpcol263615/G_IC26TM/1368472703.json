@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368472703",
+  "team_username": "icpcol263615",
+  "team_name": "icpcol263615",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:53:42.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:23:42 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:23:42 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.34",
+  "execution_time_detail": "",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.32)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define ll long long int \r\n\r\n\r\nvoid solve() {\r\n    int n; cin>>n;\r\n    vector<int> a(3*n);\r\n    for(int i=0; i<3*n; i++) cin>>a[i];\r\n    sort(a.rbegin(),a.rend());\r\n    \r\n    int l = 0, r = 3*n-1;\r\n    long long ans = 0;\r\n    \r\n    int x,y,z;\r\n    while(l<r) {\r\n        // x only case\r\n        x = a[l], y = a[r-1], z = a[r];\r\n        if(x>=2*y && x>=y+z) {\r\n            ans += 6*x;\r\n            l++;\r\n            r-=2;\r\n            continue;\r\n        }\r\n        \r\n        // x+y\r\n        x = a[l], y = a[l+1], z = a[r];\r\n        if(2*y>=x && y>=3*z-x) {\r\n            ans += 4*x;\r\n            ans += 4*y;\r\n            l+=2;\r\n            r--;\r\n            continue;\r\n        }\r\n        else {\r\n            ans += 3*x;\r\n            ans += 3*y;\r\n            ans += 3*z;\r\n            l+=2;\r\n            r--;\r\n        }\r\n    }\r\n    \r\n    cout<<ans<<endl;\r\n}\r\n\r\n\r\nll check(vector<ll>&a, vector<ll>& pref, ll x, ll y, ll n){\r\n    ll ans=2*pref[x]+pref[x+2*y]+3*pref[3*n-2*x-y];\r\n    return ans;\r\n}\r\n\r\nvoid solve1(){\r\n    ll n;\r\n    cin>>n;\r\n    vector<ll>a(3*n),pref(3*n+1);\r\n    for(int i=0;i<3*n;i++){\r\n        cin>>a[i];\r\n    }\r\n    sort(a.rbegin(),a.rend());\r\n    for(int i=0;i<3*n;i++){\r\n        pref[i+1]=pref[i]+a[i];\r\n    }\r\n    ll count=0;\r\n    for(ll i=0;i<=n;i++){\r\n        ll low=0,high=n-i;\r\n        while(low<high){\r\n            ll mid=(low+high)/2;\r\n            if(check(a,pref,i,mid+1,n)>check(a,pref,i,mid,n)){\r\n                low=mid+1;\r\n            }\r\n            else{\r\n                high=mid;\r\n            }\r\n        }\r\n        count=max(count,check(a,pref,i,low,n));\r\n    }\r\n    cout<<count<<endl;\r\n}\r\n\r\n\r\nint main() {\r\n    int t; cin>>t;\r\n    while(t--) solve1();\r\n    \r\n    return 0;\r\n\r\n}\r\n",
+  "source_sha256": "b3d4527ce8c9269cca698ef5762f683f8aad5516f4359b6b40ef567f48e2cdd2",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472703",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472703",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263615",
+  "scraped_at_utc": "2026-10-12T17:10:59.083Z"
+}

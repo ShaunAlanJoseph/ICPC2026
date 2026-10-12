@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368470254",
+  "team_username": "icpcol262404",
+  "team_name": "icpcol262404",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:49:44.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:19:44 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:19:44 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.19",
+  "execution_time_detail": "",
+  "memory_status": "12.5M",
+  "memory_detail": "12.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.12)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll = long long;\r\n\r\nvoid solve(){\r\n    ll n;\r\n    cin >> n;\r\n    n *= 3;\r\n    vector<ll> a(n);\r\n    for (ll &x : a)\r\n        cin >> x;\r\n    sort (a.begin(), a.end());\r\n    vector<ll> pre(n);\r\n    pre[0] = a[0];\r\n    for (ll i = 1; i < n; ++i)\r\n        pre[i] = a[i] + pre[i - 1];\r\n    auto rsum = [&](ll l, ll r){\r\n        ll ans = pre[r];\r\n        if (l)\r\n            ans -= pre[l - 1];\r\n        return ans;\r\n    };\r\n    ll best = 3 * pre.back();\r\n    for (ll solo = 0, solo_sum = 0; solo <= n / 3; ++solo){\r\n        ll l = 2 * solo;\r\n        ll r = n - solo - 1;\r\n        auto calc = [&](ll duo){\r\n            ll cur = 4 * rsum(r - 2 * duo + 1, r);\r\n            cur += 3 * rsum(l + duo, r - 2 * duo);\r\n            return cur;\r\n        };\r\n        ll low = 0, high = (n - 3 * solo) / 3 + 1, last_mid = -1;\r\n        while (low + 3 < high){\r\n            ll mid = (low + high) / 2;\r\n            // if(mid == last_mid){\r\n            //     cout << solo << \" \" << mid << endl;\r\n            //     break;\r\n            // }\r\n            // last_mid = mid;\r\n            if (calc(mid) >= calc(mid - 1))\r\n                low = mid;\r\n            else\r\n                high = mid;\r\n        }\r\n        for (ll i = low; i < high; ++i){\r\n            ll cur_ans = calc(i);\r\n            if (cur_ans > calc(low))\r\n                low = i;\r\n        }\r\n        ll cur_sum = solo_sum + calc(low);\r\n        best = max(best, cur_sum);\r\n        solo_sum += 6 * a[r];\r\n    }\r\n    cout << best;\r\n}\r\n\r\nint main() {\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile (t--){\r\n\t    solve();\r\n\t    cout << '\\n';\r\n\t}\r\n}\r\n",
+  "source_sha256": "7eb1091a88dd53dfc536cca24677eadc32ac5ddba60c9edad3d8c001286cbb16",
+  "solution_url": "https://www.codechef.com/viewsolution/1368470254",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368470254",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262404",
+  "scraped_at_utc": "2026-10-12T17:02:08.533Z"
+}

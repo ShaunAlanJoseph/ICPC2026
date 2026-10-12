@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368440715",
+  "team_username": "icpcol261170",
+  "team_name": "icpcol261170",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:59:18.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:29:18 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:29:18 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.85",
+  "execution_time_detail": "",
+  "memory_status": "81M",
+  "memory_detail": "81M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.74)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.85)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.31)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static int n;\r\n     static long[]  a, pref;\r\n     \r\n     static long sum(int k){\r\n         return pref[k];\r\n     }\r\n     static long calc(int b, int c){\r\n         int x = n-b-c;\r\n         int y = n+b-c;\r\n         int z = n+b+2*c;\r\n         return 2L*sum(x) + sum(y) + 3L*sum(z);\r\n     }\r\n     \r\n     static long bestForC(int c){\r\n         int l=0, r = n-c;\r\n         while(l<r){\r\n             int mid = l+(r-l)/2;\r\n             if(calc(mid, c) <= calc(mid+1, c)){\r\n                 l = mid+1;\r\n             }else{\r\n                 r = mid;\r\n             }\r\n         }\r\n         return calc(l,c);\r\n     }\r\n\tpublic static void main (String[] args) throws IOException\r\n\t{\r\n\t    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\r\n\t    int t = Integer.parseInt(br.readLine().trim());\r\n\t    StringBuilder out = new StringBuilder();\r\n\t    \r\n\t    while(t-- > 0){\r\n\t        n = Integer.parseInt(br.readLine().trim());\r\n\t        \r\n\t        a = new long[3*n];\r\n\t        pref = new long[3*n+1];\r\n\t        \r\n\t        StringTokenizer st = new StringTokenizer(\"\");\r\n\t        int idx = 0;\r\n\t        while(idx< 3*n){\r\n\t            if(!st.hasMoreTokens()){\r\n\t                st = new StringTokenizer(br.readLine());\r\n\t            }\r\n\t            while(st.hasMoreTokens() && idx<3*n){\r\n\t                a[idx++] = Long.parseLong(st.nextToken());\r\n\t            }\r\n\t        }\r\n\t        Arrays.sort(a);\r\n\t        for(int i=0; i<3*n; i++){\r\n\t            pref[i+1] = pref[i] + a[3*n-1-i];\r\n\t        }\r\n\t        int l=0, r=n;\r\n\t        while(l<r){\r\n\t            int mid = l+(r-l)/2;\r\n\t            if(bestForC(mid) <= bestForC(mid+1)){\r\n\t                l = mid+1;\r\n\t            }else{\r\n\t                r = mid;\r\n\t            }\r\n\t        }\r\n\t        out.append(bestForC(l)).append('\\n');\r\n\t    }\r\n\t    System.out.print(out);\r\n\t\t// your code goes here\r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "b3536fc1a520e7979321f0d1650827fc22b4ba23edc1844c3f226786296d345d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440715",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440715",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol261170",
+  "scraped_at_utc": "2026-10-12T17:43:47.189Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368454194",
+  "team_username": "icpcol260345",
+  "team_name": "icpcol260345",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:21:14.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:51:14 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:51:14 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.36",
+  "execution_time_detail": "",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.18)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n    int T;\r\n    cin>>T;\r\n    while(T--){\r\n        int n;\r\n        cin>>n;\r\n        vector<long long>a(3*n);\r\n        for(int i=0; i<3*n; i++)\r\n           cin>>a[i];\r\n        sort(a.rbegin(),a.rend());\r\n        vector<long long>pref(3*n+1, 0);\r\n        for(int i=0; i<3*n; i++)\r\n            pref[i+1] = pref[i]+a[i];\r\n        long long ans = 0;\r\n        for(int A = 0; A<=n; A++){\r\n            int low = 0;\r\n            int high = n-A;\r\n            while(low<=high){\r\n                int B = (low+high)/2;\r\n                int x = A+2*B;\r\n                int y = 3*n-2*A-B;\r\n                if(B<n-A){\r\n                    long long change = a[x]+a[x+1]-3*a[y-1];\r\n                    if(change >= 0)\r\n                      low = B+1;\r\n                    else\r\n                      high = B-1;\r\n                }\r\n                else{\r\n                    break;\r\n                }\r\n            }\r\n            for(int B=max(0,high-1); B<=min(n-A,high+1); B++){\r\n                int x = A+2*B;\r\n                int y = 3*n-2*A-B;\r\n                long long cur = 2*pref[A]+pref[x]+3*pref[y];\r\n                ans = max(ans,cur);\r\n            }\r\n        }\r\n        cout<<ans<<endl;\r\n             \r\n    }\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "aae019cb26fd7e2d976af2be617cc6e5e7d120e181914d221554ee2e58d74948",
+  "solution_url": "https://www.codechef.com/viewsolution/1368454194",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368454194",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260345",
+  "scraped_at_utc": "2026-10-12T17:52:19.769Z"
+}

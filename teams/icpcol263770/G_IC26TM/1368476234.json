@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368476234",
+  "team_username": "icpcol263770",
+  "team_name": "icpcol263770",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:59:34.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:29:34 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:29:34 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.30",
+  "execution_time_detail": "2.30s",
+  "memory_status": "70.7M",
+  "memory_detail": "70.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.87)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(2.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(2.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.81)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.66)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\tScanner sc=new Scanner(System.in);\r\n\t\tint t=sc.nextInt();\r\n\t\twhile(t-->0){\r\n\t\t    int n=sc.nextInt();\r\n\t\t    int m=n*3;\r\n\t\t    long[]arr=new long[m];\r\n\t\t    for(int i=0;i<m;i++){\r\n\t\t        arr[i]=sc.nextLong();\r\n\t\t    }\r\n\t\t    Arrays.sort(arr);\r\n\t\t    long[] pre=new long[m+1];\r\n\t\t    for(int i=0;i<m;i++){\r\n\t\t        pre[i+1]=pre[i]+arr[i];\r\n\t\t    }\r\n\t\t    long ans=0;\r\n\t\t    for(int x=0;x<=n;x++){\r\n\t\t        int low=0;\r\n\t\t        int high=n-x;\r\n\t\t        while(low<high){\r\n\t\t            int b=(low+high)/2;\r\n\t\t            int a=x+2*b;\r\n\t\t            int k=3*n-2*x-b;\r\n\t\t            long diff=(pre[m-a]-pre[m-a-2])-3*(pre[m-k+1]-pre[m-k]);\r\n\t\t            if(diff>=0){\r\n\t\t                low=b+1;\r\n\t\t            }\r\n\t\t            else{\r\n\t\t                high=b;\r\n\t\t            }\r\n\t\t        }\r\n\t\t        for(int b=Math.max(0,low-1);b<=Math.min(n-x,low);b++){\r\n\t\t            int a=x+2*b;\r\n\t\t            int k=3*n-2*x-b;\r\n\t\t            long sum=3*(pre[m]-pre[m-k])+2*(pre[m]-pre[m-x])+(pre[m]-pre[m-a]);\r\n\t\t            ans=Math.max(ans,sum);\r\n\t\t        }\r\n\t\t    }\r\n\t\t    System.out.println(ans);\r\n\t\t    \r\n\t\t}\r\n\t\tsc.close();\r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "3bb1417c7f63e741d3cd47204ed9f2619e2a863d16966ec4ca9aad998168ce2a",
+  "solution_url": "https://www.codechef.com/viewsolution/1368476234",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368476234",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263770",
+  "scraped_at_utc": "2026-10-12T18:06:56.322Z"
+}

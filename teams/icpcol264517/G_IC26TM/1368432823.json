@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368432823",
+  "team_username": "icpcol264517",
+  "team_name": "icpcol264517",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:48:04.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:18:04 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:18:04 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "7.58",
+  "execution_time_detail": "7.58s",
+  "memory_status": "64.1M",
+  "memory_detail": "64.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.87)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.84)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(2.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(2.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(4.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(7.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(6.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(4.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(3.62)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(4.59)"
+    }
+  ],
+  "source_code": "import sys\r\n\r\ninput = sys.stdin.buffer.readline\r\n\r\nt = int(input())\r\n\r\nfor _ in range(t):\r\n    n = int(input())\r\n    a = list(map(int, input().split()))\r\n    \r\n    a.sort(reverse=True)\r\n    pref = [0] * (3 * n + 1)\r\n    \r\n    for i in range(3 * n):\r\n        pref[i + 1]= pref[i] + a[i]\r\n        \r\n    def value(k, m):\r\n        \"\"\"\r\n        k = number of teams using 6*x\r\n        m = number of temas using 4*x + 4*y\r\n        Remaining teams use 3*x + 3*y + 3*zip\r\n        \"\"\"\r\n        \r\n        end = 3 * n - 2 * k - m\r\n        \r\n        return(\r\n            6 * pref[k]\r\n            + 4 * (pref[k + 2 * m] - pref[k])\r\n            + 3 * (pref[end]- pref[k + 2 * m])\r\n            )\r\n    \r\n    answer = 0\r\n            \r\n    for k in  range(n+1):\r\n        \r\n        lo = 0\r\n        hi = n - k \r\n                \r\n        while lo < hi:\r\n            \r\n             \r\n            mid = (lo + hi) // 2\r\n                    \r\n            if value(k, mid) <= value(k, mid + 1):\r\n                 \r\n                lo = mid + 1\r\n            else:\r\n                \r\n                hi = mid\r\n                        \r\n        answer = max(answer, value(k, lo))\r\n                \r\n    print(answer)\r\n        \r\n",
+  "source_sha256": "bfd2036ef4f85b0ad12567c6e081d40d490d37fa4e238337232b274b3a4ad0e8",
+  "solution_url": "https://www.codechef.com/viewsolution/1368432823",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368432823",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol264517",
+  "scraped_at_utc": "2026-10-12T17:38:10.632Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368468884",
+  "team_username": "icpcol265140",
+  "team_name": "icpcol265140",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:47:14.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:17:14 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:17:14 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.47",
+  "execution_time_detail": "2.47s",
+  "memory_status": "74.6M",
+  "memory_detail": "74.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.79)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(2.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.66)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.24)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\ndef max_teams_strenght(n,strenghts):\r\n    strenghts.sort(reverse=True)\r\n    S=[0]+strenghts\r\n    P=[0]*(3*n+1)\r\n    for i in range(1,3*n+1):\r\n        P[i]=P[i-1]+S[i]\r\n    max_total=0\r\n    for L in range(n+1):\r\n        low=0\r\n        high=L-1\r\n        best_k1=0\r\n        while low<=high:\r\n            mid=(high+low)//2\r\n                \r\n            val= 2* S[mid+1]- S[2*L-mid] -3* S[3*n-L-mid]\r\n            if val>0:\r\n                best_k1=mid+1\r\n                low=mid+1;\r\n            else:\r\n                high=mid-1\r\n                    \r\n        score= 2* P[best_k1]+P[2*L-best_k1]+ 3* P[3*n-L-best_k1]\r\n        if score>max_total:\r\n            max_total=score\r\n    return max_total\r\n        \r\nt=int(input())\r\nfor i in range(t):\r\n    n=int(input())\r\n    a=list(map(int,input().split()))\r\n    print(max_teams_strenght(n,a))",
+  "source_sha256": "c9a9767f302d5205511645b4f358349257bd3385393743887b348f959a350fdb",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468884",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468884",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol265140",
+  "scraped_at_utc": "2026-10-12T18:01:48.236Z"
+}

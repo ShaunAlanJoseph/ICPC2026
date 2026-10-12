@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368460635",
+  "team_username": "icpcol260558",
+  "team_name": "icpcol260558",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:32:42.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:02:42 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:02:42 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.41",
+  "execution_time_detail": "",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.41)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\ntypedef long long ll;\r\n\r\nint main() {\r\n\t// Never say Never\r\n\t\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    \r\n\t    int n; \r\n\t    cin >> n;\r\n\t    int m = 3*n;\r\n\t    vector<ll> vim(m);\r\n\t    for(auto &x:vim) cin>>x;\r\n\t    sort(vim.rbegin(),vim.rend());\r\n\t    \r\n\t    vector<ll> Pp(m+1,0);\r\n\t    \r\n\t    for(int i=0;i<m;i++) Pp[i+1] =Pp[i]+vim[i];\r\n\t    \r\n\t    auto fnc =[&](int a, int b) ->ll {\r\n\t        return 2*Pp[a] +Pp[a+2*b] + 3 * Pp[m-2 * a- b];\r\n\t    };\r\n\t    \r\n\t    ll ans = 0;\r\n\t    for (int a = 0 ; a<=n;a++){\r\n\t // i think we need to make f(a,b) concave in b naa so for that - b -- [0,n-as];\r\n\t      int lo = 0, hi = n-a;\r\n\t      while (lo<hi){\r\n\t          int mid = (lo+hi)/2;\r\n\t          if(fnc(a,mid+1)> fnc(a,mid)) lo = mid + 1;\r\n\t          else hi = mid;\r\n\t      }\r\n\t      ans = max(ans, fnc(a,lo));\r\n\t    }\r\n\t   cout<<ans<<endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "8936b64184322df5af539a195e54e1af0081256a58b4a430048032cf7a7c8027",
+  "solution_url": "https://www.codechef.com/viewsolution/1368460635",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368460635",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260558",
+  "scraped_at_utc": "2026-10-12T17:56:04.067Z"
+}

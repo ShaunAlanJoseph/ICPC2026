@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368463729",
+  "team_username": "icpcol262071",
+  "team_name": "icpcol262071",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:38:36.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:08:36 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:08:36 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.24",
+  "execution_time_detail": "",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.18)"
+    }
+  ],
+  "source_code": "/*\r\n#include <bits/stdc++.h>\r\nusing namespace std;\r\ntypedef long long ll;\r\nint studentcount; \r\nll teams(ll a,ll b, ll c){\r\n    ll t=max(a,max(b,c)); \r\n    //ll mid=a+b+c-t-bot;\r\n    ll bot=min(a,min(b,c));\r\n    ll mid=a+b+c-t-bot;\r\n    return max({6*t,4*t+4*mid,3*t+3*mid+3*bot});\r\n}\r\nint xp_pp=10;\r\nll solve(ll teamcount, int l0,vector<ll>&rating){\r\n    ll outt=0; for(int i=0; i<l0; ++i){\r\n        ll xx=rating[i];  ll yy=rating[studentcount-1-2*i]; ll zz=rating[studentcount-2-2*i];\r\n        outt+=teams(xx,yy,zz);\r\n    }\r\n    int lef=l0, right=studentcount-2*l0-1;\r\n    while(lef<right){\r\n        ll xx=rating[lef],yy=rating[lef+1],zz=rating[right];\r\n        outt+=teams(xx,yy,zz);\r\n        lef+=2; right--;\r\n    }\r\n    return outt;\r\n}\r\nint main() {\r\n\t// your code goes here\r\n    int t; cin>>t;\r\n    while(t--){\r\n        int teamcount; cin>>teamcount;\r\n        studentcount=3*teamcount;\r\n        vector<ll>rating;\r\n        rating.assign(studentcount,0); int a=1;\r\n        for (int i=0; i<studentcount; ++i) cin>>rating[i];\r\n        sort(rating.begin(),rating.end(),greater<ll>());\r\n        int l0=0,high=teamcount;\r\n        while(l0<high){\r\n            int mid=l0+(high-l0)/2;\r\n            if (solve(teamcount,mid,rating)<solve(teamcount,mid+1,rating)){\r\n                l0=mid+1;\r\n            }\r\n            else high=mid;\r\n        }\r\n        \r\n        if(a==1)\r\n        cout<<solve(teamcount,l0,rating)<<endl;\r\n    }\r\n}\r\n*/\r\n\r\n\r\n#include <bits/stdc++.h>\r\nusing namespace std; \r\ntypedef long long ll;\r\nint studentcount;\r\n\r\nint main(){\r\n    int t; cin>>t;\r\n    while(t--){\r\n        int teamcount; cin>>teamcount;\r\n        studentcount=3*teamcount; int a=1;\r\n        vector<ll>rating(studentcount);\r\n        for (int i=0; i<studentcount; ++i) cin>>rating[i];\r\n        sort(rating.begin(),rating.end(),greater<ll>());\r\n        vector<ll>pre(studentcount+1,0);\r\n        for (int i=0; i<studentcount; ++i) pre[i+1]=pre[i]+rating[i];\r\n        auto edge=[&](int p,int q)-> ll {\r\n            return 2*pre[p]+pre[p+2*q]+3*pre[studentcount-2*p-q];\r\n        };\r\n        ll outt=0;\r\n        for (int p=0; p<=teamcount; ++p){\r\n            int l0=0,high=teamcount-p;\r\n            while(l0<high){\r\n                int mid=l0+(high-l0)/2;\r\n                if (edge(p,mid)<edge(p,mid+1)) l0=mid+1;\r\n                else high=mid;\r\n            }\r\n            outt=max(outt,edge(p,l0));\r\n        }\r\n        if (a)\r\n        cout<<outt<<endl;\r\n    }\r\n}\r\n\r\n\r\n",
+  "source_sha256": "a43f9bb4825ed721960d4fe4450d0df002510598c9e020640ecbd04ee51d0bf9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368463729",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368463729",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262071",
+  "scraped_at_utc": "2026-10-12T17:08:12.609Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368473578",
+  "team_username": "icpcol262364",
+  "team_name": "icpcol262364",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:55:14.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:25:14 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:25:14 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.30",
+  "execution_time_detail": "2.30s",
+  "memory_status": "105.5M",
+  "memory_detail": "105.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.64)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(2.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(2.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.62)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.40)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\n\r\ndef solve():\r\n    input = sys.stdin.read\r\n    \r\n    data = input().split()\r\n    if not data:\r\n        return\r\n    \r\n    t = int(data[0])\r\n    idx = 1\r\n    out = []\r\n    \r\n    for _ in range(t):\r\n        n = int(data[idx])\r\n        idx += 1\r\n        \r\n        a = [int(x) for x in data[idx: idx + 3 * n]]\r\n        idx += 3*n\r\n        a.sort(reverse=True)\r\n        total= 3 * n\r\n        \r\n        pref = [0] * (total + 1)\r\n        for i in range(total):\r\n            pref[i+1] = pref[i] + a[i]\r\n            \r\n        def get_value(A, B):\r\n            C = n-A-B\r\n            yxz = total - 2 * A - B\r\n            part_A = 6 * pref[A]\r\n            part_B = 4 * (pref[A + 2 * B] - pref[A])\r\n            part_C = 3 * (pref[yxz] - pref[A + 2 * B])\r\n            return part_A + part_B + part_C\r\n            \r\n        max_strength = 0\r\n        \r\n        for A in range(n + 1):\r\n            lo = 0\r\n            hi = n-A\r\n            \r\n            while lo < hi: \r\n                mid = (lo + hi) // 2\r\n                delta = (a[A + 2 * mid] + a[A + 2 * mid + 1] - 3 * a[total -2 * A  -mid - 1])\r\n                if delta >= 0:\r\n                    lo = mid +1 \r\n                    \r\n                else: \r\n                    hi = mid\r\n                    \r\n            B = lo\r\n            current_max = get_value(A,B)\r\n            if B > 0:\r\n                current_max = max(current_max, get_value(A , B-1))\r\n                \r\n            max_strength = max(max_strength, current_max)\r\n            \r\n        out.append(str(max_strength))\r\n    \r\n    print('\\n'.join(out))\r\n    \r\nsolve()",
+  "source_sha256": "770e373436a6f798d1e3ddb62c28fa0f083d449b461f62eeffc252e4f0f6d68d",
+  "solution_url": "https://www.codechef.com/viewsolution/1368473578",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368473578",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262364",
+  "scraped_at_utc": "2026-10-12T18:05:12.096Z"
+}

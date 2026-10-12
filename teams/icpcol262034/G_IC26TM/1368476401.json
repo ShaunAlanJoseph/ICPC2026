@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368476401",
+  "team_username": "icpcol262034",
+  "team_name": "icpcol262034",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:59:44.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:29:44 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:29:44 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.93",
+  "execution_time_detail": "",
+  "memory_status": "66.6M",
+  "memory_detail": "66.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.77)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.89)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.92)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.60)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.36)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\t// your code goes here\r\n\t\tStringTokenizer st = new StringTokenizer(br.readLine());\r\n\t\tint t = Integer.parseInt(st.nextToken());\r\n\t\t\r\n\t\twhile(t-- > 0) {\r\n\t\t    st = new StringTokenizer(br.readLine());\r\n\t\t    int n = Integer.parseInt(st.nextToken());\r\n\t\t    \r\n\t\t    int size = 3 * n;\r\n\t\t    st = new StringTokenizer(br.readLine());\r\n\t\t    long[] arr = new long[n * 3];\r\n\t\t    for(int i = 0; i < size; ++ i){\r\n\t\t        arr[i] = Long.parseLong(st.nextToken());\r\n\t\t    }\r\n\t\t    \r\n\t\t    Arrays.sort(arr);\r\n\t\t    \r\n\t\t    long[] s = new long[size + 1];\r\n\t\t    s[0] = 0;\r\n\t\t    for(int i = 1; i <= size; ++ i) {\r\n\t\t        s[i] = s[i - 1] + arr[size - i];\r\n\t\t    }\r\n\t\t    \r\n\t\t    long ans = -1;\r\n\t\t    \r\n\t\t    for(int c1 = 0; c1 <= n; ++ c1) {\r\n\t\t        int low = 0, high = n - c1;\r\n\t\t        \r\n\t\t        while(high - low > 2) {\r\n\t\t            int m1 = low + (high - low) / 3;\r\n\t\t            int m2 = high - (high - low) / 3;\r\n\t\t            \r\n\t\t            long val1 = 2l * s[c1] + s[c1 + 2* m1] + 3 * s[3 * n - 2 * c1 - m1];\r\n\t\t            long val2 = 2l * s[c1] + s[c1 + 2 * m2] + 3 * s[3 * n - 2 * c1 - m2];\r\n\t\t            \r\n\t\t            if(val1 < val2) {\r\n\t\t                low = m1;\r\n\t\t            } else if(val1 > val2) {\r\n\t\t                high = m2;\r\n\t\t            } else {\r\n\t\t                low = m1;\r\n\t\t                 high = m2;\r\n\t\t            }\r\n\t\t        }\r\n\t\t        \r\n\t\t        for(int c2 = low; c2 <= high; c2++) {\r\n\t\t            long xyz = 2 * s[c1] + s[c1 + 2 * c2] + 3 * s[3 * n - 2 * c1 - c2];\r\n\t\t            if(xyz > ans) {\r\n\t\t                ans = xyz;\r\n\t\t            }\r\n\t\t        }\r\n\t\t    }\r\n\t\t    \r\n\t\t    System.out.println(ans);\r\n\t\t    \r\n\t\t}\r\n\t}\r\n}\r\n",
+  "source_sha256": "31b41a173626afc4e5a8440c873b0c2ab62e30827ce3e07b53a8c2c1f4ae55e7",
+  "solution_url": "https://www.codechef.com/viewsolution/1368476401",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368476401",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262034",
+  "scraped_at_utc": "2026-10-12T17:16:49.050Z"
+}

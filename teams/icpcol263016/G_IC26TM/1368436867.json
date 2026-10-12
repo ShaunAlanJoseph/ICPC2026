@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368436867",
+  "team_username": "icpcol263016",
+  "team_name": "icpcol263016",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:53:56.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:23:56 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:23:56 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "6.52",
+  "execution_time_detail": "6.52s",
+  "memory_status": "74.5M",
+  "memory_detail": "74.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(2.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(2.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.96)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(3.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(5.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(5.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(4.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(6.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(3.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(3.91)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\ninp=sys.stdin.readline\r\nt=int(input())\r\nfor i in range(t):\r\n    n=int(input())\r\n    a=sorted(map(int,input().split()),reverse=True)\r\n    p=[0]\r\n    for x in a:p.append(p[-1]+x)\r\n    ans=0\r\n    for A in range(n+1):\r\n        l,r=0,n-A\r\n        while l<r:\r\n            B=(l+r)//2\r\n            f=lambda b:2*p[A]+p[A+2*b]+3*p[3*n-2*A-b]\r\n            if f(B)<=f(B+1):l=B+1 \r\n            else:\r\n                r=B \r\n        ans=max(ans,2*p[A]+p[A+2*l]+3*p[3*n-2*A-l])\r\n    print(ans)",
+  "source_sha256": "f7ebe35bbff02396249bd324526702b27ba489381aad586cdcd2e796e0f95f97",
+  "solution_url": "https://www.codechef.com/viewsolution/1368436867",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368436867",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263016",
+  "scraped_at_utc": "2026-10-12T17:40:20.664Z"
+}

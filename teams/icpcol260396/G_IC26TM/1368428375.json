@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368428375",
+  "team_username": "icpcol260396",
+  "team_name": "icpcol260396",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:42:16.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:12:16 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:12:16 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "7.50",
+  "execution_time_detail": "7.50s",
+  "memory_status": "75.1M",
+  "memory_detail": "75.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.77)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(2.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.81)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(3.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(6.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(5.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(5.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(6.92)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(3.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(7.50)"
+    }
+  ],
+  "source_code": "import sys \r\n\r\ninput = sys.stdin.readline\r\n\r\nt = int(input())\r\n\r\nfor _ in range(t):\r\n    n = int(input())\r\n    a = list(map(int, input().split()))\r\n    \r\n    a.sort(reverse=True)\r\n    \r\n    pref = [0] * (3 * n + 1)\r\n    for i in range (3 * n):\r\n        pref[i + 1] = pref[i] + a[i]\r\n        \r\n        ans= 0\r\n        \r\n    for p in range(n + 1):\r\n        lo = 0\r\n        hi = n - p\r\n        while lo < hi:\r\n            q= (lo + hi) // 2\r\n            j = p + 2 * q\r\n            k = 3 * n - 2 * p - q\r\n            \r\n            cur =  (6 * pref[p] + 4 * (pref[j] - pref[p]) +  3 * (pref[k] -pref[j]))\r\n        \r\n            nq = q + 1\r\n            j2 = p + 2 * nq\r\n            k2 = 3 * n -2 * p - nq\r\n        \r\n        \r\n            nxt = (6 * pref[p] + 4 * (pref[j2] - pref[p]) + 3 * (pref[k2] - pref[j2]))\r\n        \r\n        \r\n            if nxt > cur:\r\n                lo = q + 1\r\n            else:\r\n                hi = q\r\n        q = lo\r\n        j = p + 2 * q \r\n        k = 3 * n - 2 * p - q \r\n            \r\n            \r\n        value = ( 6 * pref[p] + 4 * (pref[j] - pref[p]) + 3 * (pref[k] - pref[j]))\r\n        ans = max(ans, value)\r\n            \r\n    print(ans) \r\n            ",
+  "source_sha256": "064efa5e364f35315d2ab60552064defbfb43780f78f1ee69b55ac8d430de294",
+  "solution_url": "https://www.codechef.com/viewsolution/1368428375",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368428375",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260396",
+  "scraped_at_utc": "2026-10-12T17:34:03.490Z"
+}

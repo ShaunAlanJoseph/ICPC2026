@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368440788",
+  "team_username": "icpcol260588",
+  "team_name": "icpcol260588",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:59:26.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:29:26 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:29:26 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.11",
+  "execution_time_detail": "2.11s",
+  "memory_status": "71.4M",
+  "memory_detail": "71.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(2.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.78)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.16)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    public static void main(String[] args) throws java.lang.Exception\r\n    {\r\n        Scanner sc = new Scanner(System.in);\r\n        int t = sc.nextInt();\r\n        while (t--> 0) {\r\n            int n = sc.nextInt();\r\n            int total = 3 * n;\r\n            long[] a = new long[total];\r\n\r\n            for (int i = 0; i < total; i++) a[i] = sc.nextLong();\r\n\r\n            Arrays.sort(a);\r\n\r\n            for (int i = 0, j = total - 1; i < j; i++, j--) {\r\n                long temp = a[i];\r\n                a[i] = a[j];\r\n                a[j] = temp;\r\n            }\r\n\r\n            long[] pref = new long[total + 1];\r\n\r\n            for (int i = 0; i < total; i++)\r\n                pref[i + 1] = pref[i] + a[i];\r\n\r\n            long answer = 0;\r\n\r\n            for (int j = 0; j <= n; j++) {\r\n                int lo = 0, hi = n - j;\r\n\r\n                while (lo < hi) {\r\n                    int b = (lo + hi + 1) / 2;\r\n                    int k = j + 2 * (b - 1);\r\n\r\n                    int m = 3 * n - 2 * j - (b - 1);\r\n                    long delta = a[k] + a[k + 1] - 3 * a[m - 1];\r\n\r\n                    if (delta >= 0) lo = b;\r\n                    else hi = b - 1;\r\n\r\n                }\r\n\r\n                int b = lo;\r\n                int c = n - j - b;\r\n                int end4 = j+ 2 * b, end3 = end4 + 3 * c;\r\n                long current = 6 * pref[j] + 4 * (pref[end4] - pref[j]) + 3 * (pref[end3] - pref[end4]);\r\n                answer = Math.max(answer, current);\r\n            }\r\n            System.out.println(answer);\r\n        }\r\n    }\r\n}",
+  "source_sha256": "6a4cf45cd19419a6575519c0c879a431d7a9bcf080cb03ee33dfe4704cf9da04",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440788",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440788",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260588",
+  "scraped_at_utc": "2026-10-12T17:44:18.753Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368462849",
+  "team_username": "icpcol262124",
+  "team_name": "icpcol262124",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:36:49.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:06:49 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:06:49 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.43",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.38)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int long long\r\n\r\nvoid solve(){\r\n    int n;cin>>n;\r\n    int m = 3*n;\r\n    vector<int> vec(3*n+1);\r\n    for(int i=1;i<=3*n;i++) cin>>vec[i];\r\n    sort(vec.begin(), vec.end());\r\n    vector<int> pref(m+1, 0);\r\n    for(int i=1;i<=m;i++){\r\n        pref[i] = pref[i-1] + vec[i];\r\n    }\r\n    int mx = 0;\r\n    for(int x=0;x<=n;x++){\r\n        int ans = (pref[m] - pref[m-x])*6;\r\n        int l = 2*x+1, r = m-x;\r\n        int ct = r-l+1;\r\n        if(ct<3){\r\n            mx = max(mx, ans);\r\n            continue;\r\n        }\r\n        int lo=l, hi = l+(ct/3)-1;\r\n        \r\n        // sirf 4 wale\r\n        int p = l + (ct/3) - 1;\r\n        if(3*vec[p] < vec[p+1]+vec[p+2]){\r\n            int val = ans + (pref[r] - pref[p])*4;\r\n            mx = max(mx, val);\r\n            continue;\r\n        }\r\n        \r\n        while(hi-lo > 1){\r\n            int mid = (lo+hi)/2;\r\n            int curr = mid-l+1;\r\n            int i= r - 2*curr+1;\r\n            if(3*vec[mid]>vec[i]+vec[i+1]){\r\n                hi = mid;\r\n            }else{\r\n                lo = mid+1;\r\n            }\r\n        }\r\n        // lo ke liye\r\n        int curr = lo-l+1;\r\n        int i = r - 2*curr+1;\r\n        if(3*vec[lo] > vec[i] + vec[i+1]){\r\n            hi = lo;\r\n        }\r\n        int count4 = hi - l;\r\n        ans += 4*(pref[r] - pref[r - 2*count4]);\r\n        ans += 3*(pref[r-2*count4] - pref[hi-1]);\r\n        mx = max(mx, ans);\r\n    }\r\n    cout<<mx<<endl;\r\n}\r\n\r\nsigned main() {\r\n\tint t; cin >> t;\r\n\twhile(t--) solve();\r\n}\r\n",
+  "source_sha256": "615d3c98425594248f95e98a96acee76a6f40c2ef41d4c886501c1d6eb4138ec",
+  "solution_url": "https://www.codechef.com/viewsolution/1368462849",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368462849",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262124",
+  "scraped_at_utc": "2026-10-12T17:03:55.294Z"
+}

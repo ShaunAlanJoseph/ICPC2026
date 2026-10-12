@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368422460",
+  "team_username": "icpcol263485",
+  "team_name": "icpcol263485",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:33:46.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:03:46 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:03:46 PM",
+  "language": "C",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.19",
+  "execution_time_detail": "",
+  "memory_status": "10.7M",
+  "memory_detail": "10.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.14)"
+    }
+  ],
+  "source_code": "#include <stdio.h>\r\n#include <stdlib.h>\r\n\r\n#define MAXN 200005\r\n\r\ntypedef long long ll;\r\n\r\nint cmp_desc(const void *a, const void *b) {\r\n    ll x = *(const ll *)a;\r\n    ll y = *(const ll *)b;\r\n    \r\n    if(x < y) return 1;\r\n    if (x > y) return -1;\r\n    return 0;\r\n}\r\n\r\nll get_value(\r\n    int A,\r\n    int q,\r\n    int n,\r\n    ll *pref\r\n    ) {\r\n    int r = 3 * n - (q + 3 * A) / 2;\r\n    \r\n    return 2LL* pref[A] + pref[q] + 3LL * pref[r];\r\n}\r\n\r\nint main() {\r\n\tint T;\r\n\tscanf(\"%d\", &T);\r\n\t\r\n\twhile (T--) {\r\n\t    int n;\r\n\t    scanf(\"%d\", &n);\r\n\t    \r\n\t    int m = 3 * n;\r\n\t    \r\n\t    ll *a = malloc(sizeof(ll) * m);\r\n\t    \r\n\t    for (int i = 0; i < m; i++) {\r\n\t        scanf(\"%lld\", &a[i]);\r\n\t    }\r\n\t    \r\n\t    qsort(a, m, sizeof(ll), cmp_desc);\r\n\t    \r\n\t    ll *pref = malloc(sizeof(ll) * (m+1));\r\n\t    \r\n\t    pref[0] = 0;\r\n\t    \r\n\t    for (int i = 0; i < m; i++) {\r\n\t        pref[i + 1] = pref[i] + a[i];\r\n\t    }\r\n\t    \r\n\t    ll ans = 0;\r\n\t    \r\n\t    for (int q = 0; q <= 2 * n; q++) {\r\n            int lo = 0;\r\n            int hi = q;\r\n            \r\n            if (hi > n) hi = n;\r\n            \r\n            if (hi > 2 * n - 1) hi = 2 * n - 1;\r\n            \r\n            if ((lo & 1) != (q & 1)) lo++;\r\n            \r\n            if ((hi & 1) != (q & 1)) hi--;\r\n            \r\n            if (lo > hi) continue;\r\n            \r\n            int left = lo;\r\n            int right = hi;\r\n            \r\n            while (left < right) {\r\n                int mid = left + ((right - left)/ 4) * 2;\r\n                \r\n                if (mid < left) mid = left;\r\n                \r\n                if (mid + 2 > hi) mid = hi - 2;\r\n                \r\n                if (mid < lo || mid + 2 > hi) break;\r\n                \r\n                ll v1 = get_value(mid, q, n, pref);\r\n                ll v2 = get_value(mid + 2, q, n, pref);\r\n                \r\n                if (v2 >= v1) {\r\n                    left = mid + 2;\r\n                } else {\r\n                    right = mid;\r\n                }\r\n            }\r\n            \r\n            for (int d = -4; d <= 4; d += 2) {\r\n                int A = left + d;\r\n                \r\n                if (A < lo || A > hi) continue;\r\n                \r\n                ll cur = get_value(A, q, n, pref);\r\n                \r\n                if (cur > ans) {\r\n                    ans = cur;\r\n                }\r\n            }\r\n            \r\n            ll vLo = get_value(lo, q, n, pref);\r\n            ll vHi = get_value(hi, q, n, pref);\r\n            \r\n            if (vLo > ans) ans = vLo;\r\n            if (vHi > ans) ans = vHi;\r\n\t    }\r\n\t    \r\n\t    printf(\"%lld\\n\", ans);\r\n\t    \r\n\t    free(a);\r\n\t    free(pref);\r\n\t    \r\n \t}\r\n \t\r\n \treturn 0;\r\n}\r\n\r\n",
+  "source_sha256": "67e08f8e49d9b990b8266139a00d1d095eddf74c38b22ce4cf8fc32e6c1f85ce",
+  "solution_url": "https://www.codechef.com/viewsolution/1368422460",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368422460",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263485",
+  "scraped_at_utc": "2026-10-12T17:00:09.229Z"
+}

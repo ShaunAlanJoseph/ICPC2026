@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368472049",
+  "team_username": "icpcol265078",
+  "team_name": "icpcol265078",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:52:44.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:22:44 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:22:44 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.94",
+  "execution_time_detail": "",
+  "memory_status": "69.9M",
+  "memory_detail": "69.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.84)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.84)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.94)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.60)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\t// your code goes here\r\n       BufferedReader br=new BufferedReader(new InputStreamReader(System.in));\r\n       StringTokenizer st;\r\n       Random rnd=new Random();\r\n       int t=Integer.parseInt(br.readLine());\r\n       while(t-->0){\r\n           int n=Integer.parseInt(br.readLine());\r\n           int le=3*n;\r\n           long[] arr=new long[le];\r\n           String sv=br.readLine();\r\n           st=new StringTokenizer(sv);\r\n           for(int i=0;i<le;i++){\r\n               arr[i]=Long.parseLong(st.nextToken());\r\n           }\r\n           \r\n           for(int i=0;i<le;i++){\r\n               int j=rnd.nextInt(i+1);\r\n               long temp=arr[i];\r\n               arr[i]=arr[j];\r\n               arr[j]=temp;\r\n           }\r\n           Arrays.sort(arr);\r\n           long[] p=new long[le+1];\r\n           for(int i=0;i<le;i++){\r\n               p[i+1]=p[i]+arr[le-1-i];\r\n           }\r\n           long max=-1;\r\n           for(int s=0;s<=n;s++){\r\n               int l=0;\r\n               int r=s;\r\n               while(r-l>2){\r\n                   int m1=l+(r-l)/3;\r\n                   int m2=r-(r-l)/3;\r\n                   long f1=p[n-s+2*m1]+3L*p[n+2*s-m1];\r\n                   long f2=p[n-s+2*m2]+3L*p[n+2*s-m2];\r\n                   if(f1<f2){\r\n                       l=m1;\r\n                   }\r\n                   else if(f1>f2){\r\n                       r=m2;\r\n                   }\r\n                   else{\r\n                       l=m1;\r\n                       r=m2;\r\n                   }\r\n               }\r\n               for(int v=l;v<=r;v++){\r\n                   long ans=2L*p[n-s]+p[n-s+2*v]+3L*p[n+2*s-v];\r\n                   if(ans>max){\r\n                       max=ans;\r\n                   }\r\n               }\r\n           }\r\n           System.out.println(max);\r\n       }\r\n\t}\r\n}\r\n",
+  "source_sha256": "613d3b5535013944dbb2b83d000bec372e008f4e38f0cdd28948c36ee920f1f9",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472049",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472049",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol265078",
+  "scraped_at_utc": "2026-10-12T18:03:33.294Z"
+}

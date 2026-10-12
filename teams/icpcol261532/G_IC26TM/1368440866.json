@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368440866",
+  "team_username": "icpcol261532",
+  "team_name": "icpcol261532",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:59:33.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:29:33 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:29:33 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.37",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.19)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\ntypedef long long ll;\r\n\r\nll score(vector < ll > & pre, int total, int i, int j) {\r\n    return 2 * pre[i] + pre[i + 2 * j] + 3 * pre[total - 2 * i - j];\r\n}\r\nvoid solve() {\r\n    int n;\r\n    cin >> n;\r\n    int total = 3 * n;\r\n\r\n    vector < ll > v(total);\r\n    for (int k = 0; k < total; k++) {\r\n        cin >> v[k];\r\n    }\r\n\r\n    sort(v.begin(), v.end(), greater < ll > ());\r\n\r\n    vector < ll > pre(total + 1, 0);\r\n    for (int k = 0; k < total; k++) {\r\n        pre[k + 1] = pre[k] + v[k];\r\n    }\r\n\r\n    ll ans = 0;\r\n    for (int i = 0; i <= n; i++) {\r\n        int lo = 0;\r\n        int hi = n - i;\r\n        while (lo < hi) {\r\n            int mid = (lo + hi) / 2;\r\n            if (score(pre, total, i, mid + 1) > score(pre, total, i, mid)) lo = mid + 1;\r\n            else hi = mid;\r\n        }\r\n        ans = max(ans, score(pre, total, i, lo));\r\n    }\r\n\r\n    cout << ans << \"\\n\";\r\n}\r\nint main() {\r\n    // your code goes here\r\n    int t;\r\n    cin >> t;\r\n    while (t--) solve();\r\n}",
+  "source_sha256": "c6cb3b2e69bac705a1b8a928f1bf60a25215a9a2d56fc5a9a33c5f4b828c8343",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440866",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440866",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol261532",
+  "scraped_at_utc": "2026-10-12T17:44:18.751Z"
+}

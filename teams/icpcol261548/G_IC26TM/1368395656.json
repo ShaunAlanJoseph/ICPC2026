@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368395656",
+  "team_username": "icpcol261548",
+  "team_name": "icpcol261548",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:02:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:32:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:32:07 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.76",
+  "execution_time_detail": "",
+  "memory_status": "101M",
+  "memory_detail": "101M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.76)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.28)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys \r\nfrom itertools import accumulate as acc \r\ndef sol(n,a):\r\n    a.sort(reverse=True)\r\n    p = [0]+list(acc(a))\r\n    k = 0 \r\n    l =n \r\n    z = 0 \r\n    while k <= n :\r\n        l = min(l,n-k)\r\n        while l and a[k+2*l-2]+a[k+2*l-1] <= 3*a[3*n-2*k-l]:\r\n            l -= 1 \r\n        z = max(z,2*p[k]+p[k+2*l]+3*p[3*n-2*k-l])\r\n        k += 1 \r\n    return z \r\ndef run():\r\n    it = iter(map(int,sys.stdin.buffer.read().split()))\r\n    t = next(it)\r\n    o = []\r\n    while t :\r\n        n = next(it)\r\n        a = [next(it) for _ in range(3*n)]\r\n        o.append(str(sol(n,a)))\r\n        t -= 1 \r\n    sys.stdout.write(\"\\n\".join(o))\r\nrun()\r\n",
+  "source_sha256": "b1a1b2513a7a847f24b92f12c3df615da7a70973c8ad004513188a9e001a787b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368395656",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368395656",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol261548",
+  "scraped_at_utc": "2026-10-12T16:59:56.814Z"
+}

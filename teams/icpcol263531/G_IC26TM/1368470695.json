@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368470695",
+  "team_username": "icpcol263531",
+  "team_name": "icpcol263531",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:50:28.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:20:28 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:20:28 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "4.86",
+  "execution_time_detail": "4.86s",
+  "memory_status": "74.5M",
+  "memory_detail": "74.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.85)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.91)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(4.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(4.86)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(2.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(2.86)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(2.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(2.77)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\nimport sys\r\ntc=int(input())\r\nresult=[]\r\nfor h in range(tc):\r\n    nm=int(input())\r\n    lg=3*nm\r\n    st=list(map(int,input().split()))\r\n    st.sort(reverse=True)\r\n    pt=[0]*(lg+1)\r\n    for k in range(lg):\r\n        pt[k+1]=pt[k]+st[k]\r\n    def ft(k,y):\r\n        return pt[k+2*y]+3*pt[lg-2*k-y]\r\n    bt=0\r\n    for k in range(nm+1):\r\n        mn=nm-k\r\n        le=0\r\n        ri=mn\r\n        while le<ri:\r\n            btw=(le+ri)//2\r\n            if ft(k,btw+1)>ft(k,btw):\r\n                le=btw+1\r\n            else:\r\n                ri=btw\r\n        vld=2*pt[k]+ft(k,le)\r\n        if vld>bt:\r\n            bt=vld\r\n    result.append(str(bt))\r\nsys.stdout.write(\"\\n\".join(result))\r\n    ",
+  "source_sha256": "0312b210ee7270f3dac2507065073a4189a49fb9a329f0d1ada105ff317ed46b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368470695",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368470695",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263531",
+  "scraped_at_utc": "2026-10-12T18:03:07.090Z"
+}

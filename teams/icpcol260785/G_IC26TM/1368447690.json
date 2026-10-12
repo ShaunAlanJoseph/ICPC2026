@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368447690",
+  "team_username": "icpcol260785",
+  "team_name": "icpcol260785",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:10:15.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:40:15 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:40:15 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.47",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.45)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.43)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll = long long;\r\n\r\nvoid solve() {\r\n    int n;\r\n    cin >> n;\r\n    int m = 3 * n;\r\n    vector<ll> a(m);\r\n    for(int i =0;i < m;i++){\r\n        cin >> a[i];\r\n    }\r\n    \r\n    sort(a.rbegin(), a.rend());\r\n    \r\n    vector<ll> pref(m + 1, 0);\r\n    for(int i = 0;i < m;i++){\r\n        pref[i + 1] = pref[i] + a[i];\r\n    }\r\n    \r\n    auto getsum = [&](int k1, int k2){\r\n        int k3 = n - k1 - k2;\r\n        int c6 = k1;\r\n        int c4 = 2 * k2;\r\n        int c3 = 3 * k3;\r\n        \r\n        ll s6 = pref[c6];\r\n        ll s4 = pref[c6 + c4] - pref[c6];\r\n        ll s3 = pref[c6 + c4 + c3] - pref[c6 + c4];\r\n        \r\n        return 6 * s6 + 4 * s4 + 3 * s3;\r\n    };\r\n    \r\n    ll ans = 0;\r\n    \r\n    for(int k1 = 0; k1 <= n; k1++){\r\n        int lo = 0, hi = n - k1;\r\n        while(hi - lo >= 3){\r\n            int m1 = lo + (hi - lo) / 3;\r\n            int m2 = hi - (hi - lo) / 3;\r\n            if(getsum(k1, m1) < getsum(k1, m2)){\r\n                lo = m1;\r\n            }\r\n            else{\r\n                hi = m2;\r\n            }\r\n        }\r\n        for(int k2 = lo; k2 <= hi; k2++){\r\n            ans = max(ans, getsum(k1, k2));\r\n        }\r\n    }\r\n    cout << ans << endl;\r\n    return;\r\n}\r\n\r\nint main(){\r\n    int count ;\r\n    cin >> count;\r\n    while(count--){\r\n        solve();\r\n    }\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "9556ae47f866838330988471e51e5965c49a9139a9258a70f3f5226aaff30257",
+  "solution_url": "https://www.codechef.com/viewsolution/1368447690",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368447690",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260785",
+  "scraped_at_utc": "2026-10-12T17:10:59.076Z"
+}

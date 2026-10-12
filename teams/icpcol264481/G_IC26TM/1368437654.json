@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368437654",
+  "team_username": "icpcol264481",
+  "team_name": "icpcol264481",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:55:02.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:25:02 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:25:02 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.27",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.27)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int int64_t\r\n\r\nsigned main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin >> t;\r\n    while(t --)\r\n    {\r\n        int n;\r\n        cin >> n;\r\n        \r\n        int m = 3 * n;\r\n        vector<int> a(m + 1);\r\n        for(int i = 1; i <= m; i ++)\r\n            cin >> a[i];\r\n            \r\n        sort(a.begin() + 1, a.end());\r\n        \r\n        auto p = a;\r\n        for(int i = 1; i <= m; i ++)\r\n            p[i] += p[i - 1];\r\n        auto query = [&](int l, int r) -> int\r\n        {\r\n            if(l > r)\r\n                return int(0);\r\n            return p[r] - p[l - 1];  \r\n        };\r\n        \r\n        int ans = 0;\r\n        for(int r = 0; r <= n; r ++)\r\n        {\r\n            int here = 0;\r\n            int base = 6 * query(m - r + 1, m);\r\n            auto f = [&](int q) -> int\r\n            {\r\n                assert(q + r <= n);\r\n                int p = n - q - r;\r\n                int sum = base;\r\n                int rb = m - r;\r\n                sum += 4 * query(rb - 2 * q + 1, rb);\r\n                rb -= 2 * q;\r\n                sum += 3 * query(rb - 3 * p + 1, rb);\r\n                return sum;\r\n            };\r\n            \r\n            here = max(here, f(0));\r\n            here = max(here, f(n - r));\r\n            \r\n            int s = 1, e = n - r, opt = 0;\r\n            while(s <= e)\r\n            {\r\n                int m = (s + e)/2;\r\n                if(f(m) - f(m - 1) >= 0)\r\n                    s = m + 1, opt = m;\r\n                else\r\n                    e = m - 1;\r\n            };\r\n            \r\n            here = max(here, f(opt));\r\n            \r\n            ans = max(ans, here);\r\n        }\r\n        \r\n        cout << ans << endl;\r\n    }\r\n}\r\n",
+  "source_sha256": "eb60b35bcfe396e717d952883b408673f2bd8258fc0a3dd39dd9be00e58fdd16",
+  "solution_url": "https://www.codechef.com/viewsolution/1368437654",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368437654",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol264481",
+  "scraped_at_utc": "2026-10-12T17:00:03.022Z"
+}

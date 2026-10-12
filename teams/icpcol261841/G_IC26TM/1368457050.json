@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368457050",
+  "team_username": "icpcol261841",
+  "team_name": "icpcol261841",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:26:08.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:56:08 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:56:08 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.61",
+  "execution_time_detail": "1.61s",
+  "memory_status": "60M",
+  "memory_detail": "60M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(1.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.31)"
+    }
+  ],
+  "source_code": "import java.util.*; \r\n \r\nclass Codechef \r\n{ \r\n    public static void main(String[] args) \r\n    { \r\n        Scanner scn=new Scanner(System.in); \r\n        StringBuilder out=new StringBuilder(); \r\n        int test=scn.nextInt(); \r\n        for(int cas=0;cas<test;cas++){ \r\n            int cnt=scn.nextInt(); \r\n            int num=3*cnt; \r\n            int[] arr=new int[num]; \r\n            for(int idx=0;idx<num;idx++){ \r\n                arr[idx]=scn.nextInt(); \r\n            } \r\n            Arrays.sort(arr); \r\n            long[] pref=new long[num+1]; \r\n            for(int idx=1;idx<=num;idx++){ \r\n                pref[idx]=pref[idx-1]+arr[num-idx]; \r\n            } \r\n            long ans=0; \r\n            int two=cnt; \r\n            for(int one=0;one<=cnt;one++){ \r\n                two=Math.min(two,cnt-one); \r\n                while(two>0){ \r\n                    int mid=one+2*two; \r\n                    int end=num-2*one-two; \r\n                    long gain=3*(pref[end+1]-pref[end])-(pref[mid]-pref[mid-2]); \r\n                    if(gain<0){ \r\n                        break; \r\n                    } \r\n                    two--; \r\n                } \r\n                long curr=2*pref[one]+pref[one+2*two]+3*pref[num-2*one-two]; \r\n                ans=Math.max(ans,curr); \r\n            } \r\n            out.append(ans).append('\\n'); \r\n        } \r\n        System.out.print(out); \r\n    } \r\n} \r\n",
+  "source_sha256": "534812ea1ce7e46a0188efb072c822766d36f16b4a6050fd88244be38f119f28",
+  "solution_url": "https://www.codechef.com/viewsolution/1368457050",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368457050",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol261841",
+  "scraped_at_utc": "2026-10-12T17:53:17.400Z"
+}

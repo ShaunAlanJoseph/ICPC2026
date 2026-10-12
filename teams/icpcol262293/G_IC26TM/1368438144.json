@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368438144",
+  "team_username": "icpcol262293",
+  "team_name": "icpcol262293",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:55:51.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:25:51 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:25:51 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.10",
+  "execution_time_detail": "2.10s",
+  "memory_status": "71.4M",
+  "memory_detail": "71.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(2.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.65)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.53)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.89)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(2.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(2.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.28)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n        Scanner sc = new Scanner(System.in);\r\n        int t = sc.nextInt();\r\n        while(t-->0){\r\n            int n = sc.nextInt();\r\n            int z = 3*n;\r\n            int[] x = new int[z];\r\n            for(int i=0; i<z; i++) x[i]=sc.nextInt();\r\n            Arrays.sort(x);\r\n            \r\n            long[] p = new long[z+1];\r\n            for(int i=0; i<z; i++){\r\n                p[i+1]=p[i]+x[z-1-i];\r\n            }\r\n            \r\n            long ans=0;\r\n            for(int a=0; a<=n; a++){\r\n                int l=0, r=n-a;\r\n                while(l<r){\r\n                    int m=(l+r)/2;\r\n                    int b1 = a+2*m;\r\n                    int c1 = 3*n-2*a-m;\r\n                    long v1 = 2*p[a] + p[b1] + 3*p[c1];\r\n                    \r\n                    int b2 = a+2*(m+1);\r\n                    int c2 = 3*n - 2*a - (m+1);\r\n                    long v2 = 2*p[a] + p[b2] + 3*p[c2];\r\n                    \r\n                    if(v2>v1) l=m+1;\r\n                    else r=m;\r\n                }\r\n                int b = a+2*l;\r\n                int c = 3*n - 2*a - l;\r\n                long cur = 2*p[a] + p[b] + 3*p[c];\r\n                \r\n                ans = Math.max(ans, cur);\r\n            }\r\n            System.out.println(ans);\r\n        }\r\n\t}\r\n}\r\n",
+  "source_sha256": "1ecdc16022033b73379d905982de239abba7ee7d79dbd7baebf04e263abcc518",
+  "solution_url": "https://www.codechef.com/viewsolution/1368438144",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368438144",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262293",
+  "scraped_at_utc": "2026-10-12T17:41:23.200Z"
+}

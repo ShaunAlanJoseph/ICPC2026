@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368452147",
+  "team_username": "icpcol260079",
+  "team_name": "icpcol260079",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:17:28.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:47:28 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:47:28 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.33",
+  "execution_time_detail": "",
+  "memory_status": "12.5M",
+  "memory_detail": "12.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.29)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve(){\r\n    int n;\r\n    cin >> n;\r\n    vector<long long> a(3*n);\r\n    for(int i = 0; i < 3*n;i++){\r\n        cin >> a[i];\r\n    }\r\n    \r\n    sort(a.begin(), a.end(), greater<int> ());\r\n    \r\n    vector<long long> pref(3*n + 1, 0);\r\n    for(int i = 0; i < 3*n; i++){\r\n        pref[i+1] = pref[i] + a[i];\r\n    }\r\n    \r\n    long long ans = 0;\r\n    for(int i = 0; i<=n;i++){\r\n        int st = 0;\r\n        int end = n - i;\r\n        while(end - st > 2){\r\n            int mid1 = st + (end - st)/3;\r\n            int mid2 = end - (end - st)/3;\r\n            \r\n            long long val1 = 2LL * pref[i] + pref[i + (2 * mid1)] + 3LL * pref[(3*n) - (2*i) - mid1];\r\n            \r\n            long long val2 = 2LL * pref[i] + pref[i + (2 * mid2)] + 3LL * pref[(3*n) - (2*i) - mid2];\r\n            \r\n            if(val1 < val2){\r\n                st = mid1;\r\n            }else{\r\n                end = mid2;\r\n            }\r\n        }\r\n        \r\n        for(int j = st; j <= end; j++){\r\n            long long curr = 2LL * pref[i] + pref[i + (2 * j)] + 3LL * pref[(3*n) - (2*i) - j];\r\n            if(curr > ans){\r\n                ans = curr;\r\n            }\r\n        }\r\n    }\r\n    cout << ans << endl;\r\n    return;\r\n}\r\n\r\nint main() {\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "7ab2e34c962c580fc7d6a33586db1ea81e6d395cacb7a257c1f0fed8b7389eb1",
+  "solution_url": "https://www.codechef.com/viewsolution/1368452147",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368452147",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260079",
+  "scraped_at_utc": "2026-10-12T16:58:03.274Z"
+}

@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368406374",
+  "team_username": "icpcol260033",
+  "team_name": "icpcol260033",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:16:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:46:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:46:11 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.61",
+  "execution_time_detail": "1.61s",
+  "memory_status": "71M",
+  "memory_detail": "71M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.60)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.71)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.14)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\tScanner sc = new Scanner(System.in);\r\n\t\tint t = sc.nextInt();\r\n\t\t\r\n\t\twhile(t != 0){\r\n\t\t    int n = sc.nextInt();\r\n\t\t    long[] nums = new long[3 * n];\r\n\t\t    \r\n\t\t    for(int i = 0; i < 3 * n; i++){\r\n\t\t        nums[i] = sc.nextLong();\r\n\t\t    }\r\n\t\t    \r\n\t\t    Arrays.sort(nums);\r\n\t\t    \r\n\t\t    long[] prefix = new long[3 * n + 1];\r\n\t\t    for(int i = 0; i < 3 * n; i++){\r\n\t\t        prefix[i + 1] = prefix[i] + nums[3 * n - 1 - i];\r\n\t\t    }\r\n\t\t    \r\n\t\t    for(int i = 0; i < (3 * n) / 2; i++){\r\n\t\t        long temp = nums[i];\r\n\t\t        nums[i] = nums[3 * n - i - 1];\r\n\t\t        nums[3 * n - 1 - i] = temp;\r\n\t\t    }\r\n\t\t    \r\n\t\t    long ans = 0;\r\n\t\t    \r\n\t\t    for(int k = 0; k <= n; k++){\r\n\t\t        int maxLeft = n - k;\r\n\t\t        \r\n\t\t        int left = 0, right = maxLeft;\r\n\t\t        \r\n\t\t        while(left < right){\r\n\t\t            int mid = (left + right + 1) / 2;\r\n\t\t            \r\n\t\t            int l = mid - 1;\r\n\t\t            long curr = nums[k + 2 * l] + nums[k + 2 * l + 1] - 3L * nums[3 * n - 2 * k - 1 - l];\r\n\t\t            \r\n\t\t            if(curr >= 0){\r\n\t\t                left = mid;\r\n\t\t            }\r\n\t\t            else{\r\n\t\t                right = mid - 1;\r\n\t\t            }\r\n\t\t        }\r\n\t\t        \r\n\t\t        int l = left;\r\n\t\t        \r\n\t\t        int r = 3 * n - 2 * k - l;\r\n\t\t        \r\n\t\t        long curr = 2L * prefix[k] + prefix[k + 2 * l] + 3L * prefix[r];\r\n\t\t        \r\n\t\t        ans = Math.max(ans, curr);\r\n\t\t    }\r\n\t\t    \r\n\t\t    System.out.println(ans);\r\n\t\t    \r\n\t\t    t--;\r\n\t\t}\r\n\t}\r\n}\r\n",
+  "source_sha256": "0c90dafe37a71ca9c43fbcf6461aeb34e6d0b4ab1a45053abc8d58d0227f5b24",
+  "solution_url": "https://www.codechef.com/viewsolution/1368406374",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368406374",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260033",
+  "scraped_at_utc": "2026-10-12T17:25:07.568Z"
+}

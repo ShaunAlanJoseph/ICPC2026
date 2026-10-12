@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368440019",
+  "team_username": "icpcol263420",
+  "team_name": "icpcol263420",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:58:18.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:28:18 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:28:18 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.17",
+  "execution_time_detail": "",
+  "memory_status": "12.4M",
+  "memory_detail": "12.4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.10)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nlong long f1( vector<long long>& vecc1, int num1, int num2, int num3){\r\n    \r\n    long long yxz, num4, num5, num6;\r\n    \r\n    int num12, num13;\r\n    \r\n    num12 = 2*num2;\r\n    num12 = num12 -num1;\r\n    \r\n    num13= num3-num2;\r\n    \r\n    num13 =num13- num1;\r\n    num4 = vecc1[num1];\r\n    \r\n    num4 = 2* num4;\r\n\r\n\r\n    num5 = vecc1[num12];\r\n    \r\n    num6 = vecc1[num13];\r\n    num6 = 3*num6;\r\n    \r\n    yxz = num4 + num5;\r\n    yxz = yxz +num6;\r\n    \r\n    return yxz;\r\n}\r\n\r\nlong long f2( vector<long long> & vecc2, int n1){\r\n    vector<long long> vecc1;\r\n    \r\n    long long num7, num8, num14, num15;\r\n    \r\n    int num3, num9, num10, num11;\r\n    num3= 3*n1;\r\n    \r\n    vecc1.assign(num3+1, 0 );\r\n    \r\n    sort(vecc2.rbegin(), vecc2.rend());\r\n    \r\n    for(int i=0;i<num3; i++){\r\n        vecc1[i+1]  = vecc1[i];\r\n        \r\n        vecc1[i+1] = vecc1[i+1] + vecc2[i];\r\n    }\r\n    \r\n    num7=0;\r\n    for(int i=0; i<=n1; i++){\r\n        num9 =0;\r\n        num10 =i;\r\n        \r\n        while(num9< num10){\r\n            num11 = num9 +num10;\r\n            num11 = num11/2;\r\n            \r\n            num14= f1(vecc1, num11+1, i, num3);\r\n            \r\n            num15 = f1(vecc1, num11, i, num3);\r\n            \r\n            if(num14> num15){\r\n                num9 = num11 +1;\r\n            }\r\n            else{\r\n                \r\n                num10=num11;\r\n            }\r\n        }\r\n        num8 = f1(vecc1, num9, i, num3);\r\n        num7 = max(num7, num8);\r\n    }\r\n    \r\n    return num7;\r\n    \r\n    \r\n}\r\n\r\nint main() {\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    \r\n    int t, n1, num3;\r\n    \r\n    vector<long long> vecc2;\r\n    \r\n    cin>>t;\r\n    while(t--){\r\n        \r\n        cin>>n1;\r\n        num3 = 3*n1;\r\n        \r\n        vecc2.assign(num3, 0);\r\n        for(int i=0; i< num3; i++){\r\n            cin >> vecc2[i];\r\n        }\r\n        \r\n        cout<< f2(vecc2,n1) << endl;\r\n    }\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "db1e6b0400cfbfdb4854f653d941bf56a6455827223e2bed5b36fa803601f0a3",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440019",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440019",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263420",
+  "scraped_at_utc": "2026-10-12T17:43:47.573Z"
+}

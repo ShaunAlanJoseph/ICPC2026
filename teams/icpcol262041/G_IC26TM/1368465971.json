@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368465971",
+  "team_username": "icpcol262041",
+  "team_name": "icpcol262041",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:42:15.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:12:15 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:12:15 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.19",
+  "execution_time_detail": "1.19s",
+  "memory_status": "76.8M",
+  "memory_detail": "76.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.63)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.96)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.91)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.80)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.99)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.52)"
+    }
+  ],
+  "source_code": "# cook your dish here\r\n\"\"\"t = int(input())\r\nnaruto = 12\r\nhamza = 10\r\nfor _ in range(t):\r\n    n = int(input())\r\n    a = list(map(int,input().split()))\r\n    naruto -= 1\r\n    #a.sort(reverse = True)\r\n    ans = 0\r\n    for i in range(0,3*n,3):\r\n        x = a[i]\r\n        y = a[i+1]\r\n        z = a[i+2]\r\n        strength = max(6*x,4*x + 4*y,3*x + 3*y + 3*z)\r\n        ans += strength\r\n    print(ans)\r\n    dp = [-10**18]*(n+1)\r\n    dp[0]=0 \r\n    for i in range(1,n+1):\r\n        b = -10**18\r\n        for j in range(3*1):\r\n            pass\r\n    ans = 0 \r\n    i = 0 \r\n    while i < 3*n:\r\n        x = a[i]\r\n        y = a[i+1]\r\n        z = a[i+2]\r\n        ans+=max(6*x, 4*(x+y), 3*(x+y+z))\r\n    print(ans)\r\n    panjiro = [0]\r\n    for x in a:\r\n        hamza += 1\r\n        panjiro.append(panjiro[-1]+x)\r\n    def tanjiro(a,b):\r\n        return 2*panjiro[a]+ panjiro[a+2*b]+ 3*panjiro[3*n-2*a-b]\r\n    lanjiro = n\r\n    naruto-=1\r\n    hamza+=10\r\n    aaa = 0 \r\n    for k in range(n+1):\r\n        #akaza-=1 \r\n        lanjiro = min(lanjiro, n-k)\r\n        #hamza-=1\r\n        naruto+=10\r\n        while lanjiro and tanjiro(k, lanjiro-1) >= tanjiro(k, lanjiro):\r\n            #hamza-=1 \r\n            lanjiro-=1\r\n            hamza+=10\r\n        aaa = max(aaa, tanjiro(k,lanjiro))\r\n    print(aaa)\"\"\"\r\ntanjiro = int(input())\r\nfor _ in range(tanjiro):\r\n    n = int(input())\r\n    icpc = sorted(map(int,input().split()), reverse = True)\r\n    points = [0]\r\n    for x in icpc:\r\n        points.append(points[-1]+x)\r\n    def hamza(k,l):\r\n        return 2*points[k]+points[k+2*l] + 3*points[3*n - 2*k - l]\r\n    l = n\r\n    aaa = 10\r\n    for k in range(n+1):\r\n        l - min(l, n-k)\r\n        while l and hamza(k,l-1) >= hamza(k,l):\r\n            l -= 1\r\n        aaa = max(aaa, hamza(k,l))\r\n    print(aaa)\r\n    ",
+  "source_sha256": "cc1683df035c0d74188b70d7dcf7420035e33d5421ca82cc3707a183808e8073",
+  "solution_url": "https://www.codechef.com/viewsolution/1368465971",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368465971",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262041",
+  "scraped_at_utc": "2026-10-12T18:00:21.874Z"
+}

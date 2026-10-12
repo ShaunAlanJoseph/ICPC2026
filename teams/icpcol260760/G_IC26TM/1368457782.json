@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368457782",
+  "team_username": "icpcol260760",
+  "team_name": "icpcol260760",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:27:27.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:57:27 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:57:27 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "1.49",
+  "execution_time_detail": "1.49s",
+  "memory_status": "74M",
+  "memory_detail": "74M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(1.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.88)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(1.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.93)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\tScanner sc=new Scanner(System.in);\r\n\t\tint t= sc.nextInt();\r\n\t\twhile(t-- >0){\r\n\t\t    int n=sc.nextInt();\r\n\t\t    int totalStudents=3*n;\r\n\t\t    long [] a=new long[totalStudents];\r\n\t\t    for(int i=0;i<totalStudents;i++){\r\n\t\t        a[i]=sc.nextLong();\r\n\t\t        \r\n\t\t    }\r\n\t\t    Arrays.sort(a);\r\n\t\t    long[] r=new long[totalStudents];\r\n\t\t    for(int i=0;i<totalStudents;i++){\r\n\t\t        r[i]=a[totalStudents-1-i];\r\n\t\t    }\r\n\t\t    long[] pref=new long[totalStudents+1];\r\n\t\t    for(int i=0;i<totalStudents;i++){\r\n\t\t        pref[i+1]=pref[i]+r[i];\r\n\t\t    }\r\n\t\t    long answer=0;\r\n\t\t    for(int A=0;A<=n;A++)\r\n\t\t    {\r\n\t\t        int maxB=n-A;\r\n\t\t        int low=0;\r\n\t\t        int high=maxB;\r\n\t\t        while(low<high){\r\n\t\t            int B=(low+high)/2;\r\n\t\t            int q=A+2*B;\r\n\t\t            int last=3*n-2*A-B-1;\r\n\t\t            long change=r[q]+r[q+1]-3*r[last];\r\n\t\t            if(change>0){\r\n\t\t                low=B+1;\r\n\t\t            }\r\n\t\t            else{\r\n\t\t                high=B;\r\n\t\t            }\r\n\t\t        }\r\n\t\t        for(int B=Math.max(0,low-1);B<=Math.min(maxB,low+1);B++){\r\n\t\t            int C=n-A-B;\r\n\t\t            int q=A+2*B;\r\n\t\t            int and=q+3*C;\r\n\t\t            long value=0;\r\n\t\t            value+= 6L*pref[A];\r\n\t\t            value+= 4L*(pref[q]-pref[A]);\r\n\t\t            value+= 3L*(pref[and]-pref[q]);\r\n\t\t            answer=Math.max(answer,value);\r\n\t\t        }\r\n\t\t    }\r\n\t\t    System.out.println(answer);\r\n\t\t    \r\n\t\t}\r\n\t\tsc.close();\r\n\t}\r\n}\r\n",
+  "source_sha256": "a9616a668308b6ce4e1b312532a5716cdb5d6d1fc135af0480240291488683ca",
+  "solution_url": "https://www.codechef.com/viewsolution/1368457782",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368457782",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260760",
+  "scraped_at_utc": "2026-10-12T17:53:46.189Z"
+}

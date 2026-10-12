@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368432614",
+  "team_username": "icpcol263648",
+  "team_name": "icpcol263648",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:47:46.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:17:46 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:17:46 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.47",
+  "execution_time_detail": "2.47s",
+  "memory_status": "67.3M",
+  "memory_detail": "67.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(1.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(2.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(1.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(1.90)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(1.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.90)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(1.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(1.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(2.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(2.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(2.00)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception {\r\n\t\t       Scanner sc = new Scanner(System.in);\r\n\t\t       \r\n\t\t       int t = sc.nextInt();\r\n\t\t       StringBuilder ans = new StringBuilder();\r\n\t\t       while(t-- > 0){\r\n\t\t           int n = sc.nextInt();\r\n\t\t           long[] arr = new long[3 * n];\r\n\t\t           for(int i = 0; i < 3 * n; i++){\r\n\t\t               arr[i] = sc.nextLong();\r\n\t\t           }\r\n\t\t           Arrays.sort(arr);\r\n\t\t           int tot = 3 * n;\r\n\t\t           long[] prefix = new long[tot + 1];\r\n\t\t           for(int i = 0; i < tot; i++){\r\n\t\t               prefix[i + 1] = prefix[i] + arr[tot - 1 - i];\r\n\t\t           }\r\n\t\t           long[] values = new long[tot + 1];\r\n\t\t           for(int i = 0; i < tot; i++){\r\n\t\t               values[i] = arr[tot - 1 - i];\r\n\t\t           }\r\n\t\t           long max = 0;\r\n\t\t           int d = n;\r\n\t\t           for(int i = 0; i <= n; i++){\r\n\t\t               d = Math.min(d, n - i);\r\n\t\t               while(d > 0){\r\n\t\t                   int d_idx = i + 2 * (d - 1);\r\n\t\t                   long d_sum = values[d_idx] + values[d_idx + 1];\r\n\t\t                   int s_idx = 3 * n - 2 * i - (d - 1) - 1;\r\n\t\t                   long s_val = values[s_idx];\r\n\t\t                   if(d_sum > 3 * s_val){\r\n\t\t                       break;\r\n\t\t                   }\r\n\t\t                   d--;\r\n\t\t               }\r\n\t\t               long curr = 2L * prefix[i] + prefix[i + 2 * d] + 3L * prefix[3 * n - 2 * i - d];\r\n\t\t               max = Math.max(max, curr);\r\n\t\t           }\r\n\t\t           ans.append(max).append(\"\\n\");\r\n\t\t}\r\n\t\tSystem.out.println(ans);\r\n\t}\r\n}\r\n",
+  "source_sha256": "158217e0664166a5ba8c2784f5fc2046f384e126c9242e4869175dd7db3b5522",
+  "solution_url": "https://www.codechef.com/viewsolution/1368432614",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368432614",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263648",
+  "scraped_at_utc": "2026-10-12T17:02:02.363Z"
+}

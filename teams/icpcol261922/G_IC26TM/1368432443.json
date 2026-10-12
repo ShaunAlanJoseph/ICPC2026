@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368432443",
+  "team_username": "icpcol261922",
+  "team_name": "icpcol261922",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:47:29.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:17:29 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:17:29 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.47",
+  "execution_time_detail": "",
+  "memory_status": "12.3M",
+  "memory_detail": "12.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.47)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    int m=3*n;\r\n\t    vector<long long>a(m);\r\n\t    for(long long &x:a)\r\n\t    {\r\n\t        cin>>x;\r\n\t    }\r\n\t    sort(a.begin(),a.end(),greater<long long>());\r\n\t    vector<long long> pref(m+1,0);\r\n\t    for(int i=0;i<m;i++)\r\n\t    {\r\n\t        pref[i+1]=pref[i]+a[i];\r\n\t    }\r\n\t    long long ans=0;\r\n\t    for(int k=0;k<=n;k++)\r\n\t    {\r\n\t        int low=0;\r\n\t        int high=n-k;\r\n\t        auto value=[&](int l)->long long{\r\n\t            int r=n-k-l;\r\n\t            int start4=k;\r\n\t            int end4=k+2*l;\r\n\t            int end3=end4+3*r;\r\n\t            long long part6=6LL*pref[k];\r\n\t            long long part4=4LL*(pref[end4]-pref[start4]);\r\n\t            long long part3=3LL*(pref[end3]-pref[end4]);\r\n\t            return part6+part4+part3;\r\n\t        };\r\n\t        while(low<high)\r\n\t        {\r\n\t            int mid=(low+high)/2;\r\n\t            if(value(mid)<=value(mid+1))\r\n\t            {\r\n\t                low=mid+1;\r\n\t            }\r\n\t            else\r\n\t            {\r\n\t                high=mid;\r\n\t            }\r\n\t        }\r\n\t        ans=max(ans,value(low));\r\n\t        \r\n\t            \r\n\t            \r\n\t        }\r\n\t        cout<<ans<<endl;\r\n\t    }\r\n\t    \r\n\t    \r\n\t}\r\n\r\n\r\n",
+  "source_sha256": "9f4bbaa51c8f4c265a33ff84735a85c8b3f4be7c0e807186ce24ef6e8ed5c546",
+  "solution_url": "https://www.codechef.com/viewsolution/1368432443",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368432443",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol261922",
+  "scraped_at_utc": "2026-10-12T17:19:25.973Z"
+}

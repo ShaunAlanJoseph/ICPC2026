@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368462177",
+  "team_username": "icpcol263947",
+  "team_name": "icpcol263947",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:35:41.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:05:41 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:05:41 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.28",
+  "execution_time_detail": "",
+  "memory_status": "12.2M",
+  "memory_detail": "12.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.20)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\n\r\n\r\nsigned main() {\r\n\t// your code goes here\r\n    int t; cin >> t;\r\n    while(t--){\r\n        int n; cin >> n;\r\n        std::vector<int> a(3*n) ;\r\n        for(auto& x : a) cin >> x;\r\n        sort(a.begin(), a.end());\r\n        vector<int>pref2(3*n);\r\n        pref2[0] = a[0];\r\n        for(int i = 1; i < 3*n; i++) pref2[i] = pref2[i-1] + a[i];\r\n        auto pref = [&](int x){\r\n            if(x < 0) return 0LL;\r\n            else return pref2[x];\r\n        };\r\n        int maxl = 0;\r\n        for(int x = 0; x <= n; x++){\r\n            int tmaxl = pref(3*n - 1) - pref(3*n - x - 1);\r\n            tmaxl *= 6;\r\n            \r\n            int lo = 1, hi = n - x;\r\n            int res = -1;\r\n            while(lo <= hi){\r\n                int mid = (lo + hi)/2;\r\n                int z = mid;\r\n                int y = n-x-z;\r\n                \r\n                if(a[3*n - x - 2*y-1] + a[3*n-x-2*y-2] > 3*a[3*n-2*y-3*z - x]){\r\n                    hi = mid - 1;\r\n                    res = mid;\r\n                }\r\n                else lo = mid + 1;\r\n            }\r\n            // cout << res << '\\n';\r\n            int z = (res == -1 ? n-x : res-1);\r\n            \r\n            int y = n - x - z;\r\n            // cout << x <<\" \" << y << \" \" << z << \"\\n\";\r\n            int tmaxl2 = 4*(pref(3*n-x-1)-pref(3*n-x-2*y-1));\r\n            int tmaxl3 = 3*(pref(3*n-x-2*y-1)-pref(3*n-x-2*y-3*z-1));\r\n            tmaxl += tmaxl2+tmaxl3;\r\n            // cout << tmaxl2 << \" \" << tmaxl3 << \" \" << tmaxl-tmaxl2-tmaxl3 <<endl;\r\n            maxl = max(maxl, tmaxl);\r\n            \r\n            \r\n        }\r\n        \r\n        cout << maxl << '\\n';\r\n    }\r\n}\r\n",
+  "source_sha256": "bf67c074cf5ec73eed0b88262ba3faa19b004c103bb494ad34ae8e0946c65106",
+  "solution_url": "https://www.codechef.com/viewsolution/1368462177",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368462177",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263947",
+  "scraped_at_utc": "2026-10-12T16:58:09.918Z"
+}

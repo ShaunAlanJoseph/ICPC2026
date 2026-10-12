@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368456340",
+  "team_username": "icpcol260490",
+  "team_name": "icpcol260490",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:24:48.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:54:48 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:54:48 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.11",
+  "execution_time_detail": "",
+  "memory_status": "12.5M",
+  "memory_detail": "12.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.09)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr);\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    int totalstudents=3*n;\r\n\t    vector<long long >rating(totalstudents);\r\n\t    for(int i=0;i<totalstudents;i++){\r\n\t        cin>>rating[i];\r\n\t    }\r\n\t    sort(rating.begin(),rating.end(),greater<long long>());\\\r\n\t    vector<long long>prefix(totalstudents+1,0);\r\n\t    for(int i=0;i<totalstudents;i++){\\\r\n\t    prefix[i+1]=prefix[i]+rating[i];\t}\r\n\tauto evaluate=[&](int soloteams,int pairteam){\r\n\t    int pairend=soloteams+2*pairteam;\r\n\t    int trioend=totalstudents-2*soloteams-pairteam;\r\n\t    return 2*prefix[soloteams]+prefix[pairend]+3*prefix[trioend];\r\n\t    \r\n\t};\r\n\tlong long besttotal=0;\r\n\tfor(int soloteams=0;soloteams<=n;soloteams++){\r\n\t    int low=0;\r\n\t    int high=n-soloteams;\r\n\t    while(high-low>2){\r\n\t        int leftmid=low+(high-low)/3;\r\n\t        int rightmid=high-(high-low)/3;\r\n\t        if(evaluate(soloteams,leftmid)<evaluate(soloteams,rightmid)){\r\n\t            low=leftmid+1;   }\r\n\t        else{\r\n\t            high=rightmid;\r\n\t        }\r\n\t    }   for(int pairteams=low;pairteams<=high;pairteams++){\r\n\t        besttotal=max(besttotal,evaluate(soloteams,pairteams));\r\n\t    }\r\n\t}\r\n\tcout<<besttotal<<\"\\n\";\r\n\t}\treturn 0;\r\n}\r\n",
+  "source_sha256": "8c5b2742e3738618f7593548a99928a2b075d00dc399c5ffcf1f8296a465357b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368456340",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368456340",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260490",
+  "scraped_at_utc": "2026-10-12T17:53:17.348Z"
+}

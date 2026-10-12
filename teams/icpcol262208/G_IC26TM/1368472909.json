@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368472909",
+  "team_username": "icpcol262208",
+  "team_name": "icpcol262208",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:54:03.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:24:03 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:24:03 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.67",
+  "execution_time_detail": "",
+  "memory_status": "51.8M",
+  "memory_detail": "51.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.67)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.61)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.50)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.28)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n    static long [] P;\r\n    static int m ;\r\n    \r\n    static long g(int a , int b){\r\n        return 2 * P[a]  + P[a+2*b] + 3 *P[m-2*a-b];\r\n    }\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t    StreamTokenizer s = new StreamTokenizer(new BufferedInputStream(System.in));\r\n\t    s.nextToken();\r\n\t    int t = (int) s.nval;\r\n\t    StringBuilder o = new StringBuilder();\r\n\t    while(t-->0){\r\n\t        s.nextToken();\r\n\t        int n = (int) s.nval;\r\n\t        m = 3*n;\r\n\t        long [] a = new long [m];\r\n\t        for(int i =0; i <m ; i++){\r\n\t            s.nextToken();\r\n\t            a[i]= (long)s.nval;\r\n\t        }\r\n\t        Arrays.sort(a);\r\n\t        P = new long[m+1];\r\n\t        for(int i =0; i<m; i++) P[i+1] = P[i]+ a[m-1-i];\r\n\t        long r = 0;\r\n\t        for(int b = 0; b<=n; b++){\r\n\t            int lo = 0, hi = n-b;\r\n\t            while(lo<hi){\r\n\t                int md = (lo+hi)/2;\r\n\t                if(g(md+1,b)>g(md,b)) lo =md+1;\r\n\t                else hi = md;\r\n\t            }\r\n\t            r = Math.max(r, g(lo, b));\r\n\t        }\r\n\t        o.append(r).append(\"\\n\");\r\n\t        }\r\n\t        System.out.println(o);\r\n\r\n\t}\r\n}\r\n",
+  "source_sha256": "02ee0b1c6b389b3d42eef099670ce840691c79c3655735507e14db51877b31ce",
+  "solution_url": "https://www.codechef.com/viewsolution/1368472909",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368472909",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262208",
+  "scraped_at_utc": "2026-10-12T18:04:43.345Z"
+}

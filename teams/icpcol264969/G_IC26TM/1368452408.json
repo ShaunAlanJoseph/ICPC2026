@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368452408",
+  "team_username": "icpcol264969",
+  "team_name": "icpcol264969",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:18:02.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:48:02 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:48:02 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.14",
+  "execution_time_detail": "",
+  "memory_status": "12.5M",
+  "memory_detail": "12.5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.05)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tios::sync_with_stdio(false);\r\n\tcin.tie(nullptr);\r\n\t\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    int n ;\r\n\t    cin >> n;\r\n\t    \r\n\t    int N = 3 * n;\r\n\t    \r\n\t    vector<long long> a(N);\r\n\t    for(auto &x : a){\r\n\t        cin >> x;\r\n\t    }\r\n\t    sort(a.begin(),a.end());\r\n\t    \r\n\t    vector<long long> pref(N+1,0);\r\n\t    \r\n\t    for(int i = 0 ;i <  N ; i++){\r\n\t        pref[i+1] = pref[i] + a[i];\r\n\t    }\r\n\t    auto sumb = [&](int cnt)-> long long {\r\n\t        return pref[cnt];\r\n\t    };\r\n\t    auto sumt = [&](int cnt) -> long long{\r\n\t        return pref[N] - pref[N - cnt];\r\n\t    };\r\n\t    \r\n\t    auto bon = [&](int k , int l) -> long long{\r\n\t        return sumt(k + 2  * l) + 2LL * sumt(k) - 3LL * sumb(2 * k + l);\r\n\t    };\r\n\t    \r\n\t    int l = n;\r\n\t    long long best = 0;\r\n\t    for(int k = 0 ; k <= n ; k++){\r\n\t        l = min( l , n - k);\r\n\t        \r\n\t        while( l > 0){\r\n\t            int q1 = k + 2 * (l - 1);\r\n\t            int q2  = q1 + 1;\r\n\t            \r\n\t            long long add1 = a[N - q1 - 1];\r\n\t            long long add2 = a[N - q2 - 1];\r\n\t            \r\n\t            long long rem = a[2 * k + l - 1];\r\n\t            long long delta = add1 + add2 - 3LL * rem;\r\n\t            \r\n\t            if(delta < 0){\r\n\t                l--;\r\n\t            }else{\r\n\t                break;\r\n\t            }\r\n\t        }\r\n\t        \r\n\t        best = max(best , bon(k,l));\r\n\t    }\r\n\t    long long bas = 3LL * pref[N];\r\n\t    \r\n\t    cout << bas + best << endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "6fe9c10b386cd8953e4df2f54fd7010cd6f1481af065f04873eddd14b91178e3",
+  "solution_url": "https://www.codechef.com/viewsolution/1368452408",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368452408",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol264969",
+  "scraped_at_utc": "2026-10-12T17:50:49.588Z"
+}

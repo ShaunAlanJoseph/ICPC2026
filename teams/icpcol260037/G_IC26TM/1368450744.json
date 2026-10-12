@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368450744",
+  "team_username": "icpcol260037",
+  "team_name": "icpcol260037",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:15:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:45:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:45:07 PM",
+  "language": "Java",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.95",
+  "execution_time_detail": "",
+  "memory_status": "68.9M",
+  "memory_detail": "68.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.44)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.54)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.47)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.72)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.66)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.77)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.60)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.75)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.95)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.47)"
+    }
+  ],
+  "source_code": "import java.util.*;\r\nimport java.lang.*;\r\nimport java.io.*;\r\n\r\nclass Codechef\r\n{\r\n\tpublic static void main (String[] args) throws java.lang.Exception\r\n\t{\r\n\t\t// your code goes here\r\n\t\tBufferedReader br = new BufferedReader(new InputStreamReader(System.in));\r\n\t\tclass Fast{\r\n\t\t    StringTokenizer st;\r\n\t\t    String next() throws IOException{\r\n\t\t        while(st==null || !st.hasMoreTokens()){\r\n\t\t            st=new StringTokenizer(br.readLine());\r\n\t\t        }\r\n\t\t        return st.nextToken();\r\n\t\t        \r\n\t\t    }\r\n\t\t    int nextInt() throws IOException{\r\n\t\t        return Integer.parseInt(next());\r\n\t\t        \r\n\t\t    }\r\n\t\t    long nextLong() throws IOException{\r\n\t\t        return Long.parseLong(next());\r\n\t\t        \r\n\t\t    }\r\n\t\t}    \r\n\t\tFast fs=new Fast();\r\n\t\tStringBuilder t=new StringBuilder();\r\n\t\tint x=fs.nextInt();\r\n\t\twhile(x-->0){\r\n\t\t    int n=fs.nextInt();\r\n\t\t    int m=3*n;\r\n\t\t    long[] a=new long[m];\r\n\t\t    for(int i=0;i<m;i++){\r\n\t\t        a[i]=fs.nextLong();\r\n\t\t            \r\n\t\t    }\r\n\t\t    Arrays.sort(a);\r\n\t\t    for(int i=0;i<m/2;i++){\r\n\t\t      long temp=a[i];\r\n\t\t      a[i]=a[m-1-i];\r\n\t\t      a[m-1-i]=temp;\r\n\t\t            \r\n\t\t    }\r\n\t\t    long[] prefix=new long[m+1];\r\n\t\t    for(int i=0;i<m;i++){\r\n\t\t      prefix[i+1]=prefix[i]+a[i];\r\n\t\t            \r\n\t\t    }\r\n\t\t    long ans=Long.MIN_VALUE;\r\n\t\t    for(int i=0;i<=n;i++){\r\n\t\t      int mx=n-i;\r\n\t\t      int l=0,h=mx;\r\n\t\t      while(l<h){\r\n\t\t          int mid=(l+h)/2;\r\n\t\t              int pos=i+2*mid;\r\n\t\t              int lst=3*n-2*i-mid-1;\r\n\t\t              long change=a[pos]+a[pos+1]-3L*a[lst];\r\n\t\t              if(change>0) l=mid+1;\r\n\t\t              else h=mid;\r\n\t\t      }\r\n            \r\n              int j=l;\r\n              int se=i+2*j;\r\n              int te=3*n-2*i-j;\r\n              long sc=6L*prefix[i]+4L*(prefix[se]-prefix[i])+3L*(prefix[te]-prefix[se]);\r\n              ans=Math.max(ans,sc);\r\n\t\t        \r\n\t\t    }\r\n\t\t    t.append(ans).append('\\n');\r\n\t\t}    \r\n\t\tSystem.out.print(t);\r\n\t\r\n\t\t    \r\n\t\t    \r\n\t}    \r\n\t\r\n\t\t\r\n\t\t\t\r\n\t\r\n}\r\n",
+  "source_sha256": "a83c785dd1b6f7f432b64dca0fd404f6e15dfcf36b9b137b3f0edc6230dd02e5",
+  "solution_url": "https://www.codechef.com/viewsolution/1368450744",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368450744",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260037",
+  "scraped_at_utc": "2026-10-12T17:49:51.535Z"
+}

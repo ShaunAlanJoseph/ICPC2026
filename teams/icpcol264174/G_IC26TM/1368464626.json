@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368464626",
+  "team_username": "icpcol264174",
+  "team_name": "icpcol264174",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:40:09.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:10:09 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:10:09 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "2.00",
+  "execution_time_detail": "2.00s",
+  "memory_status": "105.3M",
+  "memory_detail": "105.3M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.70)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.52)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.62)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.76)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.69)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(1.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(2.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(1.93)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(1.57)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(1.82)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(1.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(1.52)"
+    }
+  ],
+  "source_code": "import sys\r\n\r\ndef icpc_student():\r\n    i_data = sys.stdin.read().split()\r\n    if not i_data:\r\n        return\r\n    \r\n    t = int(i_data[0])\r\n    index = 1\r\n    \r\n    out = []\r\n    for i in range(t):\r\n        n = int(i_data[index])\r\n        index+=1\r\n        \r\n        n3 = 3*n\r\n        a = [int(x) for x in i_data[index : index+n3]]\r\n        index += n3\r\n        \r\n        a.sort(reverse = True)\r\n        \r\n        prefix = [0]*(n3+1)\r\n        for j in range(n3):\r\n            prefix[j+1] = prefix[j]+a[j]\r\n        \r\n        maxi = -1\r\n        \r\n        for k in range(n+1):\r\n            left_min = 2*n-k\r\n            left_max = 3*n-2*k\r\n            \r\n            s = 6*n-3*k\r\n            \r\n            low = left_min\r\n            high = left_max-1\r\n            left_best = left_min-1\r\n            \r\n            while low <= high:\r\n                mid = (low+high)//2\r\n                \r\n                v1 = 3*a[mid]\r\n                idx1 = s-2*mid-1\r\n                idx2 = s-2*mid-2\r\n                \r\n                v2 = a[idx1]+a[idx2]\r\n                \r\n                if(v1 >= v2):\r\n                    left_best = mid\r\n                    low = mid+1\r\n                else:\r\n                    high = mid-1\r\n                    \r\n            left_opt = left_best+1\r\n            if left_opt < left_min:\r\n                left_opt = left_min \r\n            \r\n            count = 2*prefix[k]+prefix[s-2 * left_opt] + 3*prefix[left_opt]\r\n            \r\n            if count > maxi:\r\n                maxi = count\r\n                \r\n        out.append(str(maxi))\r\n        \r\n        \r\n    sys.stdout.write('\\n'.join(out)+'\\n')\r\n                \r\n                \r\n\r\nif __name__ == '__main__':\r\n    sys.setrecursionlimit(2000)\r\n    icpc_student()",
+  "source_sha256": "473466f35511e8e392978c373bfe307f1998f81905acb28ef095a8b2aa4c8307",
+  "solution_url": "https://www.codechef.com/viewsolution/1368464626",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368464626",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol264174",
+  "scraped_at_utc": "2026-10-12T17:59:53.102Z"
+}

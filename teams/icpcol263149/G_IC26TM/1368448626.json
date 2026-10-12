@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368448626",
+  "team_username": "icpcol263149",
+  "team_name": "icpcol263149",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:11:42.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:41:42 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:41:42 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.43",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.39)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.39)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\nusing ll=long long;\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    int N=3*n;\r\n\t    vector<ll>a(N);\r\n\t    for(ll &x:a)\r\n\t    cin>>x;\r\n\t    sort(a.begin(),a.end());\r\n\t    \r\n\t    vector<ll>pf(N+1,0);\r\n\t    for(int i=0;i<N;i++)\r\n\t    pf[i+1]=pf[i]+a[i];\r\n\t    ll total=pf[N];\r\n\t    auto bot=[&](int k)->ll{\r\n\t        return pf[k];\r\n\t    };\r\n\t    auto top=[&](int k)->ll{\r\n\t        return total-pf[N-k];\r\n\t    };\r\n\t    auto val=[&](int A,int B)->ll{\r\n\t        return 3*total+2*top(A)+top(A+2*B)-3*bot(2*A+B);\r\n\t    };\r\n\t    ll ans=0;\r\n\t    for(int A=0;A<=n;A++){\r\n\t        int l=0;\r\n\t        int h=n-A;\r\n\t        while(l<h){\r\n\t            int mid=(l+h)/2;\r\n\t            ll del=top(A+2*mid+2)-top(A+2*mid)-3*a[2*A+mid];\r\n\t            if(del>=0)l=mid+1;\r\n\t            else h=mid;\r\n\t        }\r\n\t        ans=max(ans,val(A,l));\r\n\t        if(l>0)\r\n\t        ans=max(ans,val(A,l-1));\r\n\t        \r\n\t    }\r\n\t    cout<<ans<<endl;\r\n\t    \r\n\t    \r\n\t}\r\n\treturn 0;\r\n\r\n}\r\n",
+  "source_sha256": "0194374df02de593b7d0ef6549d09ff3ec8495226d0fb05ee5a6107576442b93",
+  "solution_url": "https://www.codechef.com/viewsolution/1368448626",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368448626",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol263149",
+  "scraped_at_utc": "2026-10-12T17:48:25.248Z"
+}

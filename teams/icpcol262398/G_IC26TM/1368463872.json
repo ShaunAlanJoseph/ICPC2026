@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368463872",
+  "team_username": "icpcol262398",
+  "team_name": "icpcol262398",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:38:45.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:08:45 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:08:45 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.38",
+  "execution_time_detail": "",
+  "memory_status": "13.7M",
+  "memory_detail": "13.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.29)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n// void brute(vector<int>& v,int n){\r\n//     vector<int> p(3*n);\r\n//     iota(p.begin(),p.end(),0);\r\n//     int res = 0;\r\n//     vector<int> pans;\r\n//     while(next_permutation(p.begin(), p.end())){\r\n//         int ans = 0;\r\n//         for(int i=0;i<3*n;i+=3){\r\n//             vector<int> v1 = {v[p[i]],v[p[i+1]],v[p[i+2]]};\r\n//             sort(v1.begin(),v1.end());\r\n//             int x = v1[2];\r\n//             int y = v1[1];\r\n//             int z = v1[0];\r\n//             ans+=max(x*6,max(x*4+y*4,3*z+3*y+3*x));\r\n//         }\r\n//         if(res<ans){\r\n//             res = ans;\r\n//             pans = p;\r\n//         }\r\n//     }\r\n//     cerr<<res<<endl;\r\n//     for(auto &e:pans){\r\n//         cerr<<v[e]<<\" \";\r\n//     }\r\n//     cerr<<endl;\r\n// }\r\nusing ll = long long;\r\n\r\nint main() {\r\n    int t;\r\n    cin>>t;\r\n    while(t--){\r\n        int n;\r\n        cin>>n;\r\n        vector<int> v(3*n);\r\n        for(auto &e:v)cin>>e;\r\n        sort(v.rbegin(),v.rend());\r\n        vector<ll> pre(1,0);\r\n        for(auto &e:v) pre.push_back(e+pre.back());\r\n        ll ans = 0;\r\n        for(ll a=0;a<=n;a++){\r\n            ll sum = 6*pre[a];\r\n            ll i = a;\r\n            ll j = (3*n-3*a)+i-1;\r\n            ll start = 0, end = (n-a);\r\n            while(end-start>1){\r\n                ll mid = (end+start)/2;\r\n                if((v[i+mid*2-1]+v[i+mid*2-2])-3*(v[j-mid+1])>=0){\r\n                    start = mid;\r\n                }else end = mid-1;\r\n            }\r\n            if(end>start && v[i+end*2-1]+v[i+end*2-2]-3*v[j-end+1]>=0){\r\n                start = end;\r\n            }\r\n            ll b = start;\r\n            ll c = n-a-b;\r\n            // cerr<<6*(pre[a])+(pre[a+b*2]-pre[a])*4+(pre[a+b*2+c*3]-pre[a+b*2])*3<<\" \"<<a<<\" \"<<b<<\" \"<<c<<endl;\r\n            ans = max(ans,6*(pre[a])+(pre[a+b*2]-pre[a])*4+(pre[a+b*2+c*3]-pre[a+b*2])*3);\r\n        }\r\n        cout<<ans<<endl;\r\n    }\r\n\r\n}\r\n",
+  "source_sha256": "cb7c44de99b7e614c004128f87087006b356b13f6d90638e3691368dd6ec4e60",
+  "solution_url": "https://www.codechef.com/viewsolution/1368463872",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368463872",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262398",
+  "scraped_at_utc": "2026-10-12T17:00:02.965Z"
+}

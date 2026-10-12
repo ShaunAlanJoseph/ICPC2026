@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368400685",
+  "team_username": "icpcol262750",
+  "team_name": "icpcol262750",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T09:08:37.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:38:37 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:38:37 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.22",
+  "execution_time_detail": "",
+  "memory_status": "12.6M",
+  "memory_detail": "12.6M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.20)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define ll long long\r\n// ll get_score(int a,int b,int n, vector<ll>& P){\r\n//     ll part1 = 2*P[a];\r\n//     ll part2 = P[a+2*b];\r\n//     ll part3 = 3 * P[3*n-2*a-b];\r\n//     return part1 + part2 + part3;\r\n// }\r\nvoid solve(){\r\n    // int n;cin>>n;\r\n    // vector<ll> a(3*n);\r\n    // for(int i = 0;i<3*n;i++){\r\n    //     cin>>a[i];\r\n    // }\r\n    // sort(a.begin(),a.end());\r\n    // vector<ll> P(3*n+1,0);\r\n    // for(int i = 0 ;i<3*n;i++){\r\n    //     P[i+1] = P[i] + a[i];\r\n    // }\r\n    \r\n    // ll max_total_strength = 0;\r\n    \r\n    // for(int a = 0;a<=n;a++){\r\n    //     int low = 0;\r\n    //     int high = n-a;\r\n        \r\n    //     while(high - low >= 3){\r\n    //         int mid1 = low + (high - low)/3;\r\n    //         int mid2 = high - (high-low)/3;\r\n            \r\n    //         if(get_score(a,mid1,n,P) < get_score(a,mid2,n,P)){\r\n    //             low = mid1;\r\n    //         }else{\r\n    //             high = mid2;\r\n    //         }\r\n    //     }\r\n        \r\n    //     for(int b = low ; b <= high ;b++){\r\n    //         max_total_strength = max(max_total_strength,get_score(a,b,n,P));\r\n    //     }\r\n    // }\r\n    // cout<<max_total_strength<<endl;\r\n    \r\n    int n ;cin>>n;\r\n    int tst = 3*n;\r\n    vector<ll> a(tst);\r\n    for(int i = 0;i<tst;i++){\r\n        cin>>a[i];\r\n    }\r\n    sort(a.rbegin(),a.rend());\r\n    \r\n    vector<ll> pref(tst+1,0);\r\n    for(int i = 0;i<tst;i++){\r\n        pref[i+1] = pref[i] + a[i];\r\n    }\r\n    auto eval = [&](int x,int y){\r\n        return 3LL * pref[tst-2*x-y] + pref[x+2*y] + 2LL*pref[x];\r\n    };\r\n    \r\n    ll best = 0;\r\n    for(int x = 0;x<=n;x++){\r\n        int low = 0,high = n-x;\r\n        \r\n        while(high - low >= 3){\r\n            int mid1 = low + (high - low )/3;\r\n            int mid2 = high - (high - low)/3;\r\n            \r\n            if(eval(x,mid1) < eval(x,mid2)){\r\n                low = mid1;\r\n            }else{\r\n                high = mid2;\r\n            }\r\n        }\r\n        \r\n        for(int y = low ;y<=high;y++){\r\n            ll curr = eval(x,y);\r\n            if(curr > best){\r\n                best = curr;\r\n            }\r\n        }\r\n    }\r\n    cout<<best<<endl;\r\n}\r\nint main() {\r\n\tint test_case;cin>>test_case;\r\n\twhile(test_case--){\r\n\t    solve();\r\n\t}\r\n\treturn 0;\r\n}\r\n",
+  "source_sha256": "c3f2f5d121bf0b017ad4484033a25e99bb20b598f1456db6f05a4ae873ac2a72",
+  "solution_url": "https://www.codechef.com/viewsolution/1368400685",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368400685",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol262750",
+  "scraped_at_utc": "2026-10-12T17:24:10.169Z"
+}
