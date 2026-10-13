@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368356302",
+  "team_username": "icpcol265042",
+  "team_name": "icpcol265042",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:13:26.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:43:26 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:43:26 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.23",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Wrong Answer\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.07)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368356302\nMemory:\n4M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.00)\n1\t2\tCorrect\n(0.23)\n1\t3\tWrong Answer\n(0.08)\n1\t4\tWrong Answer\n(0.04)\n1\t5\tWrong Answer\n(0.04)\n1\t6\tCorrect\n(0.05)\n1\t7\tWrong Answer\n(0.06)\n1\t8\tWrong Answer\n(0.07)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve()\r\n{\r\n    int n; cin >> n;\r\n    vector<int> arr(n);\r\n    for(int i=0;i<n;i++){\r\n        cin >> arr[i];\r\n        \r\n    }\r\n    int ans = 1e9;\r\n    for(int i=0;i<n-1;i++){\r\n        ans = max(ans , abs(arr[i] - arr[i+1]));\r\n    }\r\n    ans = min(ans , abs(arr[0]-arr[n-1]));\r\n    cout << ans << endl;\r\n}\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t    \r\n\t}\t\r\n\r\n}\r\n",
+  "source_sha256": "9d816053797caf9bcb9c6ebcf16e5181a7fab0f7a9d82f41a3bb428919c05760",
+  "solution_url": "https://www.codechef.com/viewsolution/1368356302",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368356302",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol265042",
+  "scraped_at_utc": "2026-10-12T20:56:34.772Z"
+}

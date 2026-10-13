@@ -1,0 +1,96 @@
+{
+  "submission_id": "1368445650",
+  "team_username": "icpcol260877",
+  "team_name": "icpcol260877",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "C",
+  "problem_code": "IC26MP",
+  "problem_title": "Furious Farming",
+  "submitted_at_utc": "2026-10-03T10:07:01.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:37:01 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:37:01 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.02",
+  "execution_time_detail": "",
+  "memory_status": "3.9M",
+  "memory_detail": "3.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368445650\nScore:\n100\nMemory:\n3.9M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.02)\n1\t3\tCorrect\n(0.01)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.01)\n1\t6\tCorrect\n(0.01)\n1\t7\tCorrect\n(0.01)\n1\t8\tCorrect\n(0.01)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.01)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define ll long long \r\n\r\nint main() {\r\n\tios_base::sync_with_stdio(false);\r\n\tcin.tie(NULL);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    int n,m;\r\n\t    cin >> n >> m;\r\n\t    vector<int> v(m);\r\n\t    for(int i=0;i<m;i++){\r\n\t        cin >> v[i];\r\n\t    }\r\n\t    sort(v.begin(),v.end());\r\n\t    int mgap=v[0]-1;\r\n\t    for(int i=1;i<m;i++){\r\n\t        mgap=max(v[i]-v[i-1]-1,mgap);\r\n\t    }\r\n\t    mgap=max(mgap,n-v[m-1]);\r\n\t    int k=min(v[0]-1,n-v[m-1]);\r\n\t    cout << 2*k+max(mgap-k,max(v[0]-1,n-v[m-1])) << \"\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "c99f436728232ad9b43fc119543c8a4d982fd833a3db07222cd9fb80344720ad",
+  "solution_url": "https://www.codechef.com/viewsolution/1368445650",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368445650",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MP?usernames=icpcol260877",
+  "scraped_at_utc": "2026-10-12T20:59:11.047Z"
+}

@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368355671",
+  "team_username": "icpcol263450",
+  "team_name": "icpcol263450",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:12:26.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:42:26 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:42:26 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "3.9M",
+  "memory_detail": "3.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368355671\nScore:\n100\nMemory:\n3.9M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.05)\n1\t3\tCorrect\n(0.02)\n1\t4\tCorrect\n(0.02)\n1\t5\tCorrect\n(0.02)\n1\t6\tCorrect\n(0.01)\n1\t7\tCorrect\n(0.02)\n1\t8\tCorrect\n(0.02)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\nvoid solve(){\r\n    int n;cin >> n;\r\n    vector<int> a(n);\r\n    for(auto &X : a)cin >> X;\r\n    \r\n    int MX = -1;\r\n    int SMX =-1; \r\n    for(int i=0;i<n;i++){\r\n        int fb=abs(a[i]-a[(i+1)%n]);\r\n        if (fb>=MX){\r\n            SMX=MX;\r\n            MX=fb;\r\n        }\r\n        else if (fb>SMX){\r\n            SMX=fb;\r\n        }\r\n    }\r\n    cout << SMX << \"\\n\";\r\n}\r\nint main() {\r\n\t// your code goes here\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int t; cin >> t;\r\n    while(t--){\r\n        solve();\r\n    }\r\n}\r\n",
+  "source_sha256": "e9bfbbeb3064abb8d203bf71ba77392b7dfc5a28ebd7cf87e4cecbdb520b8640",
+  "solution_url": "https://www.codechef.com/viewsolution/1368355671",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368355671",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol263450",
+  "scraped_at_utc": "2026-10-12T20:58:39.926Z"
+}

@@ -1,0 +1,61 @@
+{
+  "submission_id": "1368352617",
+  "team_username": "icpcol264316",
+  "team_name": "icpcol264316",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "A",
+  "problem_code": "PHNCHRG",
+  "problem_title": "Phone Charging",
+  "submitted_at_utc": "2026-10-03T08:07:20.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:37:20 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:37:20 PM",
+  "language": "Python 3",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.01",
+  "execution_time_detail": "",
+  "memory_status": "8.9M",
+  "memory_detail": "8.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368352617\nScore:\n100\nMemory:\n8.9M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.01)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "t=int(input())\r\nfor i in range(t):\r\n    k=input().split()\r\n    k=[int(j) for j in k]\r\n    if k[0]>=80:\r\n        print((100-k[0])*k[2])\r\n    else:\r\n        print((20*k[2]) + ((80-k[0])*k[1]))",
+  "source_sha256": "545cfa9409215bc7dfd4f2f08baa9bb1e34c732ff8f4a2888532f22cf796ac8a",
+  "solution_url": "https://www.codechef.com/viewsolution/1368352617",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368352617",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/PHNCHRG?usernames=icpcol264316",
+  "scraped_at_utc": "2026-10-12T20:59:42.263Z"
+}

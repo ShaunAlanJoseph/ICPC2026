@@ -1,0 +1,96 @@
+{
+  "submission_id": "1368444815",
+  "team_username": "icpcol263450",
+  "team_name": "icpcol263450",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "C",
+  "problem_code": "IC26MP",
+  "problem_title": "Furious Farming",
+  "submitted_at_utc": "2026-10-03T10:05:28.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:35:28 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:35:28 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.02",
+  "execution_time_detail": "",
+  "memory_status": "4.7M",
+  "memory_detail": "4.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368444815\nScore:\n100\nMemory:\n4.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.01)\n1\t2\tCorrect\n(0.02)\n1\t3\tCorrect\n(0.01)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.01)\n1\t6\tCorrect\n(0.00)\n1\t7\tCorrect\n(0.01)\n1\t8\tCorrect\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.01)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve(){\r\n    int n,m;cin >> n >> m;\r\n    vector<int> b(m);\r\n    for(auto &x : b)cin >> x;\r\n    \r\n    sort(b.begin(),b.end());\r\n    \r\n    // vector <int> visited(n+1,0);\r\n    // int cntvisit=0;\r\n    // for (int i=0;i<m;i++){\r\n    //     visited[b[i]]=1;\r\n    //     cntvisit++;\r\n    // }\r\n    // int sp=b[0];\r\n    // int ep=b[m-1];\r\n    // int maxdiff=0;\r\n    // int mp1=b[0];\r\n    // int mp2=b[m-1];\r\n    \r\n    // for (int i=1;i<n;i++){\r\n    //     maxdiff=max(maxdiff,b[i]-b[i-1]);\r\n    //     if(maxdiff==b[i]-b[i-1]){\r\n    //         mp1=b[i-1];\r\n    //         mp2=b[i];\r\n    //     }\r\n    // }\r\n    // int diffleft=sp-1;\r\n    // int diffright=n-ep;\r\n    // int cntmoves=0;\r\n    // if(sp==ep){\r\n    //     cout << min((diffleft)*2+diffright,(diffright)*2+diffleft);\r\n    // }\r\n    // else{\r\n    // while(cntvisit<n){\r\n    //     if(diffleft<diffright){\r\n    //         while(sp!=1){\r\n    //         sp--;\r\n    //         ep--;\r\n    //         if(sp+1!=mp1){\r\n    //         mp1--;\r\n    //         }\r\n    //         if(ep+1!=mp2){\r\n    //         mp2--;\r\n    //         }\r\n    //         sp=max(sp,1);\r\n    //         ep=max(ep,1);\r\n    //         mp1=max(mp1,1);\r\n    //         mp2=max(mp2,1);\r\n    //         if(!visited[sp]){\r\n    //             visited[sp]=1;\r\n    //             cntvisit++;\r\n    //         }\r\n    //         if(!visited[ep]){\r\n    //             visited[ep]=1;\r\n    //             cntvisit++;\r\n    //         }\r\n    //         if(!visited[mp1]){\r\n    //             visited[mp1]=1;\r\n    //             cntvisit++;\r\n    //         }\r\n    //         if(!visited[mp2]){\r\n    //             visited[mp2]=1;\r\n    //             cntvisit++;\r\n    //         }\r\n    //         cntmoves++;\r\n    //         if(cntvisit==n){\r\n    //             cout << cntmoves << \"\\n\";\r\n    //             return;\r\n    //         }\r\n    //         }\r\n    //         while(ep!=n+1){\r\n    //             ep++;\r\n    //             sp++;\r\n    //             if(sp-1!=mp1){\r\n    //             mp1++;\r\n    //             }\r\n    //             if(ep-1!=mp2){\r\n    //             mp2++;\r\n    //             }\r\n    //             sp=min(sp,n);\r\n    //             ep=min(ep,n);\r\n    //             mp1=min(mp1,n);\r\n    //             mp2=min(mp2,n);\r\n    //             if(!visited[sp]){\r\n    //                 visited[sp] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[ep]){\r\n    //                 visited[ep] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp1]){\r\n    //                 visited[mp1] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp2]){\r\n    //                 visited[mp2] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             cntmoves++;\r\n    //             if(cntvisit==n){\r\n    //                 cout << cntmoves << '\\n';\r\n    //                 return;\r\n    //             }\r\n    //         }\r\n    //     }\r\n    //     else{\r\n    //         while(ep!=n){\r\n    //             sp++;\r\n    //             ep++;\r\n    //             if(sp-1!=mp1){\r\n    //             mp1++;\r\n    //             }\r\n    //             if(ep-1!=mp2){\r\n    //             mp2++;\r\n    //             }\r\n    //             sp=min(sp,n);\r\n    //             ep=min(ep,n);\r\n    //             mp1=min(mp1,n);\r\n    //             mp2=min(mp2,n);\r\n    //             if(!visited[sp]){\r\n    //                 visited[sp] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[ep]){\r\n    //                 visited[ep] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp1]){\r\n    //                 visited[mp1] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp2]){\r\n    //                 visited[mp2] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             cntmoves++;\r\n    //             if(cntvisit==n){\r\n    //                 cout << cntmoves << '\\n';\r\n    //                 return;\r\n    //             }\r\n    //         }\r\n    //         while(sp!=0){\r\n    //             sp--;\r\n    //             ep--;\r\n    //             if(sp+1!=mp1){\r\n    //             mp1--;\r\n    //             }\r\n    //             if(ep+1!=mp2){\r\n    //             mp2--;\r\n    //             }\r\n    //             sp=max(sp,1);\r\n    //             ep=max(ep,1);\r\n    //             mp1=max(mp1,1);\r\n    //             mp2=max(mp2,1);\r\n    //             if(!visited[sp]){\r\n    //                 visited[sp]=1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[ep]){\r\n    //                 visited[ep] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp1]){\r\n    //                 visited[mp1] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             if(!visited[mp2]){\r\n    //                 visited[mp2] = 1;\r\n    //                 cntvisit++;\r\n    //             }\r\n    //             cntmoves++;\r\n    //             if(cntvisit==n){\r\n    //                 cout << cntmoves << \"\\n\";\r\n    //                 return;\r\n    //             }\r\n    //         }\r\n    //     }\r\n    // }\r\n    // if(cntvisit==n){\r\n    //     cout << cntmoves<<\"\\n\";\r\n    //     return;\r\n    // }\r\n    // }\r\n    vector<int> pos(n+1,0);\r\n    for(auto x : b)pos[x]++;\r\n    \r\n    int cur = 0,M = 0;\r\n    for(int i=1;i<=n;i++){\r\n        if(pos[i]==1){\r\n            M = max(M,cur);\r\n            cur = 0;\r\n        }\r\n        else{\r\n            cur++;\r\n        }\r\n    }\r\n\r\n    cout << min(2*(b[0]-1) + max(n-b[m-1],M-(b[0]-1)), 2*(n-b[m-1]) + max(b[0]-1,M-(n-b[m-1]))) << '\\n';    \r\n}\r\n\r\n\r\nint main() {\r\n\t// your code goes here\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int t;cin >> t;\r\n    while(t--)solve();\r\n}\r\n",
+  "source_sha256": "c8691b347d2b297a8637adcfbbb62f8ea95b7846d8088c16063a8681372b567c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368444815",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368444815",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MP?usernames=icpcol263450",
+  "scraped_at_utc": "2026-10-12T20:58:39.953Z"
+}

@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368405402",
+  "team_username": "icpcol264049",
+  "team_name": "icpcol264049",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T09:15:00.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:45:00 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:45:00 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.17",
+  "execution_time_detail": "",
+  "memory_status": "7.9M",
+  "memory_detail": "7.9M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Wrong Answer\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.04)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368405402\nMemory:\n7.9M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.00)\n1\t2\tCorrect\n(0.17)\n1\t3\tWrong Answer\n(0.04)\n1\t4\tWrong Answer\n(0.09)\n1\t5\tCorrect\n(0.08)\n1\t6\tCorrect\n(0.07)\n1\t7\tWrong Answer\n(0.07)\n1\t8\tWrong Answer\n(0.04)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\nconst int mod = 1e13+7;\r\nconst int INF = 1e9;\r\nint32_t main() {\r\n\t// your code goes here\r\n\tint T;\r\n\tcin >> T;\r\n\twhile(T--){\r\n\tint n;\r\n\tcin >> n;\r\n\tvector<int>a(n);\r\n\tfor(auto &x:a) cin >> x;\r\n\tvector<int>v(n,0);\r\n\tif(n==2) cout << abs(a[0]-a[1]) << '\\n';\r\n\telse{\r\n\t    for(int i=0;i<n-1;i++){\r\n\t        v[i]=(abs(a[i]-a[i+1]));\r\n\t    }\r\n\t\r\n\tv.push_back(abs(a[0]-a[n-1]));\r\n\tsort(v.begin(),v.end());\r\n\tcout << v[n-2] << '\\n';\r\n\t}\r\n\t}\r\n   return 0;\r\n}\r\n",
+  "source_sha256": "7a360fcad2d092780a20d822d51fb6a3e1c0a6445f2aaaf116f0b2ebec15f16c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368405402",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368405402",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol264049",
+  "scraped_at_utc": "2026-10-12T21:03:03.190Z"
+}

@@ -1,0 +1,36 @@
+{
+  "submission_id": "1368476516",
+  "team_username": "icpcol260023",
+  "team_name": "icpcol260023",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "G",
+  "problem_code": "IC26TM",
+  "problem_title": "Team Formation Tactics",
+  "submitted_at_utc": "2026-10-03T10:59:50.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:29:50 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:29:50 PM",
+  "language": "C++",
+  "verdict": "Compilation Error",
+  "verdict_status": "compilation error",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "-",
+  "execution_time_detail": "",
+  "memory_status": "-",
+  "memory_detail": "0M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Compilation Error\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCompilation Error\nMemory:\n0M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCompilation Error\n(0.00)\nSubtask Score: 0%\tResult - Compilation Error\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\n\r\nint main() {\r\n\tint t;\r\n\tcin>>t;\r\n\t\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    \r\n\t    vector<int> v(n);\r\n\t    for(int i=0;i<n;i++){\r\n\t        cin>>v[i];\r\n\t    }\r\n\t    \r\n\t    sort(v.rbegin(),v.rend());\r\n\t    int l=0,r=n-1;\r\n\t    int ans=0;\r\n\t    while(l>r){\r\n\t        int a=6*v[l],b=4*v[l]+4*v[l+1],c=3*v[l]+3*v[l+1]+3*v[l+2];\r\n\t        int maxi=max(a,b,c);\r\n\t        if(maxi==a){\r\n                ans+=a;\r\n                l++;r--;r--;\r\n\t        }\r\n\t        else if(maxi==b){\r\n\t            ans+=b;\r\n\t            l++;l++;\r\n\t            r--;\r\n\t        }\r\n\t        else{\r\n\t            ans+=c;\r\n\t            l++;l++;l++;\r\n\t        }\r\n\t    }\r\n\t    cout<<ans<<endl;\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "b8e9ea6172fa044849f0abd2149337a767508fceccc774f6e87ff3ca10de3783",
+  "solution_url": "https://www.codechef.com/viewsolution/1368476516",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368476516",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26TM?usernames=icpcol260023",
+  "scraped_at_utc": "2026-10-12T20:57:37.247Z"
+}

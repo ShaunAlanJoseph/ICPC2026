@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368360408",
+  "team_username": "icpcol260023",
+  "team_name": "icpcol260023",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:19:49.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:49:49 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:49:49 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.32",
+  "execution_time_detail": "",
+  "memory_status": "6.8M",
+  "memory_detail": "6.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.09)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368360408\nScore:\n100\nMemory:\n6.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.01)\n1\t2\tCorrect\n(0.32)\n1\t3\tCorrect\n(0.12)\n1\t4\tCorrect\n(0.15)\n1\t5\tCorrect\n(0.07)\n1\t6\tCorrect\n(0.07)\n1\t7\tCorrect\n(0.09)\n1\t8\tCorrect\n(0.09)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\ntypedef long long ll;\r\ntypedef vector<ll> vl;\r\ntypedef pair<ll,ll> pl;\r\n#define all(x) x.begin(),x.end()\r\n#define allr(x) x.rbegin(),x.rend()\r\n#define sz(x) (ll)x.size()\r\n#define ff first\r\n#define ss second\r\n#define int ll\r\n#define fastio() ios_base::sync_withstdio(false);cin.tie(NULL);cout.tie(NULL)\r\n#define rep(i,a,b) for(ll i=a;i<b;i++)\r\n#define repr(i,a,b) for(ll i=a;i>=b;--)\r\n\r\n\r\nint32_t main() {\r\n\t\r\n\tint t;\r\n\tcin>>t;\r\n\t\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin>>n;\r\n\t    \r\n\t    vector<int> v(n);\r\n\t    for(int i=0;i<n;i++){\r\n\t        cin>>v[i];\r\n\t    }\r\n\t    \r\n\t    \r\n        vector<int> diff;\r\n        for(int i=0;i<n-1;i++){\r\n            diff.push_back(abs(v[i+1]-v[i]));\r\n        }\r\n        \r\n        diff.push_back(abs(v[0]-v[n-1]));\r\n        \r\n        sort(all(diff));\r\n        if(n==2){\r\n            cout<<diff[0]<<endl;\r\n        }\r\n        else{\r\n            cout<<diff[diff.size()-2]<<endl;\r\n        }\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "a28e92647601757a2a762dfc20af855b22a409379e7193fda9b623036ed35f99",
+  "solution_url": "https://www.codechef.com/viewsolution/1368360408",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368360408",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol260023",
+  "scraped_at_utc": "2026-10-12T20:57:06.138Z"
+}

@@ -1,0 +1,171 @@
+{
+  "submission_id": "1368382105",
+  "team_username": "icpcol264205",
+  "team_name": "icpcol264205",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "E",
+  "problem_code": "IC26SH",
+  "problem_title": "Side Hustle",
+  "submitted_at_utc": "2026-10-03T08:48:06.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:18:06 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:18:06 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.38",
+  "execution_time_detail": "",
+  "memory_status": "9.2M",
+  "memory_detail": "9.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.27)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Correct\n(0.23)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Correct\n(0.34)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368382105\nScore:\n100\nMemory:\n9.2M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.38)\n1\t2\tCorrect\n(0.37)\n1\t3\tCorrect\n(0.27)\n1\t4\tCorrect\n(0.31)\n1\t5\tCorrect\n(0.34)\n1\t6\tCorrect\n(0.32)\n1\t7\tCorrect\n(0.36)\n1\t8\tCorrect\n(0.27)\n1\t9\tCorrect\n(0.18)\n1\t10\tCorrect\n(0.38)\n1\t11\tCorrect\n(0.23)\n1\t12\tCorrect\n(0.25)\n1\t13\tCorrect\n(0.26)\n1\t14\tCorrect\n(0.26)\n1\t15\tCorrect\n(0.27)\n1\t16\tCorrect\n(0.25)\n1\t17\tCorrect\n(0.22)\n1\t18\tCorrect\n(0.23)\n1\t19\tCorrect\n(0.24)\n1\t20\tCorrect\n(0.23)\n1\t21\tCorrect\n(0.19)\n1\t22\tCorrect\n(0.26)\n1\t23\tCorrect\n(0.23)\n1\t24\tCorrect\n(0.26)\n1\t25\tCorrect\n(0.29)\n1\t26\tCorrect\n(0.20)\n1\t27\tCorrect\n(0.34)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll = long long;\r\n\r\nvoid solve() {\r\n    int n, c; cin >> n >> c;\r\n    vector<int> perm(n), cost(n);\r\n    for (auto &x : perm) {\r\n        cin >> x;\r\n        x--;\r\n    }\r\n    for (auto &x : cost)\r\n        cin >> x;\r\n    ll ans = 0;\r\n    vector<bool> viz(n);\r\n    for (int i = 0; i < n; i++) {\r\n        if (viz[i])\r\n            continue;\r\n        ll curr = 0, mx = 0;\r\n        int run = i;\r\n        vector<int> cc;\r\n        while (!viz[run]) {\r\n            cc.push_back(cost[run]);\r\n            viz[run] = true;\r\n            run = perm[run];\r\n        }\r\n        sort(cc.begin(), cc.end());\r\n        while (cc.size() > 1) {\r\n            curr -= c;\r\n            curr += cc.back();\r\n            cc.pop_back();\r\n            mx = max(mx, curr);\r\n        }\r\n        curr += cc[0];\r\n        mx = max(mx, curr);\r\n        ans += mx;\r\n    }\r\n    cout << ans;\r\n}\r\n\r\nint main() {\r\n\tint T; cin >> T;\r\n\twhile (T--) {\r\n\t    solve();\r\n\t    cout << \"\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "0b49b78184a4aab5c690aa2c4c7f75712f86058602ac758937ba27c4a68a4b12",
+  "solution_url": "https://www.codechef.com/viewsolution/1368382105",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368382105",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26SH?usernames=icpcol264205",
+  "scraped_at_utc": "2026-10-12T20:56:03.233Z"
+}

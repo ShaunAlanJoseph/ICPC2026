@@ -4241,5 +4241,41 @@
   ],
   "page_count": 4,
   "submission_count": 323,
-  "last_saved_at_utc": "2026-10-12T18:38:04.185Z"
+  "last_saved_at_utc": "2026-10-12T20:52:16.877Z",
+  "collection": {
+    "targeted_status": {
+      "iiit_kottayam": {
+        "usernames": [
+          "icpcol264205",
+          "icpcol265042",
+          "icpcol260023",
+          "icpcol261425",
+          "icpcol262206",
+          "icpcol263450",
+          "icpcol260877",
+          "icpcol261023",
+          "icpcol265283",
+          "icpcol264316",
+          "icpcol265291",
+          "icpcol262434",
+          "icpcol262597",
+          "icpcol264092",
+          "icpcol262432",
+          "icpcol262866",
+          "icpcol264818",
+          "icpcol264049",
+          "icpcol264651"
+        ],
+        "pages": [
+          {
+            "page": 0,
+            "source_url": "https://www.codechef.com/ICPCOL2026/status/IC26MM?limit=100&page=0&usernames=icpcol264205%2Cicpcol265042%2Cicpcol260023%2Cicpcol261425%2Cicpcol262206%2Cicpcol263450%2Cicpcol260877%2Cicpcol261023%2Cicpcol265283%2Cicpcol264316%2Cicpcol265291%2Cicpcol262434%2Cicpcol262597%2Cicpcol264092%2Cicpcol262432%2Cicpcol262866%2Cicpcol264818%2Cicpcol264049%2Cicpcol264651",
+            "captured_at_utc": "2026-10-12T20:52:16.877Z",
+            "row_count": 0
+          }
+        ],
+        "complete": true
+      }
+    }
+  }
 }

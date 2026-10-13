@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368441595",
+  "team_username": "icpcol262206",
+  "team_name": "icpcol262206",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T10:00:42.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:30:42 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:30:42 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.12",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Wrong Answer\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Wrong Answer\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368441595\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.12)\n1\t2\tWrong Answer\n(0.04)\n1\t3\tWrong Answer\n(0.01)\n1\t4\tWrong Answer\n(0.00)\n1\t5\tWrong Answer\n(0.00)\n1\t6\tWrong Answer\n(0.00)\n1\t7\tCorrect\n(0.00)\n1\t8\tWrong Answer\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.00)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tCorrect\n(0.00)\n1\t16\tWrong Answer\n(0.00)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\r\n    int t;\r\n    cin >> t;\r\n    \r\n    while(t--)\r\n    {\r\n        int n, k;\r\n        cin >> n >> k;\r\n        \r\n        string s;\r\n        cin >> s;\r\n        \r\n        int b1=0, b2=0;\r\n        \r\n        int i=0;\r\n        int flag=1;\r\n            \r\n        int f1=0, f2=0; \r\n        \r\n        while(i<s.size())\r\n        {\r\n            \r\n            if (s[i]=='G' && b1==0 && f1==0)\r\n                {f1=1;\r\n                // cout << \"1\\n\";\r\n                    \r\n                }\r\n            else if (s[i]=='G' && f1==1 && b1+1<=k)\r\n                {b1+=1;\r\n                // cout << \"2\\n\";\r\n                    \r\n                }\r\n            else if (s[i]=='G' && b2==0 && f2==0)\r\n                {f2=1;\r\n                // cout << \"3\\n\";\r\n                    \r\n                }\r\n            else if (s[i]=='G' && f2==1 && b2+1<=k)\r\n                {b2+=1;\r\n                // cout << \"4\\n\";\r\n                    \r\n                }\r\n            else if(s[i]=='I' && b2==0 && f2==0)\r\n                {b2=0;\r\n                // cout << \"5\\n\";\r\n                    \r\n                }\r\n            else if(s[i]=='I' && f2!=0)\r\n                {b2+=2;\r\n                // cout << \"6\\n\";\r\n                    \r\n                }\r\n            if (b2>k)\r\n            {flag=0; break;}\r\n            \r\n            \r\n            i++;\r\n        }\r\n        if (flag==1) cout << \"YES\\n\";\r\n        else cout << \"NO\\n\";\r\n        \r\n    }\r\n    \r\n\r\n}\r\n",
+  "source_sha256": "2630131fad91c2afe24639ea1434ee580172e48cfcd71db8523b4aafc6ecbc50",
+  "solution_url": "https://www.codechef.com/viewsolution/1368441595",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368441595",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol262206",
+  "scraped_at_utc": "2026-10-12T20:58:08.817Z"
+}

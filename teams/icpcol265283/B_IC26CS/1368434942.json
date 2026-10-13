@@ -1,0 +1,75 @@
+{
+  "submission_id": "1368434942",
+  "team_username": "icpcol265283",
+  "team_name": "icpcol265283",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T09:51:07.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:21:07 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:21:07 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.21",
+  "execution_time_detail": "",
+  "memory_status": "17M",
+  "memory_detail": "17M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.07)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\n#define endl '\\n'\r\nvoid solve(){\r\n    int n;\r\n    cin>>n;\r\n    vector<int> a(n);\r\n    multiset<int> mt;\r\n    for(int i = 0 ; i < n ; i++){\r\n        cin>>a[i];\r\n    }\r\n    vector<int> arr;\r\n    for(int i = 0 ; i < n ; i++){\r\n        arr.push_back(a[i]);\r\n    }\r\n    for(int i = 0 ; i < n ; i++){\r\n        arr.push_back(a[i]);\r\n    }\r\n    int ans = INT_MAX;\r\n    for(int i = 0 ; i < 2*n - 1 ; i++){\r\n        mt.insert(arr[i+1] - arr[i]);\r\n        ans = min(ans,*mt.begin());\r\n        if(i >= n-1){\r\n            mt.erase(mt.find(arr[i-(n-1) + 1] - arr[i-(n-1)]));\r\n        }\r\n    }\r\n    cout<<-1*ans<<endl;\r\n}\r\nsigned main() {\r\n    ios_base::sync_with_stdio(0);\r\n    cin.tie(0);\r\n    cout.tie(0);\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "1dc30d81b538a5bfe19820fe0bd6e15c276fe4876f5e043d9db11fd855291146",
+  "solution_url": "https://www.codechef.com/viewsolution/1368434942",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368434942",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol265283",
+  "scraped_at_utc": "2026-10-12T16:28:01.289Z"
+}

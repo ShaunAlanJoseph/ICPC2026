@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368421774",
+  "team_username": "icpcol260023",
+  "team_name": "icpcol260023",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T09:32:39.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:02:39 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:02:39 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.08",
+  "execution_time_detail": "",
+  "memory_status": "3.7M",
+  "memory_detail": "3.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368421774\nScore:\n100\nMemory:\n3.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.08)\n1\t2\tCorrect\n(0.02)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\n1\t6\tCorrect\n(0.00)\n1\t7\tCorrect\n(0.00)\n1\t8\tCorrect\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.00)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tCorrect\n(0.00)\n1\t16\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define int long long\r\n\r\nint32_t main() {\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    int n,k;\r\n\t    string s;\r\n\t    cin>>n>>k>>s;\r\n\t    \r\n\t    stack<int> st1,st2;\r\n\t    \r\n\t    bool cn=true;\r\n\t    for(int i=0;i<n;i++){\r\n\t        if(s[i]=='G'){\r\n\t            if(st1.size()<k+1){\r\n\t                st1.push('G');\r\n\t            }\r\n\t            else{\r\n\t                if(st2.size()<k+1){\r\n\t                    st2.push('G');\r\n\t                }\r\n\t                else{\r\n\t                    cn=false;\r\n\t                    break;\r\n\t                }\r\n\t            }\r\n\t        }\r\n\t        else{\r\n\t            if(st2.size()==0){\r\n\t                continue;\r\n\t            }\r\n\t            else{\r\n\t                if(st2.size()<k){\r\n\t                    st2.push('I');\r\n\t                    st2.push('I');\r\n\t                }\r\n\t                else{\r\n\t                    cn=false;\r\n\t                    break;\r\n\t                }\r\n\t            }\r\n\t        }\r\n\t    }\r\n\t    \r\n\t    if(cn==false){\r\n\t        cout<<\"NO\"<<endl;\r\n\t    }\r\n\t    else{\r\n\t        cout<<\"YES\"<<endl;\r\n\t    }\r\n\t    \r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "fee9d1726597470b0790619d6c84b9eaa4400e6c929de7f294ff7ef49b1b04bb",
+  "solution_url": "https://www.codechef.com/viewsolution/1368421774",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368421774",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol260023",
+  "scraped_at_utc": "2026-10-12T20:57:37.225Z"
+}

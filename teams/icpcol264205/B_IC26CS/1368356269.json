@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368356269",
+  "team_username": "icpcol264205",
+  "team_name": "icpcol264205",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:13:22.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:43:22 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:43:22 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.40",
+  "execution_time_detail": "",
+  "memory_status": "13.1M",
+  "memory_detail": "13.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.15)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368356269\nScore:\n100\nMemory:\n13.1M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.40)\n1\t3\tCorrect\n(0.13)\n1\t4\tCorrect\n(0.07)\n1\t5\tCorrect\n(0.10)\n1\t6\tCorrect\n(0.14)\n1\t7\tCorrect\n(0.17)\n1\t8\tCorrect\n(0.15)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\tint T; cin >> T;\r\n\twhile (T--) {\r\n\t    int n; cin >> n;\r\n\t    vector<int> a(n);\r\n\t    for (auto &x : a)\r\n\t        cin >> x;\r\n\t    multiset<int> ms;\r\n\t    for (int i = 1; i < n; i++) {\r\n\t        ms.insert(abs(a[i] - a[i - 1]));\r\n\t    }\r\n\t    ms.insert(abs(a[0] - a[n - 1]));\r\n\t    auto it = ms.end();\r\n\t    it--;\r\n\t    it--;\r\n\t    cout << *it << \"\\n\";\r\n\t}\r\n}\r\n",
+  "source_sha256": "ff97960b9fed7a7e88a79ee5b1bd72f4c0b7256582e9e2a6b2089333c1b0ab5e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368356269",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368356269",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol264205",
+  "scraped_at_utc": "2026-10-12T20:56:03.183Z"
+}

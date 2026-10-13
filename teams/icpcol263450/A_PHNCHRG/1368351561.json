@@ -1,0 +1,61 @@
+{
+  "submission_id": "1368351561",
+  "team_username": "icpcol263450",
+  "team_name": "icpcol263450",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "A",
+  "problem_code": "PHNCHRG",
+  "problem_title": "Phone Charging",
+  "submitted_at_utc": "2026-10-03T08:05:29.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:35:29 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:35:29 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368351561\nScore:\n100\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve(){\r\n    int n,a,b;cin >> n >> a >> b;\r\n    int sm = 0;\r\n    sm+=max(a*(80-n),0);\r\n    if(max(a*(80-n),0)!=0){\r\n        n = 80;\r\n    }\r\n    sm += max((100-n)*b,0);\r\n    cout << sm << '\\n';\r\n}\r\n\r\nint main() {\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n\t// your code goes here\r\n    int t;cin >> t;while(t--)solve();\r\n}\r\n",
+  "source_sha256": "708fcab8fe0b6c65a04878856e3f17cd8def01b529d230049eeacce656e50629",
+  "solution_url": "https://www.codechef.com/viewsolution/1368351561",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368351561",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/PHNCHRG?usernames=icpcol263450",
+  "scraped_at_utc": "2026-10-12T20:58:39.956Z"
+}

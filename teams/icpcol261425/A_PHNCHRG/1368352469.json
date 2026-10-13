@@ -1,0 +1,61 @@
+{
+  "submission_id": "1368352469",
+  "team_username": "icpcol261425",
+  "team_name": "icpcol261425",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "A",
+  "problem_code": "PHNCHRG",
+  "problem_title": "Phone Charging",
+  "submitted_at_utc": "2026-10-03T08:07:05.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:37:05 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:37:05 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.7M",
+  "memory_detail": "3.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368352469\nScore:\n100\nMemory:\n3.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll = long long;\r\n\r\nint main() {\r\n\t\r\n\t\r\n\tll t; cin >> t;\r\n\t\r\n\twhile(t--){\r\n\t    ll x, a, b; cin >> x >> a >> b;\r\n\t    \r\n\t    ll ans = 0;\r\n\t    if(x < 80) ans = (80-x)*a+(20*b);\r\n\t    else ans = (100 - x)*b;\r\n\t    \r\n\t    cout << ans << \"\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "df7b9dbc92b5be28cf33cfea797dcd61bd24da9450c85989d1b543493f98e257",
+  "solution_url": "https://www.codechef.com/viewsolution/1368352469",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368352469",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/PHNCHRG?usernames=icpcol261425",
+  "scraped_at_utc": "2026-10-12T20:57:37.273Z"
+}

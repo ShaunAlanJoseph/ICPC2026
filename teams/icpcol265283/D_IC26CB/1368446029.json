@@ -1,0 +1,115 @@
+{
+  "submission_id": "1368446029",
+  "team_username": "icpcol265283",
+  "team_name": "icpcol265283",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T10:07:30.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:37:30 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:37:30 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.02",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define int long long\r\n#define endl '\\n'\r\nvoid solve(){\r\n    int n,k;\r\n    string s;\r\n    cin>>n>>k>>s;\r\n    int mx = min(k+1,2*n);\r\n    int inf = 1e9;\r\n    vector<int> dp(mx + 1,inf),nd(mx+1);\r\n    dp[0] = 0;\r\n    for(char c : s){\r\n        fill(nd.begin(),nd.end(),inf);\r\n        int w = ((c == 'G') ? 1 : 2);\r\n        for(int a = 0 ; a <= mx ; a++){\r\n            int b = dp[a];\r\n            if(b == inf) continue;\r\n            int x = ((a == 0 && c == 'I') ? 0 : (a+w));\r\n            if(x <= mx){\r\n                nd[x] = min(nd[x],b);\r\n            }\r\n            if(b == 0 && c == 'I'){\r\n                nd[a] = 0;\r\n            }\r\n            else if(b+w <= mx){\r\n                nd[a] = min(nd[a],b+w);\r\n            }\r\n        }\r\n        swap(nd,dp);\r\n    }\r\n    bool ans = ( (*min_element(dp.begin(),dp.end())) < inf);\r\n    if(ans){\r\n        cout<<\"YES\"<<endl;\r\n    }\r\n    else{\r\n        cout<<\"NO\"<<endl;\r\n    }\r\n}\r\nsigned main() {\r\n\tios_base::sync_with_stdio(0);\r\n\tcin.tie(0);\r\n\tcout.tie(0);\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "bd8790efa711436da07adc3350c1da022a4bce43d3edafe3d69138c26268c3b7",
+  "solution_url": "https://www.codechef.com/viewsolution/1368446029",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368446029",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol265283",
+  "scraped_at_utc": "2026-10-12T16:28:31.057Z"
+}

@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368459342",
+  "team_username": "icpcol262434",
+  "team_name": "icpcol262434",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T10:30:28.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:00:28 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:00:28 PM",
+  "language": "C++",
+  "verdict": "Runtime Error",
+  "verdict_status": "runtime error(SIGSEGV)",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Run Time Error\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nRuntime Error\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tRun Time Error\n(0.00)\n1\t2\tRun Time Error\n(0.00)\n1\t3\tRun Time Error\n(0.00)\n1\t4\tRun Time Error\n(0.00)\n1\t5\tRun Time Error\n(0.00)\n1\t6\tRun Time Error\n(0.00)\n1\t7\tWrong Answer\n(0.00)\n1\t8\tCorrect\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.00)\n1\t13\tWrong Answer\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tWrong Answer\n(0.00)\n1\t16\tCorrect\n(0.00)\nSubtask Score: 0%\tResult - Run Time Error\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--)\r\n\t{\r\n\t    int n,k;\r\n\t    cin>>n>>k;\r\n\t    string s;\r\n\t    cin>>s;\r\n\t    unordered_map<char,int>mp;\r\n\t    mp['G']=1;\r\n\t    mp['I']=2;\r\n\t    int x=0;\r\n\t    for(int i=0;i<n;i++)\r\n\t    {\r\n\t        if(s[i]=='I') x++;\r\n\t        else break;\r\n\t    }\r\n\t    int w1=-1,w2=-1;\r\n\t\r\n\t    while(x!=n)\r\n\t    {\r\n\t        if(s[x]=='G' && w1==-1 && w2==-1)\r\n\t        {\r\n\t            w1=k;\r\n\t            x++;\r\n\t        }\r\n\t        else if(s[x]=='I' && w2==-1)\r\n\t        {\r\n\t            x++;\r\n\t        }\r\n\t        else\r\n\t        {\r\n                //cout<<x<<endl;\r\n\t            while(x<n && w1-mp[s[x]]>=0)\r\n\t            {\r\n\t                w1-=mp[s[x]];\r\n\t                x++;\r\n\t            }\r\n\t            //cout<<x<<endl;\r\n\t            w2=k;\r\n\t            x++;\r\n\t            while(x<n && w2-mp[s[x]]>=0)\r\n\t            {\r\n\t                w2-=mp[s[x]];\r\n\t                x++;\r\n\t            }\r\n\t            if(x<n && !(w2-mp[s[x]]>=0))\r\n\t            {\r\n\t                break;\r\n\t            }\r\n\t            //cout<<x<<endl;\r\n\t            //if(w2==0) break;\r\n\t        }\r\n\t    }\r\n\t    if(x!=n) cout<<\"NO\"<<endl;\r\n\t    else cout<<\"YES\"<<endl;\r\n\t    \r\n\t}\r\n\treturn 0;\r\n\r\n}\r\n",
+  "source_sha256": "7eba843d309a0b4ae4d103ebfbf31bfc84ac2243e51194357dc1c419e5e948f3",
+  "solution_url": "https://www.codechef.com/viewsolution/1368459342",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368459342",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol262434",
+  "scraped_at_utc": "2026-10-12T21:00:39.520Z"
+}

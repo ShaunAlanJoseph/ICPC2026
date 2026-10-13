@@ -1,0 +1,171 @@
+{
+  "submission_id": "1368476264",
+  "team_username": "icpcol265291",
+  "team_name": "icpcol265291",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "E",
+  "problem_code": "IC26SH",
+  "problem_title": "Side Hustle",
+  "submitted_at_utc": "2026-10-03T10:59:36.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:29:36 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:29:36 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "1.02",
+  "execution_time_detail": "1.02s",
+  "memory_status": "35.2M",
+  "memory_detail": "35.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Wrong Answer\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.51)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.83)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(1.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.98)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Wrong Answer\n(0.89)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.46)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Wrong Answer\n(0.38)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Wrong Answer\n(0.83)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Wrong Answer\n(0.73)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.42)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.49)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.43)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Wrong Answer\n(0.68)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.48)"
+    },
+    {
+      "subtask": 1,
+      "task": 20,
+      "result": "Wrong Answer\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 21,
+      "result": "Wrong Answer\n(0.32)"
+    },
+    {
+      "subtask": 1,
+      "task": 22,
+      "result": "Wrong Answer\n(0.83)"
+    },
+    {
+      "subtask": 1,
+      "task": 23,
+      "result": "Wrong Answer\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 24,
+      "result": "Wrong Answer\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 25,
+      "result": "Wrong Answer\n(0.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 26,
+      "result": "Wrong Answer\n(0.41)"
+    },
+    {
+      "subtask": 1,
+      "task": 27,
+      "result": "Wrong Answer\n(0.46)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368476264\nTime:\n1.02s\nMemory:\n35.2M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.49)\n1\t2\tWrong Answer\n(0.42)\n1\t3\tWrong Answer\n(0.51)\n1\t4\tWrong Answer\n(0.83)\n1\t5\tWrong Answer\n(1.02)\n1\t6\tCorrect\n(0.98)\n1\t7\tWrong Answer\n(0.89)\n1\t8\tWrong Answer\n(0.46)\n1\t9\tCorrect\n(0.32)\n1\t10\tCorrect\n(0.34)\n1\t11\tWrong Answer\n(0.38)\n1\t12\tWrong Answer\n(0.83)\n1\t13\tWrong Answer\n(0.73)\n1\t14\tCorrect\n(0.42)\n1\t15\tCorrect\n(0.49)\n1\t16\tCorrect\n(0.49)\n1\t17\tCorrect\n(0.43)\n1\t18\tWrong Answer\n(0.68)\n1\t19\tCorrect\n(0.48)\n1\t20\tWrong Answer\n(0.33)\n1\t21\tWrong Answer\n(0.32)\n1\t22\tWrong Answer\n(0.83)\n1\t23\tWrong Answer\n(0.55)\n1\t24\tWrong Answer\n(0.36)\n1\t25\tWrong Answer\n(0.58)\n1\t26\tWrong Answer\n(0.41)\n1\t27\tWrong Answer\n(0.46)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n#define ll long long\r\n\r\nint parof(vector<ll>& parent, int x){\r\n    if(parent[x] == x) return x;\r\n    return parent[x] = parof(parent,parent[x]);\r\n}\r\n\r\nll solve1(int n,int c, vector<int> perm,vector<int>cost){\r\n    vector<ll> parent(n),size(n,1);\r\n    for(int i=0;i<n;i++) parent[i] = i;\r\n    for(int i=0;i<n;i++){\r\n        int u = i,v = perm[u]-1;\r\n        int pu = parof(parent,u),pv = parof(parent,v);\r\n        // cout<<i<<\" \"<<pu<<\" \"<<pv<<endl;\r\n        if(pu == pv) continue;\r\n        parent[pu] = parof(parent,pv);\r\n        cost[pv] += cost[pu];\r\n        size[pv] += size[pu];\r\n    }\r\n    vector<bool> vis(n,false);\r\n    ll ans = 0;\r\n    for(int i=0;i<n;i++){\r\n        int p = parof(parent,i);\r\n        if(vis[p]) continue;\r\n        vis[p] = true;\r\n        ans += max(0LL,0LL+cost[p]-((size[p]-1)*c));\r\n    }\r\n    // for(int i=0;i<n;i++){\r\n    //     cout << cost[i]<<\" \";\r\n    // }\r\n    // cout << endl;\r\n    // for(int i=0;i<n;i++){\r\n    //     cout << parent[i]<<\" \";\r\n    // }\r\n    // cout << endl;\r\n    // for(int i=0;i<n;i++){\r\n    //     cout << size[i]<<\" \";\r\n    // }\r\n    // cout << endl;\r\n    return ans;\r\n}\r\n\r\nll solve2(int n,int c, vector<int> perm, vector<int> cost) {\r\n    priority_queue<pair<int,int>> pq;\r\n    for(int i=0;i<n;i++) pq.push({cost[i],i});\r\n    unordered_set<int> s;\r\n    ll ans = 0;\r\n    while(!pq.empty()){\r\n        auto [co,ind] = pq.top();pq.pop();\r\n        if(s.find(ind) != s.end()) continue;\r\n        if(co <= c) break;\r\n        s.insert(ind);\r\n        ans += co-c;\r\n        if(s.find(perm[ind]-1) != s.end()){\r\n            pq.push({cost[perm[ind]-1],ind});\r\n        }\r\n    }\r\n    return ans;\r\n}\r\n\r\nint main() {\r\n    // your code goes here\r\n    int t;\r\n    cin >> t;\r\n    while (t--){\r\n        int n,c;cin>>n>>c;\r\n        vector<int> perm(n),cost(n);\r\n        for(int i=0;i<n;i++) cin>>perm[i];\r\n        for(int i=0;i<n;i++) cin>>cost[i];\r\n        cout<<max(solve1(n,c,perm,cost),solve2(n,c,perm,cost))<<endl;\r\n    }\r\n}",
+  "source_sha256": "6b2b396d2ca233aeb18c19790fa67797483b0bbafee3c351e690ef50ca9caf3f",
+  "solution_url": "https://www.codechef.com/viewsolution/1368476264",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368476264",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26SH?usernames=icpcol265291",
+  "scraped_at_utc": "2026-10-12T21:00:10.932Z"
+}

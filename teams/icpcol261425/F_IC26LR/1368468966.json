@@ -1,0 +1,131 @@
+{
+  "submission_id": "1368468966",
+  "team_username": "icpcol261425",
+  "team_name": "icpcol261425",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "F",
+  "problem_code": "IC26LR",
+  "problem_title": "Take the L",
+  "submitted_at_utc": "2026-10-03T10:47:24.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:17:24 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:17:24 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.25",
+  "execution_time_detail": "",
+  "memory_status": "9.7M",
+  "memory_detail": "9.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.16)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.24)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.25)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.19)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.15)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368468966\nScore:\n100\nMemory:\n9.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.15)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.25)\n1\t4\tCorrect\n(0.14)\n1\t5\tCorrect\n(0.16)\n1\t6\tCorrect\n(0.25)\n1\t7\tCorrect\n(0.25)\n1\t8\tCorrect\n(0.24)\n1\t9\tCorrect\n(0.25)\n1\t10\tCorrect\n(0.13)\n1\t11\tCorrect\n(0.13)\n1\t12\tCorrect\n(0.12)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.19)\n1\t15\tCorrect\n(0.15)\n1\t16\tCorrect\n(0.15)\n1\t17\tCorrect\n(0.15)\n1\t18\tCorrect\n(0.15)\n1\t19\tCorrect\n(0.15)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll =  long long;\r\n\r\nint main() {\r\n\t\r\n\t\r\n\tll t; cin >> t;\r\n\t\r\n\twhile(t--){\r\n\t    \r\n\t   ll n; cin >> n;\r\n\t   \r\n\t   vector<pair<ll,ll>> v1, v2;\r\n\t   \r\n\t   for(ll i =0; i < n; i++){\r\n\t       ll x, y; cin >> x >> y;\r\n\t       \r\n\t       v1.push_back({x,y});\r\n\t       v2.push_back({y, x});\r\n\t   }\r\n\t   \r\n\t   sort(v1.begin(), v1.end());\r\n\t   sort(v2.begin(), v2.end());\r\n\t   \r\n\t   ll x = 0, y = 0, xb = 0, yb = 0;\r\n\t   for(ll i = 1; i < n; i++){\r\n\t       ll a = v1[i].first, b = v1[i].second, c = v1[i-1].first, d = v1[i-1].second;\r\n\t       if(a  == c){\r\n\t           x = 1;\r\n\t           break;\r\n\t       }\r\n\t       else if(b < d){\r\n\t           xb+=1;\r\n\t       }\r\n\t   }\r\n\t   \r\n\t   for(ll i = 1; i < n; i++){\r\n\t       ll a = v2[i].first, b = v2[i].second, c = v2[i-1].first, d = v2[i-1].second;\r\n\t       \r\n\t       if(a == c) {\r\n\t           y = 1; \r\n\t           break;\r\n\t       }\r\n\t       else if( b < d) yb++;\r\n\t   }\r\n\t   \r\n\t   if(x || y) cout << \"NO\\n\";\r\n\t   else if( min(xb, yb) > 1) cout << \"NO\\n\";\r\n\t   else cout << \"YES\\n\";\r\n\t    \r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "dea563c447d179d8c0b539487febbc44c295196338f78c1842e47dd58ccc884e",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468966",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468966",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26LR?usernames=icpcol261425",
+  "scraped_at_utc": "2026-10-12T20:58:08.452Z"
+}

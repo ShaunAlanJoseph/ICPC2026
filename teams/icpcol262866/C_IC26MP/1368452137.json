@@ -1,0 +1,96 @@
+{
+  "submission_id": "1368452137",
+  "team_username": "icpcol262866",
+  "team_name": "icpcol262866",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "C",
+  "problem_code": "IC26MP",
+  "problem_title": "Furious Farming",
+  "submitted_at_utc": "2026-10-03T10:17:27.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:47:27 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:47:27 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.09",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368452137\nScore:\n100\nMemory:\n4M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.06)\n1\t2\tCorrect\n(0.09)\n1\t3\tCorrect\n(0.05)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.04)\n1\t6\tCorrect\n(0.02)\n1\t7\tCorrect\n(0.04)\n1\t8\tCorrect\n(0.02)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.03)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.04)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n    int t;\r\n    cin >> t;\r\n    while(t--){\r\n        int n,m;\r\n        cin >> n >> m;\r\n        vector<int> a(m);\r\n        for(int i=0;i<m;++i){\r\n            cin >> a[i];\r\n        }\r\n        sort(a.begin(),a.end());\r\n        int diff=0;\r\n        for(int i=0;i<a.size()-1;++i){\r\n            diff=max(a[i+1]-a[i]-1,diff);\r\n        }\r\n        \r\n        // cout << diff << \"\\n\";\r\n        \r\n        int lgap=a[0]-1;\r\n        int rgap=n-a[m-1];\r\n        \r\n        // cout << lgap << \" \" << rgap << \" \" << diff << \"\\n\"; \r\n        \r\n        cout << 2*min(lgap,rgap) + max(lgap,rgap) + max(0,diff - lgap - rgap) << \"\\n\";\r\n        // cout << a[1]-a[0] + n-a[m-2] + diff/2 << \"\\n\";\r\n        \r\n    }\r\n}\r\n",
+  "source_sha256": "a0fb22f004f1d14eac918c1f52cef2390a2e8a25dd8ee63cb24c1ff0267f9a9c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368452137",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368452137",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MP?usernames=icpcol262866",
+  "scraped_at_utc": "2026-10-12T21:02:34.565Z"
+}

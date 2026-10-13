@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368395957",
+  "team_username": "icpcol261425",
+  "team_name": "icpcol261425",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T09:02:29.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:32:29 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:32:29 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.06",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368395957\nScore:\n100\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.06)\n1\t2\tCorrect\n(0.02)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\n1\t6\tCorrect\n(0.00)\n1\t7\tCorrect\n(0.00)\n1\t8\tCorrect\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.00)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tCorrect\n(0.00)\n1\t16\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll = long long;\r\n\r\nint main() {\r\n\t\r\n\tll t; cin >> t;\r\n\t\r\n\twhile(t--){\r\n\t    ll n, k; cin >>n >> k;\r\n\t    \r\n\t    string s; cin >> s;\r\n\t    \r\n\t    ll val1 = 0, val2 = 0, flag = 0, f1 = 0, f2 = 0;\r\n\t    for(ll i = 0; i < n; i++){\r\n\t        if(s[i] == 'G' && !f1 ) f1= 1;\r\n\t        else if(s[i] == 'G' && !f2 && k-val1 == 0) f2 =1;\r\n\t        else if(s[i] == 'I' && (!f1 || !f2)){continue;}\r\n\t        else if(s[i] == 'G' && k-val1 >= 1) val1++;\r\n\t        else if(s[i] == 'I' && k-val1 >= 2) val1+=2;\r\n\t        else if(s[i] == 'I' && k-val2 >= 2) val2+=2;\r\n\t        else if(s[i] == 'G' && k-val2 >= 1 ) val2++;\r\n\t        else{\r\n\t            flag = 1;\r\n\t        }\r\n\t    }\r\n\t    \r\n\t    if(flag) cout << \"NO\\n\";\r\n\t    else cout << \"YES\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "da3e04b8d6f3671eba66a9f694f444f28d24e66409c66cc4c8bd04e42465a518",
+  "solution_url": "https://www.codechef.com/viewsolution/1368395957",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368395957",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol261425",
+  "scraped_at_utc": "2026-10-12T20:58:08.446Z"
+}

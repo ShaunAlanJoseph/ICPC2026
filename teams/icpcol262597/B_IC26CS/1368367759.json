@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368367759",
+  "team_username": "icpcol262597",
+  "team_name": "icpcol262597",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:29:39.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:59:39 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:59:39 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.40",
+  "execution_time_detail": "",
+  "memory_status": "4M",
+  "memory_detail": "4M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.40)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.09)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.09)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368367759\nScore:\n100\nMemory:\n4M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.01)\n1\t2\tCorrect\n(0.40)\n1\t3\tCorrect\n(0.14)\n1\t4\tCorrect\n(0.09)\n1\t5\tCorrect\n(0.08)\n1\t6\tCorrect\n(0.07)\n1\t7\tCorrect\n(0.09)\n1\t8\tCorrect\n(0.09)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\nvoid solve(){\r\n    int n;\r\n    cin >> n;\r\n    vector <int> a(n);\r\n    for (int i = 0;i < n;i++) cin >> a[i];\r\n    \r\n    if (n == 2){\r\n        cout << abs(a[1] - a[0]) << \"\\n\";\r\n        return;\r\n    }\r\n    \r\n\r\n    int mx = 0;\r\n    int smx = 0;\r\n    \r\n    for (int i = 1;i< n;i++){\r\n        int curr = abs(a[i] - a[i-1]);\r\n        if (curr > mx){\r\n            smx = mx;\r\n            mx = curr;\r\n        }\r\n        else if (curr > smx){\r\n            smx = curr;\r\n        }\r\n        \r\n    }\r\n    \r\n    int curr_l = abs(a[0] - a[a.size()-1]);\r\n    if (curr_l >= mx){\r\n        cout << mx << \"\\n\";\r\n    }else{\r\n        cout << max(smx,curr_l) << \"\\n\";\r\n    }\r\n    // cout << mx << \"\\n\";\r\n    // cout << smx << \"tt\\n\";\r\n    \r\n}\r\n\r\nint main() {\r\n\tint test;\r\n\tcin >> test;\r\n\twhile(test--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "f62a21985a3612fc052704211acc18c53c3be5134f1bc369ff14d0c254c14d29",
+  "solution_url": "https://www.codechef.com/viewsolution/1368367759",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368367759",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol262597",
+  "scraped_at_utc": "2026-10-12T21:01:08.200Z"
+}

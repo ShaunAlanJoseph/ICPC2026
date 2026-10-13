@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368362017",
+  "team_username": "icpcol261425",
+  "team_name": "icpcol261425",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:21:59.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:51:59 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:51:59 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.18",
+  "execution_time_detail": "",
+  "memory_status": "6.8M",
+  "memory_detail": "6.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.18)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.08)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.06)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368362017\nScore:\n100\nMemory:\n6.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.01)\n1\t2\tCorrect\n(0.18)\n1\t3\tCorrect\n(0.05)\n1\t4\tCorrect\n(0.04)\n1\t5\tCorrect\n(0.08)\n1\t6\tCorrect\n(0.06)\n1\t7\tCorrect\n(0.05)\n1\t8\tCorrect\n(0.05)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nusing ll =  long long;\r\n\r\nint main() {\r\n\t\r\n\t\r\n\tll t; cin >> t;\r\n\t\r\n\twhile(t--){\r\n\t    \r\n\t    ll n; cin >> n;\r\n\t    \r\n\t    vector<ll> a(n);\r\n\t    vector<ll> v;\r\n\t    \r\n\t    for(ll i = 0; i < n; i++) cin >> a[i];\r\n\t    \r\n\t    for(ll i=0; i<n-1; i++){\r\n\t        v.push_back(abs(a[i] - a[i+1]));\r\n\t    }\r\n\t    v.push_back(abs(a[0] - a[n-1]));\r\n\t    sort(v.begin(), v.end());\r\n\t    cout << v[n-2] << '\\n';\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "c21f173c9bba706f219f4920b84f79b48c7f735bc4c48d729192e2924fad2e69",
+  "solution_url": "https://www.codechef.com/viewsolution/1368362017",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368362017",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol261425",
+  "scraped_at_utc": "2026-10-12T20:57:37.242Z"
+}

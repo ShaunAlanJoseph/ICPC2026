@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368463483",
+  "team_username": "icpcol264651",
+  "team_name": "icpcol264651",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T10:38:08.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:08:08 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:08:08 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.29",
+  "execution_time_detail": "",
+  "memory_status": "5M",
+  "memory_detail": "5M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.01)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368463483\nScore:\n100\nMemory:\n5M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.29)\n1\t3\tCorrect\n(0.05)\n1\t4\tCorrect\n(0.02)\n1\t5\tCorrect\n(0.01)\n1\t6\tCorrect\n(0.00)\n1\t7\tCorrect\n(0.00)\n1\t8\tCorrect\n(0.01)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\nios::sync_with_stdio(false);\r\ncin.tie(nullptr);\r\nint t;\r\ncin>>t;\r\ncout<<endl;\r\nwhile(t--){\r\nint n; \r\ncin>>n;\r\nint arr[n];\r\nint maxdiff = INT_MIN;\r\nint maxdiff1 = INT_MIN;\r\nint pos = 0;\r\nint d = 0;\r\nvector<int> x;\r\nfor(int i = 0;i<n;i++){\r\ncin>>arr[i];\r\nif(i>=1){\r\n      if(arr[i]-arr[i-1]>0){\r\n          d = arr[i]-arr[i-1];\r\n      }\r\n      else {\r\n          d = -(arr[i]-arr[i-1]);\r\n      }\r\n    if(d>maxdiff){\r\n    maxdiff = d;\r\n    pos = i;\r\n    }\r\n}\r\n}\r\n\r\n   for(int i = pos;i<n;i++){\r\n        x.push_back(arr[i]);\r\n    }\r\n     for(int i = 0;i<pos;i++){\r\n          x.push_back(arr[i]);\r\n     }\r\n    for(int i =1;i<n;i++){\r\n        //cout<<x[i]<<endl;\r\n        if(x[i]-x[i-1] > 0){\r\n        maxdiff1 = max(maxdiff1, x[i]-x[i-1]);\r\n        }\r\n        else {\r\n            maxdiff1 = max(maxdiff1, -x[i]+x[i-1]);\r\n        }\r\n    }\r\nint ans = min(maxdiff,maxdiff1);\r\ncout<<ans<<endl;\r\n}\r\n}\r\n",
+  "source_sha256": "34d404e42e33aadb1174321d9ac454672e9d4a3d40880b5087225f1fcc885896",
+  "solution_url": "https://www.codechef.com/viewsolution/1368463483",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368463483",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol264651",
+  "scraped_at_utc": "2026-10-12T21:04:32.589Z"
+}

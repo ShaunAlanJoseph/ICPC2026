@@ -1,0 +1,76 @@
+{
+  "submission_id": "1368376069",
+  "team_username": "icpcol260877",
+  "team_name": "icpcol260877",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "B",
+  "problem_code": "IC26CS",
+  "problem_title": "Cyclic Shift",
+  "submitted_at_utc": "2026-10-03T08:40:16.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:10:16 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:10:16 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.03",
+  "execution_time_detail": "",
+  "memory_status": "4.7M",
+  "memory_detail": "4.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368376069\nScore:\n100\nMemory:\n4.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.03)\n1\t3\tCorrect\n(0.02)\n1\t4\tCorrect\n(0.02)\n1\t5\tCorrect\n(0.01)\n1\t6\tCorrect\n(0.01)\n1\t7\tCorrect\n(0.02)\n1\t8\tCorrect\n(0.02)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n#define ll long long\r\n\r\nint main() {\r\n\tios_base::sync_with_stdio(false);\r\n\tcin.tie(NULL);\r\n\tint t;\r\n\tcin >> t;\r\n\twhile(t--){\r\n\t    int n;\r\n\t    cin >> n;\r\n\t    vector<int> v(n);\r\n\t    for(int i=0;i<n;i++){\r\n\t        cin >> v[i];\r\n\t    }\r\n        vector<int> d(n);\r\n        for(int i=0;i<n-1;i++){\r\n            d[i]=abs(v[i]-v[i+1]);\r\n        }\r\n        d[n-1]=abs(v[0]-v[n-1]);\r\n        sort(d.begin(),d.end());\r\n        cout << d[n-2] << \"\\n\";\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "7f3b8d8773b2e42629cb13d70c79d90b4817911a6928fa62baff4446acb16ad0",
+  "solution_url": "https://www.codechef.com/viewsolution/1368376069",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368376069",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?usernames=icpcol260877",
+  "scraped_at_utc": "2026-10-12T20:59:11.054Z"
+}

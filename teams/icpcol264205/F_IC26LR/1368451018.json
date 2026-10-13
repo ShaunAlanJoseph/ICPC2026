@@ -1,0 +1,131 @@
+{
+  "submission_id": "1368451018",
+  "team_username": "icpcol264205",
+  "team_name": "icpcol264205",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "F",
+  "problem_code": "IC26LR",
+  "problem_title": "Take the L",
+  "submitted_at_utc": "2026-10-03T10:15:41.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:45:41 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:45:41 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.30",
+  "execution_time_detail": "",
+  "memory_status": "8.1M",
+  "memory_detail": "8.1M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.30)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.22)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.17)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.14)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.11)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.13)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.20)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.15)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.26)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.28)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.28)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368451018\nScore:\n100\nMemory:\n8.1M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.30)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.22)\n1\t4\tCorrect\n(0.17)\n1\t5\tCorrect\n(0.17)\n1\t6\tCorrect\n(0.14)\n1\t7\tCorrect\n(0.13)\n1\t8\tCorrect\n(0.11)\n1\t9\tCorrect\n(0.13)\n1\t10\tCorrect\n(0.12)\n1\t11\tCorrect\n(0.15)\n1\t12\tCorrect\n(0.12)\n1\t13\tCorrect\n(0.01)\n1\t14\tCorrect\n(0.20)\n1\t15\tCorrect\n(0.15)\n1\t16\tCorrect\n(0.26)\n1\t17\tCorrect\n(0.28)\n1\t18\tCorrect\n(0.28)\n1\t19\tCorrect\n(0.28)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n#define all(x) (x).begin(), (x).end()\r\n#define sz(x) (int)(x).size()\r\n\r\nbool solve() {\r\n    int n; cin >> n;\r\n    vector<pair<int, int>> pts(n);\r\n    for (auto &[x, y] : pts)\r\n        cin >> x >> y;\r\n    sort(all(pts));\r\n    vector<int> xs, ys;\r\n    for (auto [x, y] : pts)\r\n        ys.push_back(y);\r\n    sort(all(pts), [](auto a, auto b) { return a.second < b.second; });\r\n    for (auto [x, y] : pts)\r\n        xs.push_back(x);\r\n    // for (int i = 0; i < n; i++)\r\n    //     cout << ys[i] << \" \";\r\n    // cout << \"\\n\";\r\n    // for (int i = 0; i < n; i++)\r\n    //     cout << xs[i] << \" \";\r\n    // cout << \"\\n\";\r\n    int lo = *min_element(all(xs)), hi = *max_element(all(xs));\r\n    while (lo <= hi) {\r\n        int mid = (lo + hi) / 2;\r\n        vector<int> top, bot;\r\n        for (int i = 0; i < n; i++) {\r\n            if (xs[i] >= mid)\r\n                top.push_back(xs[i]);\r\n            else\r\n                bot.push_back(xs[i]);\r\n        }\r\n        bool top_dec = false, bot_dec = false;\r\n        for (int i = 1; i < sz(top); i++)\r\n            if (top[i] < top[i - 1])\r\n                top_dec = true;\r\n        for (int i = 1; i < sz(bot); i++)\r\n            if (bot[i] < bot[i - 1])\r\n                bot_dec = true;\r\n        if (top_dec)\r\n            lo = mid + 1;\r\n        else if (bot_dec)\r\n            hi = mid - 1;\r\n        else\r\n            return true;\r\n    }\r\n    swap(xs, ys);\r\n    lo = *min_element(all(xs)), hi = *max_element(all(xs));\r\n    while (lo <= hi) {\r\n        int mid = (lo + hi) / 2;\r\n        vector<int> top, bot;\r\n        for (int i = 0; i < n; i++) {\r\n            if (xs[i] >= mid)\r\n                top.push_back(xs[i]);\r\n            else\r\n                bot.push_back(xs[i]);\r\n        }\r\n        bool top_dec = false, bot_dec = false;\r\n        for (int i = 1; i < sz(top); i++)\r\n            if (top[i] < top[i - 1])\r\n                top_dec = true;\r\n        for (int i = 1; i < sz(bot); i++)\r\n            if (bot[i] < bot[i - 1])\r\n                bot_dec = true;\r\n        if (top_dec)\r\n            lo = mid + 1;\r\n        else if (bot_dec)\r\n            hi = mid - 1;\r\n        else\r\n            return true;\r\n    }\r\n    return false;\r\n}\r\n\r\nint main() {\r\n    int t; cin >> t;\r\n    while (t--) {\r\n        cout << (solve() ? \"YES\" : \"NO\") << \"\\n\";\r\n    }\r\n}\r\n",
+  "source_sha256": "5a303d6261a21ae441ddf9b28c92c6d98b4f28dd49644b9cbbdb07e2c98420f8",
+  "solution_url": "https://www.codechef.com/viewsolution/1368451018",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368451018",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26LR?usernames=icpcol264205",
+  "scraped_at_utc": "2026-10-12T20:56:34.349Z"
+}

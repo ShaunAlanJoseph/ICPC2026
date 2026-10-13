@@ -1,0 +1,96 @@
+{
+  "submission_id": "1368468856",
+  "team_username": "icpcol264092",
+  "team_name": "icpcol264092",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "C",
+  "problem_code": "IC26MP",
+  "problem_title": "Furious Farming",
+  "submitted_at_utc": "2026-10-03T10:47:11.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:17:11 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:17:11 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.05",
+  "execution_time_detail": "",
+  "memory_status": "6.2M",
+  "memory_detail": "6.2M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.03)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Wrong Answer\n(0.02)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.02)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368468856\nMemory:\n6.2M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.03)\n1\t2\tCorrect\n(0.05)\n1\t3\tCorrect\n(0.02)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.01)\n1\t6\tCorrect\n(0.01)\n1\t7\tCorrect\n(0.02)\n1\t8\tWrong Answer\n(0.01)\n1\t9\tCorrect\n(0.00)\n1\t10\tWrong Answer\n(0.02)\n1\t11\tWrong Answer\n(0.00)\n1\t12\tCorrect\n(0.02)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n    int t; cin >> t;\r\n    while(t--) {\r\n        int n,m; cin >> n >> m;\r\n        vector<int>a(m);\r\n        for(int i=0;i<m;i++) {\r\n            cin >> a[i];\r\n        }\r\n        sort(a.begin(),a.end());\r\n        int x=a[0]-1;\r\n        vector<int>b=a;\r\n        for(int i=0;i<m;i++) {\r\n            b[i]-=x;\r\n        }\r\n        int j=0;\r\n        int mx=x;\r\n        int mx4=0;\r\n        vector<int> ans1(n+1),ans2(n+1);\r\n        for(int i=1;i<=n;i++) {\r\n            if(b[j]==i) {\r\n                j++;\r\n            }\r\n            ans1[i]=abs(b[j-1]-i)+x;\r\n        }\r\n        int mx5=0;\r\n        b=a;\r\n        x=n-a[m-1];\r\n        for(int i=0;i<m;i++) {\r\n            b[i]+=x;\r\n        }\r\n\r\n        j=m-1;\r\n        for(int i=n;i>=1;i--) {\r\n            if(b[j]==i) {\r\n                j--;\r\n            }\r\n            ans2[i]=abs(b[j+1]-i)+x;\r\n        }\r\n        int mx1=0;\r\n        for(int i=1;i<=n;i++) mx1=max(mx1,ans1[i]);\r\n        int mx2=0;\r\n        for(int i=1;i<=n;i++) mx2=max(mx2,ans2[i]);\r\n        cout << min(mx1,mx2) << endl;\r\n    \r\n    }\r\n}\r\n",
+  "source_sha256": "5cae9aeff468ae46f847a114c035e6984509bc4e45125b918529fd95f3a427ea",
+  "solution_url": "https://www.codechef.com/viewsolution/1368468856",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368468856",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26MP?usernames=icpcol264092",
+  "scraped_at_utc": "2026-10-12T21:01:36.844Z"
+}

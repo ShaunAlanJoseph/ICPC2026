@@ -1,0 +1,131 @@
+{
+  "submission_id": "1368473032",
+  "team_username": "icpcol261023",
+  "team_name": "icpcol261023",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "F",
+  "problem_code": "IC26LR",
+  "problem_title": "Take the L",
+  "submitted_at_utc": "2026-10-03T10:54:19.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 16:24:19 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 4:24:19 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.59",
+  "execution_time_detail": "",
+  "memory_status": "23M",
+  "memory_detail": "23M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.31)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.35)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.37)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.36)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.33)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.34)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.29)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.01)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.56)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.58)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.59)"
+    },
+    {
+      "subtask": 1,
+      "task": 17,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 18,
+      "result": "Correct\n(0.55)"
+    },
+    {
+      "subtask": 1,
+      "task": 19,
+      "result": "Correct\n(0.54)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368473032\nScore:\n100\nMemory:\n23M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.31)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.36)\n1\t4\tCorrect\n(0.36)\n1\t5\tCorrect\n(0.35)\n1\t6\tCorrect\n(0.36)\n1\t7\tCorrect\n(0.36)\n1\t8\tCorrect\n(0.37)\n1\t9\tCorrect\n(0.36)\n1\t10\tCorrect\n(0.33)\n1\t11\tCorrect\n(0.34)\n1\t12\tCorrect\n(0.29)\n1\t13\tCorrect\n(0.01)\n1\t14\tCorrect\n(0.56)\n1\t15\tCorrect\n(0.58)\n1\t16\tCorrect\n(0.59)\n1\t17\tCorrect\n(0.55)\n1\t18\tCorrect\n(0.55)\n1\t19\tCorrect\n(0.54)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve(){\r\n    int n;cin>>n;\r\n    vector<pair<int,int>> a(n);\r\n    map<int,int> mp1,mp2;\r\n    \r\n    for(int i=0;i<n;i++){\r\n        cin>>a[i].first>>a[i].second;\r\n        mp1[a[i].first]++; mp2[a[i].second]++;\r\n        if (mp1[a[i].first]>=3 or mp2[a[i].second]>=3){\r\n            cout<<\"NO\"<<\"\\n\";  return;\r\n        }\r\n    }\r\n    \r\n    sort(a.begin(), a.end());\r\n    \r\n    int x1=a[0].first, y1=a[0].second;\r\n    \r\n    int flag=0; //pattern 0\r\n    \r\n    int ans1=1; //yes\r\n  \r\n    for(int i=1;i<n;i++){\r\n        int x=a[i].first;\r\n        int y=a[i].second;\r\n        \r\n        if(y<=y1){\r\n            if(flag==1){\r\n                    ans1=0; break;\r\n                }\r\n        flag=1;\r\n        \r\n    }\r\n    x1=x; y1=y;\r\n}\r\n\r\n\r\n//check ans2\r\n\r\n\r\nfor(int i=0;i<n;i++){\r\n    int x=a[i].first;\r\n    int y=a[i].second;\r\n    \r\n    a[i].first=y;\r\n    a[i].second=x;\r\n    \r\n}\r\n\r\nint ans2=1; //yes\r\n\r\nsort(a.begin(), a.end());\r\nx1=a[0].second;y1=a[0].first;\r\n\r\nflag=0;\r\n\r\nfor(int i=1;i<n;i++){\r\n    int x=a[i].second;\r\n    int y=a[i].first;\r\n    if(x<=x1){\r\n        if(flag==1){\r\n            ans2=0; break;\r\n        }\r\n        flag=1;\r\n    }\r\n    x1=x;y1=y;\r\n}\r\n\r\n//cout<<ans1<<\" \"<<ans2<<\"\\n\";\r\nif(ans1 || ans2) cout<<\"YES\"<<\"\\n\";\r\nelse{cout<<\"NO\"<<\"\\n\";}\r\n\r\n}\r\n\r\n\r\nint main() {\r\n\tint t;cin>>t;\r\n\twhile(t--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "5c540be40507b18684a1e250f6f73f118388d91c14b46f16846736a2ac3d468b",
+  "solution_url": "https://www.codechef.com/viewsolution/1368473032",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368473032",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26LR?usernames=icpcol261023",
+  "scraped_at_utc": "2026-10-12T20:59:42.245Z"
+}

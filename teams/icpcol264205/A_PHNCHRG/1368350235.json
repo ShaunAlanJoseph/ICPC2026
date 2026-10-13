@@ -1,0 +1,61 @@
+{
+  "submission_id": "1368350235",
+  "team_username": "icpcol264205",
+  "team_name": "icpcol264205",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "A",
+  "problem_code": "PHNCHRG",
+  "problem_title": "Phone Charging",
+  "submitted_at_utc": "2026-10-03T08:03:26.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:33:26 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:33:26 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.7M",
+  "memory_detail": "3.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368350235\nScore:\n100\nMemory:\n3.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve() {\r\n    int x, a, b; cin >> x >> a >> b;\r\n    cout << a * (80 - min(80, x)) + b * (100 - max(80, x));\r\n}\r\n\r\nint main() {\r\n\tint T; cin >> T;\r\n\twhile (T--) {\r\n\t    solve();\r\n\t    cout << '\\n';\r\n\t}\r\n}\r\n",
+  "source_sha256": "2a659c9643ceec0262ad5889fe5275518b3dd493b04b1dd362f1ff8f0a38ffb1",
+  "solution_url": "https://www.codechef.com/viewsolution/1368350235",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368350235",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/PHNCHRG?usernames=icpcol264205",
+  "scraped_at_utc": "2026-10-12T20:56:02.833Z"
+}

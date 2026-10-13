@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368390310",
+  "team_username": "icpcol264316",
+  "team_name": "icpcol264316",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T08:56:52.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 14:26:52 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 2:26:52 PM",
+  "language": "PyPy 3",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.21",
+  "execution_time_detail": "",
+  "memory_status": "64.7M",
+  "memory_detail": "64.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.21)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Wrong Answer\n(0.12)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.10)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.07)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Wrong Answer\n(0.04)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.05)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.04)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368390310\nMemory:\n64.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.10)\n1\t1\tWrong Answer\n(0.21)\n1\t2\tWrong Answer\n(0.12)\n1\t3\tWrong Answer\n(0.10)\n1\t4\tWrong Answer\n(0.07)\n1\t5\tWrong Answer\n(0.05)\n1\t6\tCorrect\n(0.05)\n1\t7\tCorrect\n(0.05)\n1\t8\tCorrect\n(0.05)\n1\t9\tWrong Answer\n(0.04)\n1\t10\tCorrect\n(0.05)\n1\t11\tCorrect\n(0.05)\n1\t12\tCorrect\n(0.05)\n1\t13\tCorrect\n(0.05)\n1\t14\tCorrect\n(0.05)\n1\t15\tCorrect\n(0.05)\n1\t16\tCorrect\n(0.04)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "for i in range(int(input())):\r\n    nm=[int(j) for j in input().split()]\r\n    k=nm[1]\r\n    s=input()\r\n    sm=0\r\n    b=False\r\n    u=k+1\r\n    for j in s:\r\n        if j=='G' and b==False:\r\n            u-=1\r\n            if u==-1:\r\n                b=True\r\n        if b==True:\r\n            sm+=1\r\n            if j=='I':\r\n                sm+=1\r\n    if sm>k:\r\n        print(\"NO\")\r\n    else:\r\n        print(\"YES\")\r\n            ",
+  "source_sha256": "8f74604ad44b97d8f56fcf8b329ac8e1090c8237d793d037d57291afe5191639",
+  "solution_url": "https://www.codechef.com/viewsolution/1368390310",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368390310",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol264316",
+  "scraped_at_utc": "2026-10-12T20:59:42.270Z"
+}

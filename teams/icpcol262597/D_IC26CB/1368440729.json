@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368440729",
+  "team_username": "icpcol262597",
+  "team_name": "icpcol262597",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T09:59:19.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:29:19 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:29:19 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368440729\nScore:\n100\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\n1\t6\tCorrect\n(0.00)\n1\t7\tCorrect\n(0.00)\n1\t8\tCorrect\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tCorrect\n(0.00)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tCorrect\n(0.00)\n1\t16\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nvoid solve(){\r\n    int n,k;\r\n    cin >> n >>k;\r\n    string s;\r\n    cin >> s;\r\n    \r\n    int sm = 0;\r\n    int i = 0;\r\n    bool flag = false;\r\n    for (i = 0;i<n;i++){\r\n        if (sm >= k+1){\r\n            sm = 0;\r\n            break;\r\n        }\r\n        if (s[i] == 'G'){\r\n            sm++;\r\n        }\r\n    }\r\n    // cout << i << \"iiiii\\n\";\r\n    if (i == n){\r\n        cout << \"YES\\n\";\r\n    }else{\r\n        // cout << i << \"ii\\n\";\r\n        sm = 0;\r\n        for (int x = i;x<n;x++){\r\n            if (s[x] == 'G' && flag == false){\r\n                flag = true;\r\n                continue;\r\n            }\r\n            if (flag){\r\n                if (s[x] == 'G'){\r\n                    sm++;\r\n                }\r\n               if (s[x] == 'I'){\r\n                   sm += 2;\r\n               }\r\n                \r\n            }\r\n        }\r\n        // cout << sm << \"ttt\\n\";\r\n        if (sm > k){\r\n            cout << \"NO\\n\";\r\n        }else{\r\n            cout << \"YES\\n\";\r\n        }\r\n    }\r\n    \r\n}\r\n\r\nint main() {\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(NULL);\r\n\tint test;\r\n\tcin >> test;\r\n\twhile(test--){\r\n\t    solve();\r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "7a35677a4d31d750ed0968472d2d875c51e9941f49d2ca36d66a0ea2ba2d4810",
+  "solution_url": "https://www.codechef.com/viewsolution/1368440729",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368440729",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol262597",
+  "scraped_at_utc": "2026-10-12T21:01:08.198Z"
+}

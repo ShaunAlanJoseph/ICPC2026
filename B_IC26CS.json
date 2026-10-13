@@ -27576,6 +27576,19 @@
       "language": "JAVA"
     },
     {
+      "submission_id": "1368416900",
+      "submitted_at_raw": "Sat Oct 03 2026 14:58:16 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T09:28:16.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol264651",
+      "username_profile_url": "https://www.codechef.com/users/icpcol264651",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.14",
+      "memory_display": "4.9M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368416766",
       "submitted_at_raw": "Sat Oct 03 2026 14:58:13 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T09:28:13.000Z",
@@ -29446,6 +29459,19 @@
       "execution_time_display": "1.21",
       "memory_display": "29.7M",
       "language": "PYTH 3"
+    },
+    {
+      "submission_id": "1368405402",
+      "submitted_at_raw": "Sat Oct 03 2026 14:45:00 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T09:15:00.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol264049",
+      "username_profile_url": "https://www.codechef.com/users/icpcol264049",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.17",
+      "memory_display": "7.9M",
+      "language": "C++"
     },
     {
       "submission_id": "1368405335",
@@ -33478,6 +33504,19 @@
       "language": "JAVA"
     },
     {
+      "submission_id": "1368387254",
+      "submitted_at_raw": "Sat Oct 03 2026 14:24:22 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:54:22.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol264049",
+      "username_profile_url": "https://www.codechef.com/users/icpcol264049",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.18",
+      "memory_display": "4.8M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368387153",
       "submitted_at_raw": "Sat Oct 03 2026 14:24:17 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:54:17.000Z",
@@ -34138,6 +34177,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.19",
       "memory_display": "6.8M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368384689",
+      "submitted_at_raw": "Sat Oct 03 2026 14:21:39 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:51:39.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol264049",
+      "username_profile_url": "https://www.codechef.com/users/icpcol264049",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.22",
+      "memory_display": "4.8M",
       "language": "C++"
     },
     {
@@ -38379,6 +38431,19 @@
       "language": "PYPY3"
     },
     {
+      "submission_id": "1368376188",
+      "submitted_at_raw": "Sat Oct 03 2026 14:10:24 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:40:24.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol264049",
+      "username_profile_url": "https://www.codechef.com/users/icpcol264049",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.19",
+      "memory_display": "4.7M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368376178",
       "submitted_at_raw": "Sat Oct 03 2026 14:10:23 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:40:23.000Z",
@@ -38533,6 +38598,19 @@
       "execution_time_display": "0.69",
       "memory_display": "29.7M",
       "language": "PYTH 3"
+    },
+    {
+      "submission_id": "1368375824",
+      "submitted_at_raw": "Sat Oct 03 2026 14:10:01 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:40:01.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol261023",
+      "username_profile_url": "https://www.codechef.com/users/icpcol261023",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.19",
+      "memory_display": "5.1M",
+      "language": "C++"
     },
     {
       "submission_id": "1368375823",
@@ -42370,6 +42448,19 @@
       "language": "C++"
     },
     {
+      "submission_id": "1368370113",
+      "submitted_at_raw": "Sat Oct 03 2026 14:02:45 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:32:45.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol262866",
+      "username_profile_url": "https://www.codechef.com/users/icpcol262866",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.19",
+      "memory_display": "4.1M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368370107",
       "submitted_at_raw": "Sat Oct 03 2026 14:02:45 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:32:45.000Z",
@@ -43251,6 +43342,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.20",
       "memory_display": "4.7M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368369046",
+      "submitted_at_raw": "Sat Oct 03 2026 14:01:22 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:31:22.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol265283",
+      "username_profile_url": "https://www.codechef.com/users/icpcol265283",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.02",
+      "memory_display": "6.7M",
       "language": "C++"
     },
     {
@@ -47479,6 +47583,19 @@
       "language": "C++"
     },
     {
+      "submission_id": "1368365170",
+      "submitted_at_raw": "Sat Oct 03 2026 13:56:17 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:26:17.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol265283",
+      "username_profile_url": "https://www.codechef.com/users/icpcol265283",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.19",
+      "memory_display": "6.8M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368365159",
       "submitted_at_raw": "Sat Oct 03 2026 13:56:16 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:26:16.000Z",
@@ -48490,6 +48607,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.18",
       "memory_display": "5.1M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368364338",
+      "submitted_at_raw": "Sat Oct 03 2026 13:55:06 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:25:06.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol265283",
+      "username_profile_url": "https://www.codechef.com/users/icpcol265283",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.18",
+      "memory_display": "5M",
       "language": "C++"
     },
     {
@@ -50375,6 +50505,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.17",
       "memory_display": "6.8M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368362905",
+      "submitted_at_raw": "Sat Oct 03 2026 13:53:16 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:23:16.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol262432",
+      "username_profile_url": "https://www.codechef.com/users/icpcol262432",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.18",
+      "memory_display": "5.1M",
       "language": "C++"
     },
     {
@@ -52510,6 +52653,19 @@
       "language": "C++"
     },
     {
+      "submission_id": "1368361534",
+      "submitted_at_raw": "Sat Oct 03 2026 13:51:21 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:21:21.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol260877",
+      "username_profile_url": "https://www.codechef.com/users/icpcol260877",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.02",
+      "memory_display": "4M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368361532",
       "submitted_at_raw": "Sat Oct 03 2026 13:51:20 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:21:20.000Z",
@@ -54122,6 +54278,19 @@
       "language": "C++"
     },
     {
+      "submission_id": "1368360355",
+      "submitted_at_raw": "Sat Oct 03 2026 13:49:43 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:19:43.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol262432",
+      "username_profile_url": "https://www.codechef.com/users/icpcol262432",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.35",
+      "memory_display": "5M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368360339",
       "submitted_at_raw": "Sat Oct 03 2026 13:49:41 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:19:41.000Z",
@@ -54522,6 +54691,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.04",
       "memory_display": "5M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368360022",
+      "submitted_at_raw": "Sat Oct 03 2026 13:49:12 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:19:12.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol265291",
+      "username_profile_url": "https://www.codechef.com/users/icpcol265291",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.21",
+      "memory_display": "5.7M",
       "language": "C++"
     },
     {
@@ -56852,6 +57034,19 @@
       "language": "C++"
     },
     {
+      "submission_id": "1368359052",
+      "submitted_at_raw": "Sat Oct 03 2026 13:47:32 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:17:32.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol262866",
+      "username_profile_url": "https://www.codechef.com/users/icpcol262866",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.17",
+      "memory_display": "4.9M",
+      "language": "C++"
+    },
+    {
       "submission_id": "1368359051",
       "submitted_at_raw": "Sat Oct 03 2026 13:47:32 GMT+0530 (India Standard Time)",
       "submitted_at_utc": "2026-10-03T08:17:32.000Z",
@@ -59019,6 +59214,19 @@
       "verdict": "accepted",
       "result_display": "(100)",
       "execution_time_display": "0.23",
+      "memory_display": "5M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368358171",
+      "submitted_at_raw": "Sat Oct 03 2026 13:46:13 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:16:13.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol262866",
+      "username_profile_url": "https://www.codechef.com/users/icpcol262866",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.18",
       "memory_display": "5M",
       "language": "C++"
     },
@@ -63843,6 +64051,19 @@
       "result_display": "(100)",
       "execution_time_display": "0.22",
       "memory_display": "5M",
+      "language": "C++"
+    },
+    {
+      "submission_id": "1368356302",
+      "submitted_at_raw": "Sat Oct 03 2026 13:43:26 GMT+0530 (India Standard Time)",
+      "submitted_at_utc": "2026-10-03T08:13:26.000Z",
+      "submitted_at_relative": "9 days ago",
+      "username": "icpcol265042",
+      "username_profile_url": "https://www.codechef.com/users/icpcol265042",
+      "verdict": "wrong answer",
+      "result_display": "",
+      "execution_time_display": "0.23",
+      "memory_display": "4M",
       "language": "C++"
     },
     {
@@ -75248,8 +75469,8 @@
     }
   ],
   "page_count": 21,
-  "submission_count": 5776,
-  "last_saved_at_utc": "2026-10-12T20:02:58.846Z",
+  "submission_count": 5793,
+  "last_saved_at_utc": "2026-10-12T20:52:00.384Z",
   "collection": {
     "method": "CodeChef status and username filters",
     "partitions": {
@@ -90212,6 +90433,40 @@
       "completed_at_utc": "2026-10-12T20:02:58.844Z"
     },
     "accepted_complete": true,
-    "completed_at_utc": "2026-10-12T20:02:58.844Z"
+    "completed_at_utc": "2026-10-12T20:02:58.844Z",
+    "targeted_status": {
+      "iiit_kottayam": {
+        "usernames": [
+          "icpcol264205",
+          "icpcol265042",
+          "icpcol260023",
+          "icpcol261425",
+          "icpcol262206",
+          "icpcol263450",
+          "icpcol260877",
+          "icpcol261023",
+          "icpcol265283",
+          "icpcol264316",
+          "icpcol265291",
+          "icpcol262434",
+          "icpcol262597",
+          "icpcol264092",
+          "icpcol262432",
+          "icpcol262866",
+          "icpcol264818",
+          "icpcol264049",
+          "icpcol264651"
+        ],
+        "pages": [
+          {
+            "page": 0,
+            "source_url": "https://www.codechef.com/ICPCOL2026/status/IC26CS?limit=100&page=0&usernames=icpcol264205%2Cicpcol265042%2Cicpcol260023%2Cicpcol261425%2Cicpcol262206%2Cicpcol263450%2Cicpcol260877%2Cicpcol261023%2Cicpcol265283%2Cicpcol264316%2Cicpcol265291%2Cicpcol262434%2Cicpcol262597%2Cicpcol264092%2Cicpcol262432%2Cicpcol262866%2Cicpcol264818%2Cicpcol264049%2Cicpcol264651",
+            "captured_at_utc": "2026-10-12T20:52:00.384Z",
+            "row_count": 39
+          }
+        ],
+        "complete": true
+      }
+    }
   }
 }

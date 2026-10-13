@@ -1,0 +1,61 @@
+{
+  "submission_id": "1368354612",
+  "team_username": "icpcol264818",
+  "team_name": "icpcol264818",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "A",
+  "problem_code": "PHNCHRG",
+  "problem_title": "Phone Charging",
+  "submitted_at_utc": "2026-10-03T08:10:44.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 13:40:44 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 1:40:44 PM",
+  "language": "C++",
+  "verdict": "Correct Answer",
+  "verdict_status": "accepted",
+  "result_text": "(100)",
+  "score_display": "100",
+  "total_score_display": "100%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.7M",
+  "memory_detail": "3.7M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Correct\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nCorrect Answer\nSubmission ID:\n1368354612\nScore:\n100\nMemory:\n3.7M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tCorrect\n(0.00)\n1\t2\tCorrect\n(0.00)\n1\t3\tCorrect\n(0.00)\n1\t4\tCorrect\n(0.00)\n1\t5\tCorrect\n(0.00)\nSubtask Score: 100%\tResult - Correct\n\t\tTotal Score = 100%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\nint main() {\r\n\t// your code goes here\r\n\tint t;\r\n\tcin>>t;\r\n\twhile(t--){\r\n\t    \r\n\t    int x,a,b;\r\n\t    cin>>x>>a>>b;\r\n\t    \r\n\t    int sum = 0;\r\n\t    \r\n\t    if(x<80){ \r\n\t        sum += (80-x)*a;\r\n\t        sum += 20 * b;\r\n\t    }\r\n\t    else{\r\n\t        sum += (100-x)*b;\r\n\t    }\r\n\t    \r\n\t    \r\n\t    cout<<sum<<endl;\r\n\t    \r\n\t}\r\n\r\n}\r\n",
+  "source_sha256": "d5f28c6996fe5a9c8908de00e4bff8810c4e21e5648e314f713b1385acde278c",
+  "solution_url": "https://www.codechef.com/viewsolution/1368354612",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368354612",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/PHNCHRG?usernames=icpcol264818",
+  "scraped_at_utc": "2026-10-12T21:02:34.588Z"
+}

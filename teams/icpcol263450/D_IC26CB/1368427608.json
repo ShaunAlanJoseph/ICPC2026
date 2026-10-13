@@ -1,0 +1,116 @@
+{
+  "submission_id": "1368427608",
+  "team_username": "icpcol263450",
+  "team_name": "icpcol263450",
+  "contest_code": "ICPCOL2026",
+  "problem_letter": "D",
+  "problem_code": "IC26CB",
+  "problem_title": "Curio Packing",
+  "submitted_at_utc": "2026-10-03T09:41:20.000Z",
+  "submitted_at_status": "Sat Oct 03 2026 15:11:20 GMT+0530 (India Standard Time)",
+  "submitted_at_display": "10/3/2026, 3:11:20 PM",
+  "language": "C++",
+  "verdict": "Wrong Answer",
+  "verdict_status": "wrong answer",
+  "result_text": "",
+  "score_display": "",
+  "total_score_display": "0%",
+  "execution_time_status": "0.00",
+  "execution_time_detail": "",
+  "memory_status": "3.8M",
+  "memory_detail": "3.8M",
+  "test_cases": [
+    {
+      "subtask": 1,
+      "task": 0,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 1,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 2,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 3,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 4,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 5,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 6,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 7,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 8,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 9,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 10,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 11,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 12,
+      "result": "Wrong Answer\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 13,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 14,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 15,
+      "result": "Correct\n(0.00)"
+    },
+    {
+      "subtask": 1,
+      "task": 16,
+      "result": "Wrong Answer\n(0.00)"
+    }
+  ],
+  "detail_text": "Subtask Info\nWrong Answer\nSubmission ID:\n1368427608\nMemory:\n3.8M\nSub-Task\tTask #\tResult\n(time)\n1\t0\tCorrect\n(0.00)\n1\t1\tWrong Answer\n(0.00)\n1\t2\tWrong Answer\n(0.00)\n1\t3\tWrong Answer\n(0.00)\n1\t4\tWrong Answer\n(0.00)\n1\t5\tWrong Answer\n(0.00)\n1\t6\tWrong Answer\n(0.00)\n1\t7\tWrong Answer\n(0.00)\n1\t8\tWrong Answer\n(0.00)\n1\t9\tCorrect\n(0.00)\n1\t10\tCorrect\n(0.00)\n1\t11\tCorrect\n(0.00)\n1\t12\tWrong Answer\n(0.00)\n1\t13\tCorrect\n(0.00)\n1\t14\tCorrect\n(0.00)\n1\t15\tCorrect\n(0.00)\n1\t16\tWrong Answer\n(0.00)\nSubtask Score: 0%\tResult - Wrong Answer\n\t\tTotal Score = 0%\n",
+  "source_code": "#include <bits/stdc++.h>\r\nusing namespace std;\r\n\r\n\r\nvoid solve(){\r\n    int n,k;cin >> n >> k;\r\n    \r\n    string s;cin >> s;\r\n    \r\n    if(count(s.begin(),s.end(),'G') <= k+1){\r\n        cout << \"YES\\n\";\r\n        return;\r\n    }\r\n    \r\n    int g = 0;\r\n    int idx = -1;\r\n    for(int i=0;i<n;i++){\r\n       if(s[i]=='G')g++;\r\n       if(g==k+1){\r\n           idx = i+1;\r\n           break;\r\n       }\r\n    }\r\n    int idx2 = -1;\r\n    for(int i=idx;i<n;i++){\r\n        if(s[i]=='G')idx2 = i+1;    \r\n    }\r\n    if(idx2==-1){\r\n        cout << \"YES\\n\";\r\n        return;\r\n    }\r\n    \r\n    int wt = k;\r\n    int idx3 = -1;\r\n    for(int i=idx2;i<n;i++){\r\n        if(s[i]=='G')wt-=1;\r\n        else wt-=2;\r\n    }\r\n    if(wt <= 0){\r\n        cout << \"NO\\n\";\r\n    }\r\n    else{\r\n        cout << \"YES\\n\";\r\n    }\r\n}\r\n\r\nint main() {\r\n\t// your code goes here\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int t;cin >> t;\r\n    while(t--)solve();\r\n    return 0;\r\n}\r\n",
+  "source_sha256": "40eab09b44307ac919b12c244b5b31095bfd702895e3226f80d868954a9ce9d7",
+  "solution_url": "https://www.codechef.com/viewsolution/1368427608",
+  "plaintext_url": "https://www.codechef.com/viewplaintext/1368427608",
+  "status_url": "https://www.codechef.com/ICPCOL2026/status/IC26CB?usernames=icpcol263450",
+  "scraped_at_utc": "2026-10-12T20:58:39.936Z"
+}
